@@ -54,6 +54,16 @@ export default function Footer() {
                   WhatsApp schreiben
                 </a>
               </li>
+              <li>
+                <a
+                  href={CONTACT.trustpilot}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-accent"
+                >
+                  ★ Bewertung auf Trustpilot
+                </a>
+              </li>
             </ul>
           </div>
         </div>

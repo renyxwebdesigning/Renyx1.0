@@ -110,6 +110,14 @@ export default function ContactForm() {
             <a href={CONTACT.mailto} className="text-text-muted hover:text-accent">
               E-Mail: {CONTACT.email}
             </a>
+            <a
+              href={CONTACT.trustpilot}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-accent"
+            >
+              ★ Schon Kunde? Bewertung auf Trustpilot abgeben
+            </a>
           </div>
         </div>
       </div>

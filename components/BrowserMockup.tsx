@@ -1,4 +1,5 @@
 import type { CaseStudy } from "@/lib/cases";
+import BrowserFrame from "./BrowserFrame";
 
 function MockupContent({ c }: { c: CaseStudy }) {
   const { palette, styleId, clientName } = c;
@@ -294,25 +295,16 @@ export default function BrowserMockup({
   className?: string;
 }) {
   return (
-    <div className={`corner-brackets relative ${className}`}>
-      <div className="overflow-hidden rounded-lg border border-border bg-bg-elevated-2 shadow-xl shadow-black/30">
-        <div className="flex items-center gap-1.5 border-b border-border px-3 py-2">
-          <span className="h-2 w-2 rounded-full bg-white/20" />
-          <span className="h-2 w-2 rounded-full bg-white/20" />
-          <span className="h-2 w-2 rounded-full bg-white/20" />
-          <span className="ml-2 truncate rounded bg-black/20 px-2 py-0.5 font-mono text-[0.55rem] text-text-muted">
-            {c.clientName.toLowerCase().replace(/\s+/g, "-")}.ch
-          </span>
-        </div>
-        {/* @container establishes a container-query context sized to this
-           mockup's own rendered width, so content can scale up on the big
-           portfolio detail page without relying on viewport breakpoints
-           (which can't tell a small grid card from a full-width box). */}
-        <div className="aspect-[4/3] @container">
-          <MockupContent c={c} />
-        </div>
-      </div>
-      <div className="corner-br" />
-    </div>
+    <BrowserFrame
+      url={`${c.clientName.toLowerCase().replace(/\s+/g, "-")}.ch`}
+      className={className}
+      // @container establishes a container-query context sized to this
+      // mockup's own rendered width, so content can scale up on the big
+      // portfolio detail page without relying on viewport breakpoints
+      // (which can't tell a small grid card from a full-width box).
+      contentClassName="aspect-[4/3] @container"
+    >
+      <MockupContent c={c} />
+    </BrowserFrame>
   );
 }

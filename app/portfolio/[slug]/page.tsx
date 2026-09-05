@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ScrollReveal from "@/components/ScrollReveal";
-import BrowserMockup from "@/components/BrowserMockup";
+import FullSiteMockup from "@/components/FullSiteMockup";
 import { CASES, STYLES, getCaseBySlug } from "@/lib/cases";
 
 export function generateStaticParams() {
@@ -55,7 +55,12 @@ export default async function CaseDetail({
       </ScrollReveal>
 
       <ScrollReveal delay={0.1}>
-        <BrowserMockup c={c} className="mt-10" />
+        <div className="mt-10">
+          <FullSiteMockup c={c} />
+        </div>
+        <p className="mt-3 text-center text-xs text-text-muted">
+          ↑ Scrollbar &amp; klickbare Navigation — so wie die echte Seite sich anfühlen würde.
+        </p>
       </ScrollReveal>
 
       <div className="mt-14 grid gap-10 md:grid-cols-2">

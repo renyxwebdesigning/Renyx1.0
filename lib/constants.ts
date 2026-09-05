@@ -10,6 +10,7 @@ export const CONTACT = {
   phoneDisplay: "076 593 20 22",
   phoneIntl: "+41765932022",
   whatsapp: "https://wa.me/41765932022",
+  trustpilot: "https://www.trustpilot.com/evaluate/flux.ch",
   get tel() {
     return `tel:${this.phoneIntl}`;
   },
