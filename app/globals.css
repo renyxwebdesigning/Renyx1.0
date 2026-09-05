@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0f0c0a;
+  --color-bg-elevated: #17130f;
+  --color-bg-elevated-2: #1e1811;
+  --color-accent: #f97316;
+  --color-accent-hover: #fb8c3c;
+  --color-accent-soft: rgba(249, 115, 22, 0.12);
+  --color-text: #f5f5f0;
+  --color-text-muted: #a8a29e;
+  --color-border: rgba(245, 245, 240, 0.1);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-elevated-2: var(--color-bg-elevated-2);
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Structural grid background — recurring motif across the site */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.bg-grid-fade {
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #0f0c0a;
+}
+
+.input {
+  border-radius: 0.6rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus {
+  border-color: var(--color-accent);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Custom cursor — only enabled on fine-pointer devices via CustomCursor component logic */
+.cursor-none-fine {
+  cursor: none;
+}
