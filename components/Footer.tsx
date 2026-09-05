@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT, NAV_LINKS, SITE } from "@/lib/constants";
+import { CONTACT, LEGAL_LINKS, NAV_LINKS, SITE } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -68,9 +68,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Flux — {SITE.domain}</p>
-          <p>Webdesign &amp; UI/UX für Kleinunternehmen in {SITE.city}</p>
+          <div className="flex items-center gap-4">
+            {LEGAL_LINKS.map((link) => (
+              <Link key={link.href} href={link.href} className="transition-colors hover:text-accent">
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
