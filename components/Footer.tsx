@@ -3,7 +3,7 @@ import { CONTACT, NAV_LINKS, SITE } from "@/lib/constants";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-bg-elevated">
+    <footer className="glass-strong border-t border-border">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>

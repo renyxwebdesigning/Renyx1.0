@@ -8,7 +8,7 @@ export default function CaseCard({ c }: { c: CaseStudy }) {
   return (
     <Link
       href={`/portfolio/${c.slug}`}
-      className="group block rounded-xl border border-border bg-bg-elevated p-4 transition-colors hover:border-accent/50"
+      className="glass glow-hover group block rounded-xl p-4"
     >
       <BrowserMockup c={c} className="transition-transform duration-300 group-hover:-translate-y-1" />
       <div className="mt-4 flex items-start justify-between gap-3">
@@ -16,7 +16,7 @@ export default function CaseCard({ c }: { c: CaseStudy }) {
           <p className="font-display text-base font-semibold text-text">{c.clientName}</p>
           <p className="text-sm text-text-muted">{c.industry}</p>
         </div>
-        <span className="shrink-0 rounded-full bg-accent-soft px-2.5 py-1 text-[0.65rem] font-medium text-accent">
+        <span className="shrink-0 rounded-full bg-accent-soft px-2.5 py-1 font-mono text-[0.65rem] font-medium text-accent">
           {style.label}
         </span>
       </div>

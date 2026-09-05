@@ -13,7 +13,7 @@ export default function Kontakt() {
   return (
     <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
       <ScrollReveal>
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">Kontakt</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Kontakt</p>
         <h1 className="mt-3 max-w-xl text-balance font-display text-4xl font-bold sm:text-5xl">
           Erzähl uns von deinem Projekt.
         </h1>

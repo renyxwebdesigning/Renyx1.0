@@ -14,7 +14,7 @@ export default function Portfolio() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
       <ScrollReveal>
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">Portfolio</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Portfolio</p>
         <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
           Fünf Stilrichtungen, damit ihr eure Sprache findet.
         </h1>
@@ -35,7 +35,7 @@ export default function Portfolio() {
       </div>
 
       <ScrollReveal delay={0.2}>
-        <div className="mt-16 rounded-2xl border border-border bg-bg-elevated p-8 text-center sm:p-12">
+        <div className="glass mt-16 rounded-2xl p-8 text-center sm:p-12">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Keine Richtung passt genau?
           </h2>

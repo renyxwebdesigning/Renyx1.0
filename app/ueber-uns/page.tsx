@@ -28,7 +28,7 @@ export default function UeberUns() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-20 sm:py-28">
       <ScrollReveal>
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">Über uns</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Über uns</p>
         <h1 className="mt-3 text-balance font-display text-4xl font-bold sm:text-5xl">
           Zwei Brüder, ein Handwerk.
         </h1>
@@ -42,7 +42,7 @@ export default function UeberUns() {
 
       <div className="mt-16 grid gap-6 sm:grid-cols-2">
         <ScrollReveal>
-          <div className="rounded-2xl border border-border bg-bg-elevated p-8">
+          <div className="glass glow-hover rounded-2xl p-8">
             <div className="h-14 w-14 rounded-full bg-accent-soft" />
             <h2 className="mt-5 font-display text-xl font-semibold">Noah</h2>
             <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
@@ -53,7 +53,7 @@ export default function UeberUns() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <div className="rounded-2xl border border-border bg-bg-elevated p-8">
+          <div className="glass glow-hover rounded-2xl p-8">
             <div className="h-14 w-14 rounded-full bg-accent-soft" />
             <h2 className="mt-5 font-display text-xl font-semibold">Elia</h2>
             <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
@@ -78,7 +78,7 @@ export default function UeberUns() {
       </div>
 
       <ScrollReveal delay={0.2}>
-        <div className="mt-20 rounded-2xl border border-accent/30 bg-accent-soft p-8 text-center sm:p-12">
+        <div className="glass-accent mt-20 rounded-2xl p-8 text-center sm:p-12">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Lernen wir uns kennen.
           </h2>

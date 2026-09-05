@@ -57,10 +57,16 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />
+        <div className="glow-blob pointer-events-none -left-32 -top-20 h-96 w-96" aria-hidden />
+        <div
+          className="glow-blob pointer-events-none right-0 top-40 h-72 w-72"
+          style={{ animationDelay: "-6s" }}
+          aria-hidden
+        />
         <div className="relative mx-auto flex max-w-6xl flex-col items-start px-6 pb-20 pt-24 sm:pt-32">
           <ScrollReveal>
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-bg-elevated px-4 py-1.5 text-xs font-medium text-text-muted">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            <p className="glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs font-medium text-text-muted">
+              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
               Webdesign &amp; UI/UX · {SITE.city}
             </p>
           </ScrollReveal>
@@ -93,11 +99,11 @@ export default function Home() {
           </ScrollReveal>
         </div>
 
-        <div className="border-y border-border bg-bg-elevated/60">
+        <div className="relative border-y border-border bg-bg-elevated/50 backdrop-blur-sm">
           <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
             {USPS.map((u) => (
               <div key={u.label}>
-                <p className="font-display text-3xl font-bold text-accent">{u.value}</p>
+                <p className="font-mono text-3xl font-bold text-accent">{u.value}</p>
                 <p className="mt-1 text-xs text-text-muted">{u.label}</p>
               </div>
             ))}
@@ -108,7 +114,7 @@ export default function Home() {
       {/* Services teaser */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <ScrollReveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Leistungen</p>
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
           <h2 className="mt-3 max-w-xl font-display text-3xl font-bold sm:text-4xl">
             Alles, was deine Website braucht — nicht mehr, nicht weniger.
           </h2>
@@ -116,7 +122,7 @@ export default function Home() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {SERVICES.map((s, i) => (
             <ScrollReveal key={s.title} delay={i * 0.1}>
-              <div className="h-full rounded-xl border border-border bg-bg-elevated p-6">
+              <div className="glass glow-hover h-full rounded-xl p-6">
                 <h3 className="font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-3 text-sm text-text-muted">{s.desc}</p>
               </div>
@@ -137,7 +143,7 @@ export default function Home() {
       <section className="border-t border-border bg-bg-elevated/40">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <ScrollReveal>
-            <p className="text-sm font-semibold uppercase tracking-widest text-accent">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
               Stilrichtungen
             </p>
             <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
@@ -171,7 +177,7 @@ export default function Home() {
       {/* Process */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <ScrollReveal>
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">Ablauf</p>
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Ablauf</p>
           <h2 className="mt-3 max-w-xl font-display text-3xl font-bold sm:text-4xl">
             So läuft die Zusammenarbeit ab.
           </h2>
@@ -180,7 +186,7 @@ export default function Home() {
           {PROCESS.map((p, i) => (
             <ScrollReveal key={p.n} delay={i * 0.08}>
               <div className="flex gap-5">
-                <span className="font-display text-2xl font-bold text-accent/50">{p.n}</span>
+                <span className="font-mono text-2xl font-bold text-accent/50">{p.n}</span>
                 <div>
                   <h3 className="font-display text-lg font-semibold">{p.t}</h3>
                   <p className="mt-2 text-sm text-text-muted">{p.d}</p>
@@ -195,7 +201,7 @@ export default function Home() {
       <section className="border-t border-border bg-bg-elevated/40">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <ScrollReveal>
-            <p className="text-sm font-semibold uppercase tracking-widest text-accent">Über uns</p>
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Über uns</p>
             <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
               Noah &amp; Elia — zwei Brüder aus {SITE.city}.
             </h2>

@@ -64,8 +64,8 @@ export default function ContactForm() {
                 type="button"
                 key={c.slug}
                 onClick={() => setStyle(c.styleId)}
-                className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-colors ${
-                  active ? "border-accent bg-accent-soft" : "border-border bg-bg-elevated hover:border-accent/40"
+                className={`glow-hover flex items-center gap-3 rounded-xl p-3 text-left ${
+                  active ? "glass-accent" : "glass"
                 }`}
               >
                 <span
@@ -85,8 +85,8 @@ export default function ContactForm() {
           <button
             type="button"
             onClick={() => setStyle("none")}
-            className={`flex items-center gap-3 rounded-xl border p-3 text-left transition-colors sm:col-span-2 ${
-              style === "none" ? "border-accent bg-accent-soft" : "border-border bg-bg-elevated hover:border-accent/40"
+            className={`glow-hover flex items-center gap-3 rounded-xl p-3 text-left sm:col-span-2 ${
+              style === "none" ? "glass-accent" : "glass"
             }`}
           >
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border text-sm text-text-muted">
@@ -98,7 +98,7 @@ export default function ContactForm() {
           </button>
         </div>
 
-        <div className="mt-10 rounded-xl border border-border bg-bg-elevated p-6">
+        <div className="glass mt-10 rounded-xl p-6">
           <p className="text-sm font-semibold text-text">Lieber direkt schreiben?</p>
           <div className="mt-4 flex flex-col gap-3 text-sm">
             <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">

@@ -17,28 +17,40 @@ export default function CustomCursor() {
     let ringY = 0;
     let mouseX = 0;
     let mouseY = 0;
+    let scale = 1;
+    let targetScale = 1;
     let raf = 0;
 
     const onMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(-50%, -50%) translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
       }
     };
 
     const onOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const interactive = target.closest("a, button, input, textarea, [data-cursor-hover]");
-      ringRef.current?.classList.toggle("scale-150", Boolean(interactive));
-      ringRef.current?.classList.toggle("opacity-60", Boolean(interactive));
+      targetScale = interactive ? 1.7 : 1;
+      if (ringRef.current) {
+        ringRef.current.style.opacity = interactive ? "0.7" : "0.3";
+        ringRef.current.style.borderColor = interactive
+          ? "rgba(249,115,22,0.9)"
+          : "rgba(249,115,22,0.6)";
+      }
     };
 
+    // All transform state (position + scale) is written together every
+    // frame, in a single inline `transform`, so nothing can fight the JS
+    // for that property — a class-based scale here would be silently
+    // clobbered by the next rAF write and never actually render.
     const tick = () => {
       ringX += (mouseX - ringX) * 0.18;
       ringY += (mouseY - ringY) * 0.18;
+      scale += (targetScale - scale) * 0.2;
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate(-50%, -50%) translate3d(${ringX}px, ${ringY}px, 0)`;
+        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%) scale(${scale})`;
       }
       raf = requestAnimationFrame(tick);
     };
@@ -64,7 +76,7 @@ export default function CustomCursor() {
       />
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[999] h-8 w-8 rounded-full border border-accent/60 opacity-30 transition-[opacity,transform] duration-200 ease-out hidden md:block"
+        className="pointer-events-none fixed left-0 top-0 z-[999] h-8 w-8 rounded-full border border-accent/60 opacity-30 hidden md:block"
         aria-hidden
       />
     </>

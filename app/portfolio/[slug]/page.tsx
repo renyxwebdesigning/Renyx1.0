@@ -43,10 +43,10 @@ export default async function CaseDetail({
           ← Alle Stilrichtungen
         </Link>
         <div className="mt-6 flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
+          <span className="rounded-full bg-accent-soft px-3 py-1 font-mono text-xs font-medium text-accent">
             {style.label}
           </span>
-          <span className="rounded-full border border-border px-3 py-1 text-xs text-text-muted">
+          <span className="glass rounded-full px-3 py-1 font-mono text-xs text-text-muted">
             Konzeptbeispiel
           </span>
         </div>
@@ -70,7 +70,7 @@ export default async function CaseDetail({
       </div>
 
       <ScrollReveal delay={0.15}>
-        <div className="mt-14 rounded-2xl border border-border bg-bg-elevated p-8">
+        <div className="glass mt-14 rounded-2xl p-8">
           <h2 className="font-display text-lg font-semibold">Im Detail umgesetzt</h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-3">
             {c.features.map((f) => (
@@ -84,7 +84,7 @@ export default async function CaseDetail({
       </ScrollReveal>
 
       <ScrollReveal delay={0.2}>
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl border border-accent/30 bg-accent-soft p-8 sm:flex-row sm:items-center">
+        <div className="glass-accent mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl p-8 sm:flex-row sm:items-center">
           <div>
             <h2 className="font-display text-xl font-bold">Dieser Stil trifft es genau?</h2>
             <p className="mt-2 text-text-muted">
@@ -104,10 +104,10 @@ export default async function CaseDetail({
       <ScrollReveal delay={0.25}>
         <Link
           href={`/portfolio/${next.slug}`}
-          className="mt-16 flex items-center justify-between rounded-2xl border border-border p-6 transition-colors hover:border-accent/50"
+          className="glass glow-hover mt-16 flex items-center justify-between rounded-2xl p-6"
         >
           <div>
-            <p className="text-xs uppercase tracking-widest text-text-muted">Nächstes Beispiel</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-text-muted">Nächstes Beispiel</p>
             <p className="mt-1 font-display text-lg font-semibold">{next.clientName}</p>
           </div>
           <span className="text-accent">→</span>

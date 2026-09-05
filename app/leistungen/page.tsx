@@ -55,7 +55,7 @@ export default function Leistungen() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
       <ScrollReveal>
-        <p className="text-sm font-semibold uppercase tracking-widest text-accent">Leistungen</p>
+        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
         <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
           Alles, was eure Website braucht — aus einer Hand.
         </h1>
@@ -68,7 +68,7 @@ export default function Leistungen() {
       <div className="mt-16 grid gap-6 lg:grid-cols-2">
         {SERVICES.map((s, i) => (
           <ScrollReveal key={s.title} delay={i * 0.08}>
-            <div className="h-full rounded-2xl border border-border bg-bg-elevated p-8">
+            <div className="glass glow-hover h-full rounded-2xl p-8">
               <h2 className="font-display text-xl font-semibold">{s.title}</h2>
               <p className="mt-3 text-sm text-text-muted">{s.desc}</p>
               <ul className="mt-6 flex flex-col gap-3">
@@ -85,7 +85,7 @@ export default function Leistungen() {
       </div>
 
       <ScrollReveal delay={0.2}>
-        <div className="mt-16 rounded-2xl border border-accent/30 bg-accent-soft p-8 text-center sm:p-12">
+        <div className="glass-accent mt-16 rounded-2xl p-8 text-center sm:p-12">
           <h2 className="font-display text-2xl font-bold sm:text-3xl">
             Keine versteckten Preislisten.
           </h2>
