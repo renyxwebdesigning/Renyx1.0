@@ -33,7 +33,7 @@ export default function UeberUns() {
           Zwei Brüder, ein Handwerk.
         </h1>
         <p className="mt-6 text-lg text-text-muted">
-          Flux gibt es als Unternehmen erst seit Kurzem. Unsere Erfahrung mit Design und Webseiten
+          Renyx gibt es als Unternehmen erst seit Kurzem. Unsere Erfahrung mit Design und Webseiten
           nicht — die bringen wir jetzt dorthin, wo sie aus unserer Sicht am meisten bewirkt:
           zu kleinen Unternehmen in {SITE.city}, die sich einen grossen Auftritt sonst kaum leisten
           könnten.

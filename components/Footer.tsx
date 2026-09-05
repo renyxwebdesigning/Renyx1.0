@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div>
             <Link href="/" className="font-display text-xl font-bold text-text">
-              Flux<span className="text-accent">.</span>
+              Renyx<span className="text-accent">.</span>
             </Link>
             <p className="mt-3 max-w-xs text-sm text-text-muted">
               {SITE.tagline}. Von Noah &amp; Elia, gebaut in {SITE.city}.
@@ -69,7 +69,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-xs text-text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Flux — {SITE.domain}</p>
+          <p>© {new Date().getFullYear()} Renyx — {SITE.domain}</p>
           <div className="flex items-center gap-4">
             {LEGAL_LINKS.map((link) => (
               <Link key={link.href} href={link.href} className="transition-colors hover:text-accent">

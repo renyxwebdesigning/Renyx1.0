@@ -18,7 +18,7 @@ export default function Navbar() {
           className="font-display text-xl font-bold tracking-tight text-text"
           onClick={() => setOpen(false)}
         >
-          Flux<span className="text-accent">.</span>
+          Renyx<span className="text-accent">.</span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

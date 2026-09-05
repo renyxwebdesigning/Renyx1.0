@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: `%s — ${SITE.name}`,
   },
   description:
-    "Flux gestaltet Webseiten und UI/UX-Design für Kleinunternehmen in Zürich — von der Analyse bis zum Launch, persönlich und ohne Agentur-Aufpreis.",
+    "Renyx gestaltet Webseiten und UI/UX-Design für Kleinunternehmen in Zürich — von der Analyse bis zum Launch, persönlich und ohne Agentur-Aufpreis.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -206,7 +206,7 @@ export default function Home() {
               Noah &amp; Elia — zwei Brüder aus {SITE.city}.
             </h2>
             <p className="mt-4 max-w-xl text-text-muted">
-              Flux ist jung. Aber unser Handwerk ist es nicht — wir gestalten seit Jahren digitale
+              Renyx ist jung. Aber unser Handwerk ist es nicht — wir gestalten seit Jahren digitale
               Produkte und bringen dieses Können jetzt zu kleinen Unternehmen in {SITE.city}, ohne
               Agentur-Wasserkopf und Agentur-Preis.
             </p>

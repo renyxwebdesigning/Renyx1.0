@@ -1,6 +1,6 @@
-# Flux — Website
+# Renyx — Website
 
-Next.js-Website für Flux (Webdesign & UI/UX für Kleinunternehmen in Zürich).
+Next.js-Website für Renyx (Webdesign & UI/UX für Kleinunternehmen in Zürich).
 
 ## Entwicklung
 
@@ -22,7 +22,7 @@ Seite läuft dann auf [http://localhost:3000](http://localhost:3000).
 
 - **Case-Studies ersetzen**: Sobald es echte Kundenprojekte gibt, in `lib/cases.ts` die Einträge in `CASES` durch echte Projekte ersetzen (gleiche Struktur beibehalten).
 - **Kontaktdaten ändern**: in `lib/constants.ts` (`CONTACT`, `TEAM`).
-- **Logo**: aktuell ein reiner Text-Wordmark ("Flux.") in `components/Navbar.tsx` und `components/Footer.tsx` — bei einem echten Logo dort durch `<Image>` ersetzen.
+- **Logo**: aktuell ein reiner Text-Wordmark ("Renyx.") in `components/Navbar.tsx` und `components/Footer.tsx` — bei einem echten Logo dort durch `<Image>` ersetzen.
 
 ## Kontaktformular
 
@@ -38,4 +38,4 @@ Sobald ein Account bei einem E-Mail-Service existiert (z.B. [Resend](https://res
 
 1. Repo auf GitHub pushen
 2. Auf [vercel.com/new](https://vercel.com/new) das Repo importieren — Next.js wird automatisch erkannt, keine weitere Konfiguration nötig
-3. Unter Project → Settings → Domains die Domain `flux.ch` hinzufügen und die angezeigten DNS-Einträge beim Domain-Registrar setzen
+3. Unter Project → Settings → Domains die Domain `renyx.ch` hinzufügen und die angezeigten DNS-Einträge beim Domain-Registrar setzen

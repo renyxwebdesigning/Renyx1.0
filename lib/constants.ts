@@ -1,6 +1,6 @@
 export const SITE = {
-  name: "Flux",
-  domain: "flux.ch",
+  name: "Renyx",
+  domain: "renyx.ch",
   tagline: "Webdesign & UI/UX für Kleinunternehmen in Zürich",
   city: "Zürich",
 };
@@ -10,7 +10,7 @@ export const CONTACT = {
   phoneDisplay: "076 593 20 22",
   phoneIntl: "+41765932022",
   whatsapp: "https://wa.me/41765932022",
-  trustpilot: "https://www.trustpilot.com/evaluate/flux.ch",
+  trustpilot: "https://www.trustpilot.com/evaluate/renyx.ch",
   get tel() {
     return `tel:${this.phoneIntl}`;
   },

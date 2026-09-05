@@ -19,7 +19,7 @@ export default function Portfolio() {
           Fünf Stilrichtungen, damit ihr eure Sprache findet.
         </h1>
         <p className="mt-5 max-w-2xl text-text-muted">
-          Flux ist noch jung — diese fünf Projekte sind bewusst ausgearbeitete{" "}
+          Renyx ist noch jung — diese fünf Projekte sind bewusst ausgearbeitete{" "}
           <strong className="text-text">Konzeptbeispiele</strong>, keine echten Kundenarbeiten.
           Sie zeigen unser Können und dienen als Vorlage: Sag uns im Kontaktformular, welche
           Richtung euch am meisten anspricht — oder auch, dass keine davon passt.

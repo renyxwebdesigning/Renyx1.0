@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Meld dich unverbindlich bei Flux — per Formular, WhatsApp, Telefon oder E-Mail. Wir melden uns meist innerhalb eines Werktags.",
+    "Meld dich unverbindlich bei Renyx — per Formular, WhatsApp, Telefon oder E-Mail. Wir melden uns meist innerhalb eines Werktags.",
 };
 
 export default function Kontakt() {
