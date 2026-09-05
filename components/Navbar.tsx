@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { NAV_LINKS } from "@/lib/constants";
+import Logo from "./Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,12 +14,8 @@ export default function Navbar() {
   return (
     <header className="glass-strong sticky top-0 z-50 border-b border-border">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="font-display text-xl font-bold tracking-tight text-text"
-          onClick={() => setOpen(false)}
-        >
-          Renyx<span className="text-accent">.</span>
+        <Link href="/" className="text-text" onClick={() => setOpen(false)}>
+          <Logo />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">

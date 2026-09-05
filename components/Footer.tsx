@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONTACT, LEGAL_LINKS, NAV_LINKS, SITE } from "@/lib/constants";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -7,8 +8,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <Link href="/" className="font-display text-xl font-bold text-text">
-              Renyx<span className="text-accent">.</span>
+            <Link href="/" className="text-text">
+              <Logo />
             </Link>
             <p className="mt-3 max-w-xs text-sm text-text-muted">
               {SITE.tagline}. Von Noah &amp; Elia, gebaut in {SITE.city}.
