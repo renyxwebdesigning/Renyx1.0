@@ -43,41 +43,45 @@ export default function UeberUns() {
 
       <div className="mt-16 grid gap-6 sm:grid-cols-2">
         <ScrollReveal>
-          <div className="glass glow-hover rounded-2xl p-8">
-            <div className="h-14 w-14 overflow-hidden rounded-full bg-accent-soft">
+          <div className="glass glow-hover overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/team/noah.png"
                 alt="Noah"
-                width={112}
-                height={112}
-                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             </div>
-            <h2 className="mt-5 font-display text-xl font-semibold">Noah</h2>
-            <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
-            <p className="mt-4 text-sm text-text-muted">
-              Verantwortet die technische Umsetzung — von der ersten Zeile Code bis zum Launch.
-              Erster Ansprechpartner für alles rund um eure Anfrage.
-            </p>
+            <div className="p-8">
+              <h2 className="font-display text-xl font-semibold">Noah</h2>
+              <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
+              <p className="mt-4 text-sm text-text-muted">
+                Verantwortet die technische Umsetzung — von der ersten Zeile Code bis zum Launch.
+                Erster Ansprechpartner für alles rund um eure Anfrage.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <div className="glass glow-hover rounded-2xl p-8">
-            <div className="h-14 w-14 overflow-hidden rounded-full bg-accent-soft">
+          <div className="glass glow-hover overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/team/elia.png"
                 alt="Elia"
-                width={112}
-                height={112}
-                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="object-cover object-top"
               />
             </div>
-            <h2 className="mt-5 font-display text-xl font-semibold">Elia</h2>
-            <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
-            <p className="mt-4 text-sm text-text-muted">
-              Sorgt dafür, dass eure Website nicht nur gut aussieht, sondern für eure Kundschaft
-              auch einfach zu bedienen ist.
-            </p>
+            <div className="p-8">
+              <h2 className="font-display text-xl font-semibold">Elia</h2>
+              <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
+              <p className="mt-4 text-sm text-text-muted">
+                Sorgt dafür, dass eure Website nicht nur gut aussieht, sondern für eure Kundschaft
+                auch einfach zu bedienen ist.
+              </p>
+            </div>
           </div>
         </ScrollReveal>
       </div>

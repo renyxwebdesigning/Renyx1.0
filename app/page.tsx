@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import CaseCard from "@/components/CaseCard";
@@ -57,13 +58,22 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />
-        <div className="glow-blob pointer-events-none -left-32 -top-20 h-96 w-96" aria-hidden />
-        <div
-          className="glow-blob pointer-events-none right-0 top-40 h-72 w-72"
-          style={{ animationDelay: "-6s" }}
-          aria-hidden
-        />
+        <div className="absolute inset-0" aria-hidden>
+          {/* Platzhalter: statisches Bild. Sobald die geplante Loop-Animation
+              (goldene Partikelwelle) fertig gerendert ist, hier durch ein
+              <video autoPlay loop muted playsInline poster="/hero/gold-particles.jpg">
+              ersetzen — gleiche Position/Grösse, nur mit src auf die Video-Datei. */}
+          <Image
+            src="/hero/gold-particles.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover opacity-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade opacity-40" aria-hidden />
         <div className="relative mx-auto flex max-w-6xl flex-col items-start px-6 pb-20 pt-24 sm:pt-32">
           <ScrollReveal>
             <p className="glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs font-medium text-text-muted">
