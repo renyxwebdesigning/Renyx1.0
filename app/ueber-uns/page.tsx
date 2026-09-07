@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { SITE } from "@/lib/constants";
@@ -43,7 +44,15 @@ export default function UeberUns() {
       <div className="mt-16 grid gap-6 sm:grid-cols-2">
         <ScrollReveal>
           <div className="glass glow-hover rounded-2xl p-8">
-            <div className="h-14 w-14 rounded-full bg-accent-soft" />
+            <div className="h-14 w-14 overflow-hidden rounded-full bg-accent-soft">
+              <Image
+                src="/team/noah.png"
+                alt="Noah"
+                width={112}
+                height={112}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <h2 className="mt-5 font-display text-xl font-semibold">Noah</h2>
             <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
             <p className="mt-4 text-sm text-text-muted">
@@ -54,7 +63,15 @@ export default function UeberUns() {
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <div className="glass glow-hover rounded-2xl p-8">
-            <div className="h-14 w-14 rounded-full bg-accent-soft" />
+            <div className="h-14 w-14 overflow-hidden rounded-full bg-accent-soft">
+              <Image
+                src="/team/elia.png"
+                alt="Elia"
+                width={112}
+                height={112}
+                className="h-full w-full object-cover"
+              />
+            </div>
             <h2 className="mt-5 font-display text-xl font-semibold">Elia</h2>
             <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
             <p className="mt-4 text-sm text-text-muted">

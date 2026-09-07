@@ -6,6 +6,7 @@ import { SITE } from "@/lib/constants";
 
 const USPS = [
   { value: "1–10", label: "Personen — genau eure Grösse" },
+  { value: "1–2 Wo.", label: "Vom Erstgespräch bis zum Launch" },
   { value: "100%", label: "Analyse bis Launch aus einer Hand" },
   { value: "Fix", label: "Ansprechpartner statt Callcenter" },
   { value: "↓", label: "Günstiger als die meisten Agenturen" },
@@ -100,7 +101,7 @@ export default function Home() {
         </div>
 
         <div className="relative border-y border-border bg-bg-elevated/50 backdrop-blur-sm">
-          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-3 lg:grid-cols-5">
             {USPS.map((u) => (
               <div key={u.label}>
                 <p className="font-mono text-3xl font-bold text-accent">{u.value}</p>
