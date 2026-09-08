@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import CaseCard from "@/components/CaseCard";
@@ -59,17 +58,16 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden>
-          {/* Platzhalter: statisches Bild. Sobald die geplante Loop-Animation
-              (goldene Partikelwelle) fertig gerendert ist, hier durch ein
-              <video autoPlay loop muted playsInline poster="/hero/gold-particles.jpg">
-              ersetzen — gleiche Position/Grösse, nur mit src auf die Video-Datei. */}
-          <Image
-            src="/hero/gold-particles.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-90"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="/hero/gold-particles-poster.jpg"
+            className="h-full w-full object-cover opacity-90"
+          >
+            <source src="/hero/gold-particles-loop.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
         </div>
