@@ -6,7 +6,7 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  email: "noah@kramer7.ch",
+  email: "info@renyx.ch",
   phoneDisplay: "076 593 20 22",
   phoneIntl: "+41765932022",
   whatsapp: "https://wa.me/41765932022",
