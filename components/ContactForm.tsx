@@ -20,7 +20,7 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const styleLabel = useMemo(() => {
     if (!style) return "Keine Angabe";
@@ -30,24 +30,21 @@ export default function ContactForm() {
 
   const canSubmit = name.trim() && email.trim() && message.trim();
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!canSubmit) return;
 
-    const lines = [
-      `Name: ${name}`,
-      company ? `Firma: ${company}` : null,
-      `E-Mail: ${email}`,
-      phone ? `Telefon: ${phone}` : null,
-      `Bevorzugter Stil: ${styleLabel}`,
-      "",
-      message,
-    ].filter(Boolean);
-
-    const subject = encodeURIComponent(`Projektanfrage von ${name}`);
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/kontakt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, company, email, phone, styleLabel, message }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -181,16 +178,25 @@ export default function ContactForm() {
             type="submit"
             whileHover={{ scale: canSubmit ? 1.02 : 1 }}
             whileTap={{ scale: canSubmit ? 0.98 : 1 }}
-            disabled={!canSubmit}
+            disabled={!canSubmit || status === "sending"}
             className="mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Anfrage per E-Mail senden
+            {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}
           </motion.button>
 
-          {sent && (
+          {status === "sent" && (
             <p className="text-sm text-text-muted">
-              Dein E-Mail-Programm sollte sich mit der vorausgefüllten Anfrage geöffnet haben —
-              einfach abschicken. Falls nicht, schreib uns direkt an {CONTACT.email}.
+              Danke! Deine Anfrage ist bei uns eingegangen — wir melden uns meist innerhalb eines
+              Werktags.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-text-muted">
+              Das hat leider nicht geklappt. Schreib uns direkt an{" "}
+              <a href={CONTACT.mailto} className="text-accent hover:underline">
+                {CONTACT.email}
+              </a>
+              .
             </p>
           )}
 

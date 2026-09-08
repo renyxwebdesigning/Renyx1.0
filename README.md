@@ -26,13 +26,13 @@ Seite läuft dann auf [http://localhost:3000](http://localhost:3000).
 
 ## Kontaktformular
 
-Das Formular unter `/kontakt` hat aktuell **kein Backend** — beim Absenden öffnet sich das E-Mail-Programm des Besuchers mit vorausgefüllter Nachricht an `noah@kramer7.ch` (`mailto:`-Link). Das funktioniert ohne jede Konfiguration, hat aber zwei Nachteile: Es braucht ein eingerichtetes Mail-Programm auf dem Gerät der Besucherin, und es gibt keine Aufzeichnung der Anfragen auf eurer Seite.
+Das Formular unter `/kontakt` sendet serverseitig über [Resend](https://resend.com) (`app/api/kontakt/route.ts`) an `CONTACT.email`. Damit das live funktioniert:
 
-Sobald ein Account bei einem E-Mail-Service existiert (z.B. [Resend](https://resend.com)), lässt sich das aufwerten:
+1. Bei [resend.com](https://resend.com) einen Account anlegen und einen API-Key erstellen
+2. Den Key als Environment Variable `RESEND_API_KEY` in Vercel hinterlegen (Project → Settings → Environment Variables) und lokal in `.env.local` für's Testen
+3. Zum Testen reicht der Standard-Absender `onboarding@resend.dev` (funktioniert ohne weitere Einrichtung). Für einen eigenen Absender wie `kontakt@renyx.ch` muss die Domain in Resend verifiziert werden (DNS-Einträge beim Registrar setzen) — der Absender lässt sich dann über die Env Variable `RESEND_FROM_EMAIL` setzen, z.B. `Renyx <kontakt@renyx.ch>`
 
-1. API-Key als Vercel Environment Variable hinterlegen
-2. Eine Next.js API Route (`app/api/kontakt/route.ts`) anlegen, die die Formulardaten serverseitig per Resend verschickt
-3. In `components/ContactForm.tsx` den `mailto:`-Redirect durch einen `fetch("/api/kontakt", ...)`-Aufruf ersetzen
+Ohne gesetzten `RESEND_API_KEY` gibt die API-Route einen Fehler zurück und das Formular zeigt dem Besucher an, sich direkt per E-Mail zu melden.
 
 ## Deployment auf Vercel
 
