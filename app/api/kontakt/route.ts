@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   try {
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL ?? "Renyx Kontaktformular <onboarding@resend.dev>",
-      to: CONTACT.email,
+      to: process.env.RESEND_TO_EMAIL ?? CONTACT.email,
       replyTo: email,
       subject: `Projektanfrage von ${name}`,
       text: lines.join("\n"),
