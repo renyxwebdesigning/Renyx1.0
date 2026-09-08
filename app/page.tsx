@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import CaseCard from "@/components/CaseCard";
@@ -58,16 +59,13 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0" aria-hidden>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/hero/gold-particles-poster.jpg"
-            className="h-full w-full object-cover opacity-90"
-          >
-            <source src="/hero/gold-particles-loop.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/hero/gold-particles.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover opacity-90"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-bg/40" />
         </div>
