@@ -57,7 +57,7 @@ export default function UeberUns() {
               <h2 className="font-display text-xl font-semibold">Noah</h2>
               <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
               <p className="mt-4 text-sm text-text-muted">
-                Verantwortet die technische Umsetzung — von der ersten Zeile Code bis zum Launch.
+                Verantwortet die technische Umsetzung — von der ersten Idee bis zum Launch.
                 Erster Ansprechpartner für alles rund um eure Anfrage.
               </p>
             </div>
@@ -78,8 +78,8 @@ export default function UeberUns() {
               <h2 className="font-display text-xl font-semibold">Elia</h2>
               <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
               <p className="mt-4 text-sm text-text-muted">
-                Sorgt dafür, dass eure Website nicht nur gut aussieht, sondern für eure Kundschaft
-                auch einfach zu bedienen ist.
+                Verantwortet Design und Nutzerführung — damit eure Website nicht nur gut aussieht,
+                sondern für eure Kundschaft auch einfach zu bedienen ist.
               </p>
             </div>
           </div>
