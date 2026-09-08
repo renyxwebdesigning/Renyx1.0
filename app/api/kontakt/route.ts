@@ -30,17 +30,23 @@ export async function POST(request: Request) {
   ].filter(Boolean);
 
   const resend = new Resend(apiKey);
-  const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL ?? "Renyx Kontaktformular <onboarding@resend.dev>",
-    to: CONTACT.email,
-    replyTo: email,
-    subject: `Projektanfrage von ${name}`,
-    text: lines.join("\n"),
-  });
+  try {
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL ?? "Renyx Kontaktformular <onboarding@resend.dev>",
+      to: CONTACT.email,
+      replyTo: email,
+      subject: `Projektanfrage von ${name}`,
+      text: lines.join("\n"),
+    });
 
-  if (error) {
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json({ error: "Versand fehlgeschlagen." }, { status: 502 });
+    }
+
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("Resend threw:", err);
     return NextResponse.json({ error: "Versand fehlgeschlagen." }, { status: 502 });
   }
-
-  return NextResponse.json({ ok: true });
 }
