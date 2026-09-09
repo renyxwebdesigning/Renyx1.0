@@ -57,7 +57,7 @@ export default function Leistungen() {
       <ScrollReveal>
         <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
         <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Alles, was eure Website braucht — aus einer Hand.
+          Alles aus einer Hand.
         </h1>
         <p className="mt-5 max-w-xl text-text-muted">
           Von der ersten Analyse bis zum Launch übernehmen wir jeden Schritt. Danach entscheidet

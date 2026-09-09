@@ -16,7 +16,7 @@ export default function Portfolio() {
       <ScrollReveal>
         <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Portfolio</p>
         <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Fünf Stilrichtungen, damit ihr eure Sprache findet.
+          Fünf Stilrichtungen.
         </h1>
         <p className="mt-5 max-w-2xl text-text-muted">
           Renyx ist noch jung — diese fünf Projekte sind bewusst ausgearbeitete{" "}

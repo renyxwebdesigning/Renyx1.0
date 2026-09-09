@@ -78,7 +78,7 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-6xl">
-              Eine Website, die deinem Unternehmen wirklich etwas bringt.
+              Websites, die wirklich etwas bringen.
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
@@ -122,7 +122,7 @@ export default function Home() {
         <ScrollReveal>
           <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
           <h2 className="mt-3 max-w-xl font-display text-3xl font-bold sm:text-4xl">
-            Alles, was deine Website braucht — nicht mehr, nicht weniger.
+            Alles, was deine Website braucht.
           </h2>
         </ScrollReveal>
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -153,7 +153,7 @@ export default function Home() {
               Stilrichtungen
             </p>
             <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
-              Weisst du noch nicht genau, wie deine Seite aussehen soll? Zeig uns einfach, was dir gefällt.
+              Noch unsicher, welcher Stil zu dir passt?
             </h2>
             <p className="mt-4 max-w-xl text-text-muted">
               Fünf ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — im
@@ -230,7 +230,7 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-24 text-center">
         <ScrollReveal>
           <h2 className="mx-auto max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
-            Bereit für eine Website, die zu deinem Unternehmen passt?
+            Bereit für eure Website?
           </h2>
           <p className="mx-auto mt-4 max-w-md text-text-muted">
             Schreib uns kurz, worum es geht — wir melden uns persönlich zurück.
