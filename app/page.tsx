@@ -102,6 +102,9 @@ export default function Home() {
                 Portfolio ansehen
               </Link>
             </div>
+            <p className="mt-4 text-xs text-text-muted">
+              Unverbindlich · Antwort meist innerhalb eines Werktags
+            </p>
           </ScrollReveal>
         </div>
 
