@@ -5,15 +5,21 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
 import { CASES, STYLES, type StyleId } from "@/lib/cases";
 import { CONTACT } from "@/lib/constants";
+import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 
 type StyleChoice = StyleId | "none";
+type PackageChoice = PackageId | "none";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
   const initialStyle = searchParams.get("stil") as StyleChoice | null;
+  const initialPackage = searchParams.get("paket") as PackageChoice | null;
 
   const [style, setStyle] = useState<StyleChoice | null>(
     initialStyle && (initialStyle === "none" || initialStyle in STYLES) ? initialStyle : null
+  );
+  const [pkg, setPkg] = useState<PackageChoice | null>(
+    initialPackage && (initialPackage === "none" || initialPackage in PACKAGES) ? initialPackage : null
   );
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -28,6 +34,12 @@ export default function ContactForm() {
     return STYLES[style].label;
   }, [style]);
 
+  const packageLabel = useMemo(() => {
+    if (!pkg) return "Keine Angabe";
+    if (pkg === "none") return "Noch unklar — bitte beraten";
+    return `${PACKAGES[pkg].label} (${PACKAGES[pkg].price})`;
+  }, [pkg]);
+
   const canSubmit = name.trim() && email.trim() && message.trim();
 
   async function handleSubmit(e: React.FormEvent) {
@@ -39,7 +51,7 @@ export default function ContactForm() {
       const res = await fetch("/api/kontakt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, company, email, phone, styleLabel, message }),
+        body: JSON.stringify({ name, company, email, phone, styleLabel, packageLabel, message }),
       });
       setStatus(res.ok ? "sent" : "error");
     } catch {
@@ -48,10 +60,53 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
+    <div className="flex flex-col gap-8">
+      {pkg && pkg !== "none" && (
+        <div className="glass-accent flex flex-wrap items-center gap-2.5 rounded-xl px-5 py-4 text-sm">
+          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-bg">
+            ✓
+          </span>
+          <span className="text-text">
+            Du hast dich für <strong>{PACKAGES[pkg].label}</strong>{" "}
+            <span className="text-text-muted">({PACKAGES[pkg].price})</span> interessiert — schreib
+            uns kurz dein Anliegen, wir bestätigen den Rest persönlich.
+          </span>
+        </div>
+      )}
+
+      <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
       <div>
         <p className="text-sm font-semibold text-text">
-          1. Welcher Stil spricht dich an? <span className="font-normal text-text-muted">(optional)</span>
+          1. Welches Paket passt? <span className="font-normal text-text-muted">(optional)</span>
+        </p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {PACKAGE_ORDER.map((id) => {
+            const active = pkg === id;
+            return (
+              <button
+                type="button"
+                key={id}
+                onClick={() => setPkg(id)}
+                className={`glow-hover rounded-xl p-3 text-left ${active ? "glass-accent" : "glass"}`}
+              >
+                <span className="block text-sm font-medium text-text">{PACKAGES[id].label}</span>
+                <span className="block text-xs text-text-muted">{PACKAGES[id].price}</span>
+              </button>
+            );
+          })}
+          <button
+            type="button"
+            onClick={() => setPkg("none")}
+            className={`glow-hover rounded-xl p-3 text-left sm:col-span-2 ${
+              pkg === "none" ? "glass-accent" : "glass"
+            }`}
+          >
+            <span className="text-sm font-medium text-text">Noch unklar — berat mich</span>
+          </button>
+        </div>
+
+        <p className="mt-8 text-sm font-semibold text-text">
+          2. Welcher Stil spricht dich an? <span className="font-normal text-text-muted">(optional)</span>
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {CASES.map((c) => {
@@ -120,7 +175,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <p className="text-sm font-semibold text-text">2. Worum geht es?</p>
+        <p className="text-sm font-semibold text-text">3. Worum geht es?</p>
         <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="Name *">
@@ -204,6 +259,7 @@ export default function ContactForm() {
             Kein Spam, keine Weitergabe an Dritte. Wir melden uns meist innerhalb eines Werktags.
           </p>
         </form>
+      </div>
       </div>
     </div>
   );

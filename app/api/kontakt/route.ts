@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
   }
 
-  const { name, company, email, phone, styleLabel, message } = body as Record<string, string>;
+  const { name, company, email, phone, styleLabel, packageLabel, message } = body as Record<string, string>;
 
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return NextResponse.json({ error: "Name, E-Mail und Nachricht sind erforderlich." }, { status: 400 });
@@ -24,6 +24,7 @@ export async function POST(request: Request) {
     company ? `Firma: ${company}` : null,
     `E-Mail: ${email}`,
     phone ? `Telefon: ${phone}` : null,
+    packageLabel ? `Interessiertes Paket: ${packageLabel}` : null,
     styleLabel ? `Bevorzugter Stil: ${styleLabel}` : null,
     "",
     message,

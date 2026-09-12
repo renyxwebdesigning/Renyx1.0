@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 
 export const metadata: Metadata = {
   title: "Leistungen",
   description:
-    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — inklusive transparenter Preise ab CHF 150.",
+    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — vier klare Pakete ab CHF 150.",
 };
 
 function IconChat() {
@@ -89,45 +90,52 @@ const STEPS = [
   },
 ];
 
-const PLANS = [
-  {
-    name: "Standard",
-    price: "150–300",
-    unit: "einmalig",
-    tagline: "Solider Start, klar funktional.",
+const PLAN_DETAILS: Record<
+  PackageId,
+  { tagline: string; features: string[]; highlighted?: boolean; badge?: string }
+> = {
+  landingpage: {
+    tagline: "Schnell online, klar und einfach.",
     features: [
-      "Bewährtes, saubers Design",
-      "Einwandfreie Funktion auf jedem Gerät",
-      "Grundlegende Google-Sichtbarkeit",
+      "1 Seite mit allem Wichtigen: Hero, Leistungen, über uns, Kontakt",
+      "Bewährtes Design, angepasst an dein Unternehmen",
+      "Kontaktformular per E-Mail-Link",
     ],
-    highlighted: false,
   },
-  {
-    name: "Erweitert",
-    price: "ab 500",
-    unit: "einmalig",
-    tagline: "Design, das gezielt zum Handeln bewegt.",
+  "kleine-website": {
+    tagline: "Mehr Seiten, mehr Individualität.",
     features: [
-      "Modernes Design mit durchdachter Nutzerführung",
-      "Farben & Texte, die auf dein Zielpublikum wirken",
-      "Vertiefte Google-SEO-Optimierung inklusive",
+      "3–4 Seiten, individuell gestaltet nach deinem Stil",
+      "Echtes Kontaktformular mit E-Mail-Versand",
+      "SEO-Grundlagen & eigene Domain inklusive",
+    ],
+  },
+  "vollstaendige-website": {
+    tagline: "Der Rundum-Auftritt für dein Unternehmen.",
+    features: [
+      "5+ Seiten, z. B. mit Portfolio oder Referenzen",
+      "Komplett individuelles Design mit erweiterten Funktionen",
+      "Vertiefte SEO-Optimierung & 3 Monate Wartung inklusive",
     ],
     highlighted: true,
     badge: "Beliebteste Wahl",
   },
-  {
-    name: "Premium",
-    price: "ab 1'000",
-    unit: "einmalig",
-    tagline: "Für höchste Ansprüche & Online-Shops.",
+  premium: {
+    tagline: "Für höchste Ansprüche & viel Wachstum.",
     features: [
-      "Komplett massgeschneidertes High-End-Design",
-      "Nutzerpsychologie, optimal platzierte Handlungsaufrufe",
-      "Beste Zusatzfunktionen & erstklassige SEO",
+      "Unbegrenzte Seiten, z. B. mit eigener Inhaltspflege",
+      "Individuelle Formulare oder Rechner nach Bedarf",
+      "Laufende Wartung & Priorität bei Anfragen inklusive",
     ],
-    highlighted: false,
   },
-];
+};
+
+const PLANS = PACKAGE_ORDER.map((id) => ({
+  id,
+  name: PACKAGES[id].label,
+  price: PACKAGES[id].price,
+  ...PLAN_DETAILS[id],
+}));
 
 export default function Leistungen() {
   return (
@@ -173,18 +181,18 @@ export default function Leistungen() {
           Transparent statt versteckt.
         </h2>
         <p className="mt-4 max-w-xl text-text-muted">
-          Drei klare Pakete, keine Überraschungen. Nicht sicher, was zu dir passt? Wir beraten dich
-          unverbindlich.
+          Vier klare Pakete, keine Überraschungen. Nicht sicher, was zu dir passt? Wähl eins aus —
+          im Kontaktformular bestätigen wir dir deine Wahl und beraten dich unverbindlich weiter.
         </p>
       </ScrollReveal>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-stretch">
+      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch">
         {PLANS.map((p, i) => (
-          <ScrollReveal key={p.name} delay={0.1 + i * 0.08} className="h-full">
+          <ScrollReveal key={p.id} delay={0.1 + i * 0.08} className="h-full">
             <div
-              className={`relative flex h-full flex-col rounded-2xl p-8 ${
+              className={`relative flex h-full flex-col rounded-2xl p-7 ${
                 p.highlighted
-                  ? "glass-accent md:-translate-y-3 md:shadow-2xl"
+                  ? "glass-accent lg:-translate-y-3 lg:shadow-2xl"
                   : "glass"
               }`}
             >
@@ -196,8 +204,8 @@ export default function Leistungen() {
               <h3 className="font-display text-lg font-semibold">{p.name}</h3>
               <p className="mt-1 text-sm text-text-muted">{p.tagline}</p>
               <p className="mt-6">
-                <span className="font-display text-3xl font-bold">CHF {p.price}</span>
-                <span className="ml-1.5 text-sm text-text-muted">{p.unit}</span>
+                <span className="font-display text-2xl font-bold">{p.price}</span>
+                <span className="ml-1.5 text-xs text-text-muted">einmalig</span>
               </p>
               <ul className="mt-6 flex flex-1 flex-col gap-3">
                 {p.features.map((f) => (
@@ -208,7 +216,7 @@ export default function Leistungen() {
                 ))}
               </ul>
               <Link
-                href="/kontakt"
+                href={`/kontakt?paket=${p.id}`}
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors ${
                   p.highlighted
                     ? "bg-accent text-bg hover:bg-accent-hover"
