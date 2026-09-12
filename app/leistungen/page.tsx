@@ -6,7 +6,7 @@ import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 export const metadata: Metadata = {
   title: "Leistungen",
   description:
-    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — vier klare Pakete ab CHF 150.",
+    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — drei klare Pakete ab CHF 150.",
 };
 
 function IconChat() {
@@ -120,14 +120,6 @@ const PLAN_DETAILS: Record<
     highlighted: true,
     badge: "Beliebteste Wahl",
   },
-  premium: {
-    tagline: "Für höchste Ansprüche & viel Wachstum.",
-    features: [
-      "Unbegrenzte Seiten, z. B. mit eigener Inhaltspflege",
-      "Individuelle Formulare oder Rechner nach Bedarf",
-      "Laufende Wartung & Priorität bei Anfragen inklusive",
-    ],
-  },
 };
 
 const PLANS = PACKAGE_ORDER.map((id) => ({
@@ -181,18 +173,18 @@ export default function Leistungen() {
           Transparent statt versteckt.
         </h2>
         <p className="mt-4 max-w-xl text-text-muted">
-          Vier klare Pakete, keine Überraschungen. Nicht sicher, was zu dir passt? Wähl eins aus —
+          Drei klare Pakete, keine Überraschungen. Nicht sicher, was zu dir passt? Wähl eins aus —
           im Kontaktformular bestätigen wir dir deine Wahl und beraten dich unverbindlich weiter.
         </p>
       </ScrollReveal>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch">
+      <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-stretch">
         {PLANS.map((p, i) => (
           <ScrollReveal key={p.id} delay={0.1 + i * 0.08} className="h-full">
             <div
               className={`relative flex h-full flex-col rounded-2xl p-7 ${
                 p.highlighted
-                  ? "glass-accent lg:-translate-y-3 lg:shadow-2xl"
+                  ? "glass-accent md:-translate-y-3 md:shadow-2xl"
                   : "glass"
               }`}
             >
