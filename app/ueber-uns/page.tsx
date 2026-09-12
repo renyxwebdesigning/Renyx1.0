@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Über uns",
   description:
     "Noah & Elia — zwei Brüder aus Zürich, die Webdesign und UI/UX für kleine Unternehmen machen.",
+  alternates: { canonical: "/ueber-uns" },
 };
 
 const VALUES = [

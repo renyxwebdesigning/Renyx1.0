@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Kontakt",
   description:
     "Meld dich unverbindlich bei Renyx — per Formular, WhatsApp, Telefon oder E-Mail. Wir melden uns meist innerhalb eines Werktags.",
+  alternates: { canonical: "/kontakt" },
 };
 
 export default function Kontakt() {

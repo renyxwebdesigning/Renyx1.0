@@ -20,6 +20,7 @@ export async function generateMetadata({
   return {
     title: c.clientName,
     description: c.summary,
+    alternates: { canonical: `/portfolio/${slug}` },
   };
 }
 

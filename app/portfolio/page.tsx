@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Portfolio",
   description:
     "Fünf ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — als Orientierung, welche Richtung zu eurem Unternehmen passt.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function Portfolio() {

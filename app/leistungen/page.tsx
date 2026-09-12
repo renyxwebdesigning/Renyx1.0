@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Leistungen",
   description:
     "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — drei klare Pakete ab CHF 150.",
+  alternates: { canonical: "/leistungen" },
 };
 
 function IconChat() {

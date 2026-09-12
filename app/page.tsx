@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import CaseCard from "@/components/CaseCard";
 import { CASES } from "@/lib/cases";
 import { SITE } from "@/lib/constants";
+
+const HOME_TITLE = `Webdesign Zürich für Kleinunternehmen — ${SITE.name}`;
+const HOME_DESCRIPTION =
+  "Webdesign Zürich: Renyx gestaltet Webseiten und UI/UX-Design für kleine Unternehmen — von der ersten Analyse bis zum Launch, persönlich und ohne Agentur-Aufpreis.";
+
+export const metadata: Metadata = {
+  title: { absolute: HOME_TITLE },
+  description: HOME_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: { title: HOME_TITLE, description: HOME_DESCRIPTION },
+  twitter: { title: HOME_TITLE, description: HOME_DESCRIPTION },
+};
 
 const USPS = [
   { value: "1–10", label: "Personen — genau eure Grösse" },

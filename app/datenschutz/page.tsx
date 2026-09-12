@@ -5,6 +5,7 @@ import { CONTACT, SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Datenschutz",
   description: "Datenschutzerklärung gemäss revDSG.",
+  alternates: { canonical: "/datenschutz" },
 };
 
 export default function Datenschutz() {

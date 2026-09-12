@@ -5,6 +5,7 @@ import { CONTACT, LEGAL, SITE } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Impressum",
   description: "Anbieterkennzeichnung gemäss Art. 3 Abs. 1 lit. s UWG.",
+  alternates: { canonical: "/impressum" },
 };
 
 export default function Impressum() {
