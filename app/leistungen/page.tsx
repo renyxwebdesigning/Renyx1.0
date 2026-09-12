@@ -109,6 +109,8 @@ const PLAN_DETAILS: Record<
       "Echtes Kontaktformular mit E-Mail-Versand",
       "SEO-Grundlagen & eigene Domain inklusive",
     ],
+    highlighted: true,
+    badge: "Beliebteste Wahl",
   },
   "vollstaendige-website": {
     tagline: "Der Rundum-Auftritt für dein Unternehmen.",
@@ -117,8 +119,6 @@ const PLAN_DETAILS: Record<
       "Komplett individuelles Design mit erweiterten Funktionen",
       "Vertiefte SEO-Optimierung & 3 Monate Wartung inklusive",
     ],
-    highlighted: true,
-    badge: "Beliebteste Wahl",
   },
 };
 
