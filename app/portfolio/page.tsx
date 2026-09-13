@@ -7,7 +7,7 @@ import { CASES } from "@/lib/cases";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Fünf ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — als Orientierung, welche Richtung zu eurem Unternehmen passt.",
+    "Sechs ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — als Orientierung, welche Richtung zu eurem Unternehmen passt.",
   alternates: { canonical: "/portfolio" },
 };
 
@@ -17,10 +17,10 @@ export default function Portfolio() {
       <ScrollReveal>
         <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Portfolio</p>
         <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Fünf Stilrichtungen.
+          Sechs Stilrichtungen.
         </h1>
         <p className="mt-5 max-w-2xl text-text-muted">
-          Renyx ist noch jung — diese fünf Projekte sind bewusst ausgearbeitete{" "}
+          Renyx ist noch jung — diese sechs Projekte sind bewusst ausgearbeitete{" "}
           <strong className="text-text">Konzeptbeispiele</strong>, keine echten Kundenarbeiten.
           Sie zeigen unser Können und dienen als Vorlage: Sag uns im Kontaktformular, welche
           Richtung euch am meisten anspricht — oder auch, dass keine davon passt.

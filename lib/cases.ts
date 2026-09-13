@@ -1,4 +1,4 @@
-export type StyleId = "editorial" | "bold" | "corporate" | "playful" | "ecommerce";
+export type StyleId = "editorial" | "bold" | "corporate" | "playful" | "ecommerce" | "gastro";
 
 export interface StyleMeta {
   id: StyleId;
@@ -32,6 +32,11 @@ export const STYLES: Record<StyleId, StyleMeta> = {
     label: "Shop & Produkt",
     short: "Klares Produktraster, auf Verkauf optimiert",
   },
+  gastro: {
+    id: "gastro",
+    label: "Gastro & Ambiente",
+    short: "Dunkel, stimmungsvoll, grossformatige Foodfotografie",
+  },
 };
 
 export interface CaseStudy {
@@ -44,6 +49,8 @@ export interface CaseStudy {
   challenge: string;
   solution: string;
   features: string[];
+  /** Ordered placeholder photography for this mockup — each style component indexes into it as needed. */
+  images: string[];
   palette: {
     bg: string;
     surface: string;
@@ -79,6 +86,12 @@ export const CASES: CaseStudy[] = [
       "Editierbares Tagessortiment ohne Entwicklerhilfe",
       "Ein-Klick Route & Öffnungszeiten mobil oben",
       "Ladezeit unter 1 Sekunde auch mit vielen Bildern",
+    ],
+    images: [
+      "https://picsum.photos/seed/feinbrot-hero/900/1200",
+      "https://picsum.photos/seed/feinbrot-gallery-1/700/700",
+      "https://picsum.photos/seed/feinbrot-gallery-2/700/700",
+      "https://picsum.photos/seed/feinbrot-gallery-3/700/700",
     ],
     palette: { bg: "#f7f3ec", surface: "#ffffff", accent: "#8a6d3b", text: "#2a2420" },
     site: {
@@ -117,6 +130,10 @@ export const CASES: CaseStudy[] = [
       "Ein-Formular-Anfrage statt Klick-Marathon",
       "Bewertungen direkt sichtbar, nicht versteckt",
     ],
+    images: [
+      "https://picsum.photos/seed/vogel-before/900/700",
+      "https://picsum.photos/seed/vogel-after/900/700",
+    ],
     palette: { bg: "#161412", surface: "#1f1c19", accent: "#e8b23d", text: "#f5f1ea" },
     site: {
       navLabel: "Vogel",
@@ -153,6 +170,11 @@ export const CASES: CaseStudy[] = [
       "Themen-Navigation statt Fachjargon-Menü",
       "Direkter Ansprechpartner pro Dienstleistung",
       "Terminbuchung ohne Login oder App",
+    ],
+    images: [
+      "https://picsum.photos/seed/meier-team-1/500/500",
+      "https://picsum.photos/seed/meier-team-2/500/500",
+      "https://picsum.photos/seed/meier-team-3/500/500",
     ],
     palette: { bg: "#0f1a17", surface: "#16241f", accent: "#2f9e6e", text: "#eef4f1" },
     site: {
@@ -191,6 +213,11 @@ export const CASES: CaseStudy[] = [
       "Live eingebundener Instagram-Feed",
       "Leistungen mit Preisen auf einen Blick",
     ],
+    images: [
+      "https://picsum.photos/seed/bluem-client-1/300/300",
+      "https://picsum.photos/seed/bluem-client-2/300/300",
+      "https://picsum.photos/seed/bluem-client-3/300/300",
+    ],
     palette: { bg: "#fdf2ec", surface: "#ffffff", accent: "#e8735a", text: "#3a2a24" },
     site: {
       navLabel: "Studio Blüm",
@@ -228,6 +255,12 @@ export const CASES: CaseStudy[] = [
       "Klar strukturierte Produktvarianten",
       "Automatische Lagerstand-Anzeige",
     ],
+    images: [
+      "https://picsum.photos/seed/manufaktur-1/700/700",
+      "https://picsum.photos/seed/manufaktur-2/700/700",
+      "https://picsum.photos/seed/manufaktur-3/700/700",
+      "https://picsum.photos/seed/manufaktur-4/700/700",
+    ],
     palette: { bg: "#111318", surface: "#1a1d24", accent: "#f97316", text: "#f2f2f0" },
     site: {
       navLabel: "Manufaktur Nord",
@@ -246,6 +279,50 @@ export const CASES: CaseStudy[] = [
         { name: "Jonas P.", text: "Man merkt bei jedem Stück, dass es von Hand gemacht ist. Kaufe hier immer wieder." },
       ],
       address: "Ateliers Nord, 8037 Zürich",
+    },
+  },
+  {
+    slug: "restaurant-rosmarin",
+    clientName: "Restaurant Rosmarin",
+    industry: "Restaurant & Bar",
+    styleId: "gastro",
+    tagline: "Gutes Essen braucht keine Eile.",
+    summary:
+      "Eine dunkle, stimmungsvolle Seite für ein Quartier-Restaurant — grossformatige Fotos statt einer PDF-Karte, Reservation in einem Schritt.",
+    challenge:
+      "Rosmarin nahm Reservationen bisher nur telefonisch entgegen, oft ausserhalb der Bürozeiten verpasst. Die Speisekarte lag als drei Jahre alte PDF online, ohne Fotos — potenzielle Gäste konnten sich die Atmosphäre vorher nicht vorstellen.",
+    solution:
+      "Eine Seite, die sofort die Stimmung des Lokals transportiert: grossformatige Food- und Raumfotos, eine übersichtliche Karte mit Preisen und ein Reservationsformular, das in unter einer Minute ausgefüllt ist und per E-Mail direkt im Restaurant landet.",
+    features: [
+      "Reservation ohne Anruf, in unter einer Minute",
+      "Karte mit saisonalen Preisen, jederzeit selbst anpassbar",
+      "Grossformatige Fotos ohne lange Ladezeit auf dem Handy",
+    ],
+    images: [
+      "https://picsum.photos/seed/rosmarin-hero/1200/900",
+      "https://picsum.photos/seed/rosmarin-dish-1/700/700",
+      "https://picsum.photos/seed/rosmarin-dish-2/700/700",
+      "https://picsum.photos/seed/rosmarin-dish-3/700/700",
+      "https://picsum.photos/seed/rosmarin-interior/1200/800",
+    ],
+    palette: { bg: "#151013", surface: "#211a1d", accent: "#c2452f", text: "#f3ece7" },
+    site: {
+      navLabel: "Rosmarin",
+      heroSub: "Saisonale Küche und Naturweine in warmer Atmosphäre, mitten im Kreis 5.",
+      about:
+        "Seit 2019 kochen wir im Rosmarin mit dem, was der Markt gerade hergibt — kurze Karte, dafür jeden Tag frisch. Kein Fine-Dining-Getue, sondern ein Ort, an dem man auch spontan noch einen Tisch bekommt und lange sitzen bleibt.",
+      menuTitle: "Aus der Küche",
+      menu: [
+        { name: "Rindstatar, Röstii", price: "CHF 32" },
+        { name: "Risotto der Saison", price: "CHF 28" },
+        { name: "Gebratener Kabeljau", price: "CHF 36" },
+        { name: "Tagesdessert", price: "CHF 12" },
+      ],
+      testimonials: [
+        { name: "Corinne W.", text: "Die Karte wechselt ständig, und trotzdem wird alles top umgesetzt. Unser Stammlokal." },
+        { name: "David N.", text: "Reservation online war in zwei Minuten erledigt, keine Warteschlaufe am Telefon mehr." },
+      ],
+      address: "Bertastrasse 23, 8003 Zürich",
     },
   },
 ];

@@ -11,9 +11,9 @@ const NAV = [
   { id: "reviews", label: "Bewertungen" },
 ];
 
-/** Shop & Produkt: sofort Produktraster statt Text-Hero, Warenkorb, Sternebewertungen. */
+/** Shop & Produkt: sofort ein Produktraster mit echten Produktfotos, Warenkorb, Sternebewertungen. */
 export default function EcommerceSite({ c }: { c: CaseStudy }) {
-  const { palette, site, clientName } = c;
+  const { palette, site, clientName, images } = c;
   const refs = useRef<Record<string, HTMLDivElement | null>>({});
   const tint = (a: number) => palette.accent + Math.round(a * 255).toString(16).padStart(2, "0");
   const scrollTo = (id: string) => refs.current[id]?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -29,7 +29,7 @@ export default function EcommerceSite({ c }: { c: CaseStudy }) {
               <button key={s.id} onClick={() => scrollTo(s.id)} className="hover:opacity-100">{s.label}</button>
             ))}
           </div>
-          <span className="rounded-full px-2.5 py-1 text-[0.6rem] font-semibold sm:text-xs" style={{ background: palette.accent, color: palette.bg }}>🛒 2</span>
+          <span className="rounded-full px-2.5 py-1 text-[0.6rem] font-semibold sm:text-xs" style={{ background: palette.accent, color: palette.bg }}>Warenkorb · 2</span>
         </div>
 
         <div ref={(el) => { refs.current.hero = el; }} className="scroll-mt-12 flex items-center justify-between px-[6%] py-2.5 text-[0.55rem] sm:py-3.5 sm:text-xs" style={{ background: tint(0.15) }}>
@@ -37,17 +37,18 @@ export default function EcommerceSite({ c }: { c: CaseStudy }) {
           <span style={{ color: palette.accent }}>Gratis Versand ab CHF 60</span>
         </div>
 
-        <div ref={(el) => { refs.current.products = el; }} className="scroll-mt-12 px-[6%] py-6 sm:py-10">
+        <div ref={(el) => { refs.current.products = el; }} className="scroll-mt-12 px-[6%] py-7 sm:py-12">
           <h2 style={font} className="text-sm sm:text-xl">{site.menuTitle}</h2>
-          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-4">
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:mt-7 sm:gap-5">
             {site.menu.map((item, i) => (
               <div key={item.name} className="flex flex-col gap-1.5 rounded-lg border p-2 sm:gap-2.5 sm:p-3.5" style={{ borderColor: tint(0.3) }}>
-                <div className="relative aspect-square w-full rounded" style={{ background: tint(0.22 + i * 0.05) }}>
+                <div className="relative aspect-square w-full overflow-hidden rounded">
+                  <img src={images[i % images.length]} alt={item.name} className="h-full w-full object-cover" />
                   {i === 0 && <span className="absolute right-1 top-1 rounded px-1 py-[1px] text-[0.4rem] font-bold sm:right-2 sm:top-2 sm:px-1.5 sm:text-[0.6rem]" style={{ background: palette.accent, color: palette.bg }}>NEU</span>}
                 </div>
-                <span className="text-[0.55rem] font-medium sm:text-sm">{item.name}</span>
+                <span className="text-[0.58rem] font-medium sm:text-sm">{item.name}</span>
                 <div className="flex items-center justify-between">
-                  <span className="text-[0.55rem] font-bold sm:text-sm" style={{ color: palette.accent }}>{item.price}</span>
+                  <span className="text-[0.58rem] font-bold sm:text-sm" style={{ color: palette.accent }}>{item.price}</span>
                   <span className="rounded px-1.5 py-0.5 text-[0.5rem] font-semibold sm:px-2.5 sm:py-1 sm:text-xs" style={{ background: tint(0.3) }}>+</span>
                 </div>
               </div>
@@ -55,16 +56,16 @@ export default function EcommerceSite({ c }: { c: CaseStudy }) {
           </div>
         </div>
 
-        <div ref={(el) => { refs.current.trust = el; }} className="scroll-mt-12 grid grid-cols-3 gap-2 border-y px-[6%] py-6 text-center sm:gap-4 sm:py-10" style={{ borderColor: tint(0.25) }}>
+        <div ref={(el) => { refs.current.trust = el; }} className="scroll-mt-12 grid grid-cols-3 gap-2 border-y px-[6%] py-7 text-center sm:gap-4 sm:py-11" style={{ borderColor: tint(0.25) }}>
           {["Handgemacht", "Kleine Serien", "Versand in 48h"].map((t) => (
             <div key={t}>
-              <div className="mx-auto h-5 w-5 rounded-full sm:h-8 sm:w-8" style={{ background: tint(0.3) }} />
-              <p className="mt-1.5 text-[0.5rem] font-medium opacity-75 sm:mt-2 sm:text-xs">{t}</p>
+              <div className="mx-auto flex h-7 w-7 items-center justify-center rounded-full text-[0.6rem] sm:h-10 sm:w-10 sm:text-sm" style={{ background: tint(0.3), color: palette.accent }}>✓</div>
+              <p className="mt-1.5 text-[0.52rem] font-medium opacity-75 sm:mt-2 sm:text-xs">{t}</p>
             </div>
           ))}
         </div>
 
-        <div ref={(el) => { refs.current.reviews = el; }} className="scroll-mt-12 px-[6%] py-6 sm:py-10">
+        <div ref={(el) => { refs.current.reviews = el; }} className="scroll-mt-12 px-[6%] py-7 sm:py-11">
           <h2 style={font} className="text-sm sm:text-xl">Bewertungen</h2>
           <div className="mt-3 space-y-2 sm:mt-5 sm:space-y-3">
             {site.testimonials.map((t) => (

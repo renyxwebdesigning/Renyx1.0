@@ -2,7 +2,7 @@ import type { CaseStudy } from "@/lib/cases";
 import BrowserFrame from "./BrowserFrame";
 
 function MockupContent({ c }: { c: CaseStudy }) {
-  const { palette, styleId, clientName } = c;
+  const { palette, styleId, clientName, images } = c;
   const base = { background: palette.bg, color: palette.text };
   const tint = (a: number) => palette.accent + Math.round(a * 255).toString(16).padStart(2, "0");
 
@@ -30,9 +30,11 @@ function MockupContent({ c }: { c: CaseStudy }) {
         <div className="h-px w-10 @lg:w-16" style={{ background: palette.accent }} />
 
         <div className="mt-auto grid grid-cols-3 gap-2 pt-1 @lg:gap-5">
-          {["Zopf", "Gipfeli", "Sauerteig"].map((item) => (
+          {["Zopf", "Gipfeli", "Sauerteig"].map((item, i) => (
             <div key={item} className="flex flex-col gap-1 @lg:gap-2">
-              <div className="h-6 w-full rounded-md @lg:h-24" style={{ background: tint(0.16) }} />
+              <div className="h-6 w-full overflow-hidden rounded-md @lg:h-24">
+                <img src={images[(i + 1) % images.length]} alt="" className="h-full w-full object-cover grayscale" />
+              </div>
               <span className="text-[0.4rem] opacity-70 @lg:text-sm">{item}</span>
             </div>
           ))}
@@ -65,13 +67,17 @@ function MockupContent({ c }: { c: CaseStudy }) {
         <div className="mt-1 grid grid-cols-2 gap-2 @lg:gap-4">
           <div className="rounded-md p-2 @lg:rounded-xl @lg:p-4" style={{ background: tint(0.1) }}>
             <p className="text-[0.35rem] uppercase tracking-widest opacity-60 @lg:text-xs">Vorher</p>
-            <div className="mt-1 h-6 w-full rounded @lg:mt-2 @lg:h-24 @lg:rounded-lg" style={{ background: tint(0.14) }} />
+            <div className="mt-1 h-6 w-full overflow-hidden rounded @lg:mt-2 @lg:h-24 @lg:rounded-lg">
+              <img src={images[0]} alt="" className="h-full w-full object-cover" style={{ filter: "grayscale(1)" }} />
+            </div>
           </div>
           <div className="rounded-md p-2 @lg:rounded-xl @lg:p-4" style={{ background: tint(0.16) }}>
             <p className="text-[0.35rem] uppercase tracking-widest @lg:text-xs" style={{ color: palette.accent }}>
               Nachher
             </p>
-            <div className="mt-1 h-6 w-full rounded @lg:mt-2 @lg:h-24 @lg:rounded-lg" style={{ background: tint(0.35) }} />
+            <div className="mt-1 h-6 w-full overflow-hidden rounded @lg:mt-2 @lg:h-24 @lg:rounded-lg">
+              <img src={images[1] ?? images[0]} alt="" className="h-full w-full object-cover" style={{ filter: "saturate(1.3)" }} />
+            </div>
           </div>
         </div>
 
@@ -124,9 +130,11 @@ function MockupContent({ c }: { c: CaseStudy }) {
             {[0, 1, 2].map((i) => (
               <span
                 key={i}
-                className="h-3.5 w-3.5 rounded-full border @lg:h-8 @lg:w-8 @lg:border-2"
-                style={{ background: tint(0.25), borderColor: palette.bg }}
-              />
+                className="h-3.5 w-3.5 overflow-hidden rounded-full border @lg:h-8 @lg:w-8 @lg:border-2"
+                style={{ borderColor: palette.bg }}
+              >
+                <img src={images[i % images.length]} alt="" className="h-full w-full object-cover" />
+              </span>
             ))}
           </div>
         </div>
@@ -195,9 +203,11 @@ function MockupContent({ c }: { c: CaseStudy }) {
               {[0, 1].map((i) => (
                 <span
                   key={i}
-                  className="h-3.5 w-3.5 rounded-full border-2 @lg:h-8 @lg:w-8"
-                  style={{ background: tint(0.4), borderColor: palette.bg }}
-                />
+                  className="h-3.5 w-3.5 overflow-hidden rounded-full border-2 @lg:h-8 @lg:w-8"
+                  style={{ borderColor: palette.bg }}
+                >
+                  <img src={images[i % images.length]} alt="" className="h-full w-full object-cover" />
+                </span>
               ))}
             </div>
           </div>
@@ -212,6 +222,36 @@ function MockupContent({ c }: { c: CaseStudy }) {
               </span>
             ))}
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (styleId === "gastro") {
+    return (
+      <div className="relative flex h-full flex-col justify-end overflow-hidden">
+        <img src={images[0]} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ filter: "brightness(0.55)" }} />
+        <div className="relative flex items-center justify-between px-[7%] pt-[6%]">
+          <span
+            className="text-[0.6rem] italic tracking-wide @lg:text-lg"
+            style={{ fontFamily: "var(--font-cormorant)" }}
+          >
+            {clientName}
+          </span>
+          <span
+            className="rounded-sm border px-1.5 py-0.5 text-[0.35rem] uppercase tracking-widest @lg:px-3 @lg:py-1 @lg:text-xs"
+            style={{ borderColor: palette.accent, color: palette.accent }}
+          >
+            Reservieren
+          </span>
+        </div>
+        <div className="relative px-[7%] pb-[7%] pt-4">
+          <p
+            className="max-w-[80%] text-sm italic leading-[1.05] @lg:text-3xl"
+            style={{ fontFamily: "var(--font-cormorant)" }}
+          >
+            {c.tagline}
+          </p>
         </div>
       </div>
     );
@@ -266,7 +306,9 @@ function MockupContent({ c }: { c: CaseStudy }) {
                 TOP
               </span>
             )}
-            <div className="h-8 w-full rounded @lg:h-28 @lg:rounded-lg" style={{ background: tint(0.3) }} />
+            <div className="h-8 w-full overflow-hidden rounded @lg:h-28 @lg:rounded-lg">
+              <img src={images[i % images.length]} alt="" className="h-full w-full object-cover" />
+            </div>
             <span className="text-[0.45rem] font-semibold @lg:text-base" style={{ color: palette.accent }}>
               CHF {28 + i * 6}
             </span>

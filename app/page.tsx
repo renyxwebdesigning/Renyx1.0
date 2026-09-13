@@ -169,7 +169,7 @@ export default function Home() {
               Noch unsicher, welcher Stil zu dir passt?
             </h2>
             <p className="mt-4 max-w-xl text-text-muted">
-              Fünf ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — im
+              Sechs ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — im
               Kontaktformular kannst du direkt auswählen, welche Richtung dir am besten gefällt.
             </p>
           </ScrollReveal>

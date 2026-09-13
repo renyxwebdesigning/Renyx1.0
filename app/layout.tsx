@@ -8,6 +8,7 @@ import {
   Libre_Baskerville,
   Baloo_2,
   Work_Sans,
+  Cormorant_Garamond,
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -36,7 +37,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 // Die folgenden Fonts werden nur in den Portfolio-Mockups (FullSiteMockup-Varianten)
-// verwendet, damit sich die fünf Stilrichtungen auch typografisch klar unterscheiden.
+// verwendet, damit sich die sechs Stilrichtungen auch typografisch klar unterscheiden.
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
@@ -67,6 +68,12 @@ const workSans = Work_Sans({
   weight: ["600", "700", "800"],
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 const DEFAULT_DESCRIPTION =
   "Webdesign Zürich für Kleinunternehmen: Renyx gestaltet Webseiten und UI/UX-Design — von der Analyse bis zum Launch, persönlich und ohne Agentur-Aufpreis.";
 
@@ -95,7 +102,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="de"
-      className={`${plusJakartaSans.variable} ${sora.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${sora.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-text">
         <script

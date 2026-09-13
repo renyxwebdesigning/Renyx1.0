@@ -4,6 +4,7 @@ import BoldSite from "./mockups/BoldSite";
 import CorporateSite from "./mockups/CorporateSite";
 import PlayfulSite from "./mockups/PlayfulSite";
 import EcommerceSite from "./mockups/EcommerceSite";
+import GastroSite from "./mockups/GastroSite";
 
 /**
  * Jede Stilrichtung hat ihr eigenes Layout (Reihenfolge der Sektionen, Typografie,
@@ -21,5 +22,7 @@ export default function FullSiteMockup({ c }: { c: CaseStudy }) {
       return <PlayfulSite c={c} />;
     case "ecommerce":
       return <EcommerceSite c={c} />;
+    case "gastro":
+      return <GastroSite c={c} />;
   }
 }
