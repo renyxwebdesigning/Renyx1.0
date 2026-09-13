@@ -234,7 +234,7 @@ export default function ContactForm() {
             whileHover={{ scale: canSubmit ? 1.02 : 1 }}
             whileTap={{ scale: canSubmit ? 0.98 : 1 }}
             disabled={!canSubmit || status === "sending"}
-            className="mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
+            className="btn-glow mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
           >
             {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}
           </motion.button>

@@ -212,7 +212,7 @@ export default function Leistungen() {
                 href={`/kontakt?paket=${p.id}`}
                 className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors ${
                   p.highlighted
-                    ? "bg-accent text-bg hover:bg-accent-hover"
+                    ? "btn-glow bg-accent text-bg hover:bg-accent-hover"
                     : "border border-border text-text hover:border-accent/60"
                 }`}
               >
@@ -264,7 +264,7 @@ export default function Leistungen() {
           </p>
           <Link
             href="/kontakt"
-            className="mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+            className="btn-glow mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
           >
             Unverbindlich anfragen
           </Link>

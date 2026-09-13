@@ -83,12 +83,6 @@ export default function Home() {
         </div>
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade opacity-40" aria-hidden />
         <div className="relative mx-auto flex max-w-6xl flex-col items-start px-6 pb-20 pt-24 sm:pt-32">
-          <ScrollReveal>
-            <p className="glass mb-5 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs font-medium text-text-muted">
-              <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" />
-              Webdesign &amp; UI/UX · {SITE.city}
-            </p>
-          </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h1 className="max-w-3xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-6xl">
               Websites, die wirklich etwas bringen.
@@ -104,7 +98,7 @@ export default function Home() {
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
                 href="/kontakt"
-                className="rounded-full bg-accent px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+                className="btn-glow rounded-full bg-accent px-6 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
               >
                 Projekt starten
               </Link>
@@ -122,10 +116,17 @@ export default function Home() {
         </div>
 
         <div className="relative border-y border-border bg-bg-elevated/50 backdrop-blur-sm">
-          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-6 py-10 sm:grid-cols-4">
-            {USPS.map((u) => (
-              <div key={u.label}>
-                <p className="font-mono text-3xl font-bold text-accent">{u.value}</p>
+          <div className="mx-auto flex max-w-6xl flex-wrap px-6 py-10 sm:flex-nowrap">
+            {USPS.map((u, i) => (
+              <div
+                key={u.label}
+                className={`flex-1 basis-1/2 px-2 sm:basis-0 sm:px-6 ${
+                  i > 0 ? "border-t border-border pt-4 sm:border-t-0 sm:border-l sm:pt-0" : ""
+                }`}
+              >
+                <p className="font-display text-2xl font-bold text-text sm:text-3xl">
+                  {u.value}
+                </p>
                 <p className="mt-1 text-xs text-text-muted">{u.label}</p>
               </div>
             ))}
@@ -247,7 +248,7 @@ export default function Home() {
           </p>
           <Link
             href="/kontakt"
-            className="mt-8 inline-block rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+            className="btn-glow mt-8 inline-block rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-bg hover:bg-accent-hover"
           >
             Jetzt Kontakt aufnehmen
           </Link>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, SITE } from "@/lib/constants";
 import Logo from "./Logo";
 
 export default function Navbar() {
@@ -14,8 +14,16 @@ export default function Navbar() {
   return (
     <header className="glass-strong sticky top-0 z-50 border-b border-border">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-text" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-text"
+          onClick={() => setOpen(false)}
+        >
           <Logo />
+          <span className="hidden h-4 w-px bg-border lg:block" aria-hidden />
+          <span className="hidden font-mono text-xs text-text-muted lg:block">
+            Webdesign &amp; UI/UX · {SITE.city}
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
@@ -44,7 +52,7 @@ export default function Navbar() {
 
         <Link
           href="/kontakt"
-          className="hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover md:inline-block"
+          className="btn-glow hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-bg hover:bg-accent-hover md:inline-block"
         >
           Projekt starten
         </Link>

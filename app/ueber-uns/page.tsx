@@ -44,20 +44,19 @@ export default function UeberUns() {
 
       <div className="mt-16 grid gap-6 sm:grid-cols-2">
         <ScrollReveal>
-          <div className="glass glow-hover overflow-hidden rounded-2xl">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src="/team/noah.png"
-                alt="Noah"
-                fill
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="p-8">
+          <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border">
+            <Image
+              src="/team/noah.png"
+              alt="Noah"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7">
               <h2 className="font-display text-xl font-semibold">Noah</h2>
-              <p className="mt-1 text-sm text-accent">Webdesign &amp; Entwicklung</p>
-              <p className="mt-4 text-sm text-text-muted">
+              <p className="mt-1 text-sm font-medium text-accent">Webdesign &amp; Entwicklung</p>
+              <p className="mt-3 text-sm text-text-muted">
                 Verantwortet die technische Umsetzung — von der ersten Idee bis zum Launch.
                 Erster Ansprechpartner für alles rund um eure Anfrage.
               </p>
@@ -65,20 +64,19 @@ export default function UeberUns() {
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <div className="glass glow-hover overflow-hidden rounded-2xl">
-            <div className="relative aspect-[4/5] w-full">
-              <Image
-                src="/team/elia.png"
-                alt="Elia"
-                fill
-                sizes="(min-width: 640px) 50vw, 100vw"
-                className="object-cover object-top"
-              />
-            </div>
-            <div className="p-8">
+          <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-border">
+            <Image
+              src="/team/elia.png"
+              alt="Elia"
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7">
               <h2 className="font-display text-xl font-semibold">Elia</h2>
-              <p className="mt-1 text-sm text-accent">UI/UX &amp; Konzept</p>
-              <p className="mt-4 text-sm text-text-muted">
+              <p className="mt-1 text-sm font-medium text-accent">UI/UX &amp; Konzept</p>
+              <p className="mt-3 text-sm text-text-muted">
                 Verantwortet Design und Nutzerführung — damit eure Website nicht nur gut aussieht,
                 sondern für eure Kundschaft auch einfach zu bedienen ist.
               </p>
@@ -109,7 +107,7 @@ export default function UeberUns() {
           </p>
           <Link
             href="/kontakt"
-            className="mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+            className="btn-glow mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
           >
             Kontakt aufnehmen
           </Link>

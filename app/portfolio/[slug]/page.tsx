@@ -100,7 +100,7 @@ export default async function CaseDetail({
           </div>
           <Link
             href={`/kontakt?stil=${c.styleId}`}
-            className="shrink-0 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+            className="btn-glow shrink-0 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
           >
             Diesen Stil anfragen
           </Link>

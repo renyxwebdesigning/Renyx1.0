@@ -22,8 +22,8 @@
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
   --color-border: var(--color-border);
-  --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-plus-jakarta-sans);
+  --font-sans: var(--font-sora);
   --font-mono: var(--font-jetbrains-mono);
 }
 
@@ -130,20 +130,17 @@ body {
     0 8px 30px rgba(0, 0, 0, 0.35);
 }
 
-@keyframes pulse-ring {
-  0% {
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
-  }
+/* Hover glow for solid accent buttons — a soft light-up instead of a flat color swap */
+.btn-glow {
+  transition: background-color 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
 }
 
-.pulse-dot {
-  animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.btn-glow:hover {
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.4), 0 0 24px 4px rgba(249, 115, 22, 0.45);
+}
+
+.btn-glow:active {
+  transform: scale(0.97);
 }
 
 .glow-hover {

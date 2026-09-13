@@ -46,7 +46,7 @@ export default function Portfolio() {
           </p>
           <Link
             href="/kontakt"
-            className="mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg transition-colors hover:bg-accent-hover"
+            className="btn-glow mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
           >
             Zum Kontaktformular
           </Link>

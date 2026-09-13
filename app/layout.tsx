@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import {
   JetBrains_Mono,
-  Space_Grotesk,
+  Plus_Jakarta_Sans,
+  Sora,
   Playfair_Display,
   Archivo_Black,
   Libre_Baskerville,
   Baloo_2,
   Work_Sans,
 } from "next/font/google";
-import { GeistSans } from "geist/font/sans";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -17,10 +17,16 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE } from "@/lib/constants";
 import { BUSINESS_JSON_LD } from "@/lib/structured-data";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -89,7 +95,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="de"
-      className={`${GeistSans.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${sora.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-text">
         <script

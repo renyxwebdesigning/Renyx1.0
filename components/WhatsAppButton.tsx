@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
       transition={{ delay: 1, duration: 0.5 }}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.96 }}
-      className="fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-bg shadow-lg shadow-accent/20"
+      className="btn-glow fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-accent px-4 py-3 text-sm font-semibold text-bg shadow-lg shadow-accent/20"
       aria-label="Auf WhatsApp schreiben"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
