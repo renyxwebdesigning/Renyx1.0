@@ -136,17 +136,16 @@ export default function Home() {
       {/* Services teaser */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <ScrollReveal>
-          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
-          <h2 className="mt-3 max-w-xl font-display text-3xl font-bold sm:text-4xl">
+          <h2 className="max-w-xl font-display text-3xl font-bold sm:text-4xl">
             Alles, was deine Website braucht.
           </h2>
         </ScrollReveal>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 divide-y divide-border border-y border-border">
           {SERVICES.map((s, i) => (
-            <ScrollReveal key={s.title} delay={i * 0.1}>
-              <div className="glass glow-hover h-full rounded-xl p-6">
+            <ScrollReveal key={s.title} delay={i * 0.08}>
+              <div className="grid gap-2 py-7 sm:grid-cols-[1fr_2fr] sm:items-baseline sm:gap-10">
                 <h3 className="font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-3 text-sm text-text-muted">{s.desc}</p>
+                <p className="text-sm text-text-muted">{s.desc}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -165,10 +164,7 @@ export default function Home() {
       <section className="border-t border-border bg-bg-elevated/40">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <ScrollReveal>
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-              Stilrichtungen
-            </p>
-            <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
+            <h2 className="max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
               Noch unsicher, welcher Stil zu dir passt?
             </h2>
             <p className="mt-4 max-w-xl text-text-muted">
@@ -199,8 +195,7 @@ export default function Home() {
       {/* Process */}
       <section className="mx-auto max-w-6xl px-6 py-24">
         <ScrollReveal>
-          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Ablauf</p>
-          <h2 className="mt-3 max-w-xl font-display text-3xl font-bold sm:text-4xl">
+          <h2 className="max-w-xl font-display text-3xl font-bold sm:text-4xl">
             So läuft die Zusammenarbeit ab.
           </h2>
         </ScrollReveal>
@@ -223,8 +218,7 @@ export default function Home() {
       <section className="border-t border-border bg-bg-elevated/40">
         <div className="mx-auto max-w-6xl px-6 py-24">
           <ScrollReveal>
-            <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Über uns</p>
-            <h2 className="mt-3 max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
+            <h2 className="max-w-2xl text-balance font-display text-3xl font-bold sm:text-4xl">
               Noah &amp; Elia — zwei Brüder aus {SITE.city}.
             </h2>
             <p className="mt-4 max-w-xl text-text-muted">

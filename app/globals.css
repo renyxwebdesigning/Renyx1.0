@@ -23,7 +23,7 @@
   --color-text-muted: var(--color-text-muted);
   --color-border: var(--color-border);
   --font-display: var(--font-space-grotesk);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-jetbrains-mono);
 }
 
@@ -99,16 +99,7 @@ body {
   opacity: 0.7;
 }
 
-/* Custom cursor — only enabled on fine-pointer devices via CustomCursor component logic.
-   Applies to every descendant too: links/buttons otherwise keep their own
-   native pointer cursor (from Tailwind preflight / UA styles), which used to
-   show up next to the fake ring instead of being replaced by it. */
-.cursor-none-fine,
-.cursor-none-fine * {
-  cursor: none !important;
-}
-
-/* Glassmorphism — frosted panels over the grid/glow backdrop */
+/* Glassmorphism — frosted panels over the grid backdrop */
 .glass {
   background: rgba(23, 19, 15, 0.55);
   backdrop-filter: blur(20px);
@@ -137,26 +128,6 @@ body {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     0 8px 30px rgba(0, 0, 0, 0.35);
-}
-
-/* Ambient glow blobs behind hero content */
-.glow-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
-  opacity: 0.18;
-  animation: drift 14s ease-in-out infinite;
-}
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(4%, -6%) scale(1.12);
-  }
 }
 
 @keyframes pulse-ring {
