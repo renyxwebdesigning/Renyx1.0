@@ -6,7 +6,7 @@ import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 export const metadata: Metadata = {
   title: "Leistungen",
   description:
-    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — drei klare Pakete ab CHF 150.",
+    "Von der Beratung bis zur Sichtbarkeit bei Google: So entsteht deine Website bei Renyx — drei klare Pakete ab CHF 600.",
   alternates: { canonical: "/leistungen" },
 };
 

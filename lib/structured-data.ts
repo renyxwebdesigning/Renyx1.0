@@ -14,7 +14,7 @@ export const BUSINESS_JSON_LD = {
     "Renyx gestaltet Webseiten und UI/UX-Design für Kleinunternehmen in Zürich und im Embrachertal — von der Analyse bis zum Launch.",
   email: CONTACT.email,
   telephone: CONTACT.phoneIntl,
-  priceRange: "CHF 150–1'000",
+  priceRange: "CHF 600–2'000+",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Baltsbergstrasse 144",
