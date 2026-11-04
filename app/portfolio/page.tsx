@@ -8,7 +8,7 @@ import { CASES } from "@/lib/cases";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Sechs ausgearbeitete Konzeptbeispiele in unterschiedlichen Stilrichtungen — als Orientierung, welche Richtung zu eurem Unternehmen passt.",
+    "Sechs klickbare Beispielseiten in unterschiedlichen Stilrichtungen — als Orientierung, welche Richtung zu eurem Unternehmen passt.",
   alternates: { canonical: "/portfolio" },
 };
 
@@ -18,7 +18,7 @@ export default function Portfolio() {
       <PageHeader
         label="Portfolio"
         title="Sechs Richtungen."
-        lead="Konzeptbeispiele aus eigener Hand, keine Kundenprojekte. Zur Orientierung, welcher Stil zu dir passt."
+        lead="Sechs klickbare Konzeptbeispiele aus eigener Hand, keine Kundenprojekte. Firmennamen und Logos sind erfunden, die Bilder sind Illustrationen."
       />
       <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
         <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 md:gap-y-16">

@@ -1,0 +1,101 @@
+@font-face{font-family:Archivo;src:url(fonts/archivo-var.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+:root{--kalk:#b8c0b9;--schwarz:#000;--eiche:#222324;--weiss:#fff;--rose:#a96974;--gutter:clamp(1rem,3.4vw,3rem)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kalk);color:var(--schwarz);font:400 1.0625rem/1.55 Archivo,"Arial Narrow",Arial,sans-serif;overflow-wrap:break-word}
+img{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:#000;color:#fff;padding:.6rem 1rem;z-index:5}
+.skip:focus{left:0}
+.draft{background:var(--rose);color:#000;padding:.45rem var(--gutter);font-size:.9375rem}
+.wrap{padding-inline:var(--gutter);max-width:1600px;margin-inline:auto}
+
+/* Kopf */
+.head{padding-block:1.25rem .9rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem 2rem}
+.brand img{mix-blend-mode:multiply;width:clamp(190px,22vw,280px);height:auto}
+.head--gross{display:block;padding-top:clamp(1rem,2.4vw,2rem)}
+.head--gross .brand img{width:100%}
+.nav{display:flex;gap:clamp(1rem,2.5vw,2.5rem);font-size:1.0625rem}
+.head--gross .nav{margin-top:.9rem;justify-content:flex-end}
+.nav a{text-decoration:none;padding-block:.3rem;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current]{border-bottom-color:#000}
+
+/* Grosse, schmale Schrift: lang und schmal wie ein Mantel auf dem Buegel */
+h1,h2{font-stretch:62%;font-weight:300;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(4.2rem,14.5vw,15rem);line-height:.88}
+h2{font-size:clamp(2.8rem,7.5vw,7rem);line-height:.95}
+p{margin:0 0 1em;max-width:62ch}
+.gross{font-size:clamp(1.2rem,1.9vw,1.55rem);line-height:1.38;max-width:34ch}
+
+/* Bogen */
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end;padding-block:clamp(1.5rem,3vw,3rem) 0}
+.hero__text{padding-bottom:clamp(2rem,4vw,4rem)}
+.hero__text .gross{margin-top:clamp(1.5rem,3vw,3rem)}
+.bogen{border-radius:999px 999px 0 0;overflow:hidden;background:#000}
+.bogen img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:36% 50%;filter:grayscale(1) contrast(1.04)}
+.knopf{display:inline-block;background:#000;color:#fff;padding:.8rem 1.4rem;text-decoration:none;border:2px solid #000;font:inherit;font-weight:600;cursor:pointer}
+.knopf:hover{background:transparent;color:#000}
+a.knopf--hell,.knopf--hell{background:var(--kalk);color:#000;border-color:var(--kalk)}
+a.knopf--hell:hover,.knopf--hell:hover{background:transparent;color:var(--kalk)}
+
+/* Abschnitte */
+.band{padding-block:clamp(3.5rem,8vw,8rem)}
+.band--schwarz{background:#000;color:var(--kalk)}
+.band--schwarz a:not(.knopf){color:#fff}
+.band--oben{padding-top:clamp(1.5rem,3vw,3rem)}
+.spalten{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,6rem);align-items:start}
+.bild{margin:0}
+.bild img{width:100%;height:auto;filter:grayscale(1)}
+.versatz{margin-top:clamp(0rem,9vw,9rem)}
+.mt{margin-top:clamp(1.5rem,3vw,2.5rem)}
+
+/* Kleiderstange: die Labels haengen an einer Stange */
+.stange{list-style:none;margin:clamp(2rem,4vw,3.5rem) 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(2.9rem,1fr));row-gap:2.6rem}
+.stange li{border-top:4px solid currentColor;padding-top:1.4rem;position:relative;min-width:0}
+.stange li::before{content:"";position:absolute;top:0;left:.72rem;height:1.2rem;width:1px;background:currentColor}
+.stange span{display:block;writing-mode:vertical-rl;font-stretch:62%;font-weight:400;font-size:clamp(1.45rem,2.15vw,2.1rem);line-height:1;letter-spacing:.01em;transform-origin:.72rem -1.4rem;transition:transform .35s ease}
+.stange li:hover span{transform:rotate(-3.5deg)}
+
+/* Besuch */
+.zeiten{border-collapse:collapse;width:100%;max-width:26rem}
+.zeiten caption{text-align:left;font-weight:700;padding-bottom:.4rem}
+.zeiten th{text-align:left;font-weight:400;padding:.5rem 1rem .5rem 0}
+.zeiten td{text-align:right;padding:.5rem 0;font-variant-numeric:tabular-nums}
+.zeiten tr{border-bottom:1px solid currentColor}
+address{font-style:normal}
+.gross a{white-space:nowrap}
+
+.form{display:grid;gap:1rem;max-width:34rem}
+.form label{display:grid;gap:.3rem;font-weight:600}
+.form input,.form textarea{font:inherit;font-weight:400;padding:.7rem .8rem;border:2px solid #000;background:#d9ddd9;color:#000;border-radius:0;width:100%}
+.form .knopf{justify-self:start}
+
+.karte{background:#000;color:var(--kalk);aspect-ratio:16/10;display:grid;place-items:center;text-align:center;padding:1.5rem;margin-top:1.5rem}
+.karte iframe{width:100%;height:100%;border:0;display:block}
+.karte--an{padding:0}
+.karte p{margin-inline:auto}
+
+/* Rechtstexte */
+.recht{max-width:48rem;margin-inline:0}
+.recht h1{font-size:clamp(4.2rem,10vw,9rem)}
+.recht h2{font-size:clamp(1.9rem,3.6vw,2.8rem);margin:2.2rem 0 .6rem}
+
+/* Fuss */
+.fuss{background:#000;color:var(--kalk);padding-block:clamp(2.5rem,5vw,4rem) 1.5rem}
+.fuss .logo{filter:invert(1);width:100%;height:auto}
+.fuss__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem 2rem;margin-top:2rem}
+.fuss a{color:#fff}
+.fuss ul{list-style:none;margin:0;padding:0}
+.fuss p{margin:0}
+
+@media (max-width:760px){
+  .hero,.spalten{grid-template-columns:minmax(0,1fr)}
+  .hero__text{padding-bottom:0}
+  .versatz{margin-top:0}
+  .fuss__grid{grid-template-columns:minmax(0,1fr)}
+  .head--gross .nav{justify-content:flex-start}
+  .karte{aspect-ratio:4/5}
+}
+@media (prefers-reduced-motion:reduce){.stange span{transition:none}.stange li:hover span{transform:none}}

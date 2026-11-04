@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="de-CH"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Besuch und Kontakt | Schwarzbogen</title>
+<meta name="description" content="Schwarzbogen – Konzeptbeispiel von Renyx. Das Unternehmen ist erfunden.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<meta name="robots" content="noindex, nofollow"></head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="wrap head">
+  <a class="brand" href="index.html"><img src="assets/img/logo.png" width="700" height="64" alt="Schwarzbogen, zur Startseite"></a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="store.html">Store</a>
+    <a href="designer.html">Designer</a>
+    <a href="kontakt.html" aria-current="page">Besuch</a>
+  </nav>
+</header>
+<main id="inhalt">
+<div class="wrap band band--oben">
+  <h1>Besuch</h1>
+  <div class="spalten mt">
+    <div>
+      <address class="gross">Schwarzbogen im Stadtbogen<br>Bogenstrasse 29<br>8989 Bogenwil</address>
+      <p class="gross mt"><a href="tel:+41440001010">044 000 10 10</a><br><a href="mailto:info@schwarzbogen.example">info@schwarzbogen.example</a></p>
+      <table class="zeiten mt">
+        <caption>Öffnungszeiten</caption>
+        <tbody><tr><th scope="row">Montag bis Freitag</th><td>11:00 bis 19:00</td></tr>
+        <tr><th scope="row">Samstag</th><td>10:00 bis 18:00</td></tr>
+      </tbody></table>
+      
+    </div>
+    <div>
+      <h2>Schreib uns</h2>
+      <form class="form mt" id="form" action="mailto:info@schwarzbogen.example" method="post" enctype="text/plain">
+        <label>Name<input name="Name" autocomplete="name" required=""></label>
+        <label>Nachricht<textarea name="Nachricht" rows="7" required=""></textarea></label>
+        <button class="knopf" type="submit">E-Mail vorbereiten</button>
+      </form>
+      <p class="mt">Der Knopf öffnet dein E-Mail-Programm mit dem fertigen Text. Abgeschickt wird erst dort.</p>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=this.elements.Name.value,t=this.elements.Nachricht.value;
+  location.href='mailto:info@schwarzbogen.example?subject='+encodeURIComponent('Nachricht von '+n)+'&body='+encodeURIComponent(t+'\n\n'+n);
+});
+</script>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <img class="logo" src="assets/img/logo.png" width="700" height="64" alt="" loading="lazy">
+    <div class="fuss__grid">
+      <address>Schwarzbogen im Stadtbogen<br>Bogenstrasse 29<br>8989 Bogenwil</address>
+      <p>Montag bis Freitag 11 bis 19 Uhr<br>Samstag 10 bis 18 Uhr<br><a href="tel:+41440001010">044 000 10 10</a><br><a href="mailto:info@schwarzbogen.example">info@schwarzbogen.example</a></p>
+      <ul>
+        
+        
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<a href="/portfolio" target="_top" style="position:fixed;right:12px;bottom:12px;z-index:9999;padding:6px 12px;border-radius:999px;background:#111;color:#fff;font:500 12px/1.4 system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.3)">Konzeptbeispiel von Renyx</a></body></html>

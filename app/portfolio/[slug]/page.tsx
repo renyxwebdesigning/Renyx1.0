@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import FullSiteMockup from "@/components/FullSiteMockup";
+import ExampleSite from "@/components/ExampleSite";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CASES, STYLES, getCaseBySlug } from "@/lib/cases";
 
@@ -53,7 +53,10 @@ export default async function CaseDetail({
 
       <section className="wrap">
         <ScrollReveal delay={0.1}>
-          <FullSiteMockup c={c} />
+          <ExampleSite c={c} />
+          <a href={c.siteUrl} target="_blank" rel="noopener" className="arrow-link mt-5">
+            Seite in neuem Tab öffnen <span aria-hidden>→</span>
+          </a>
         </ScrollReveal>
       </section>
 

@@ -15,7 +15,7 @@ Seite läuft dann auf [http://localhost:3000](http://localhost:3000).
 
 - `app/` — Seiten (Home, Leistungen, Portfolio, Über uns, Kontakt)
 - `components/` — UI-Bausteine (Navbar, Footer, Case-Cards, Kontaktformular, Style-Finder ...)
-- `lib/cases.ts` — die 5 fiktiven Portfolio-Beispiele (Konzeptbeispiele, keine echten Kundenprojekte)
+- `lib/cases.ts` — die 6 Portfolio-Beispiele (Konzeptbeispiele mit erfundenen Firmennamen und Logos, keine Kundenprojekte); die Seiten selbst liegen statisch in `public/beispiele/`
 - `lib/constants.ts` — Kontaktdaten, Navigation
 
 ## Inhalte anpassen

@@ -1,13 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Host_Grotesk,
-  Playfair_Display,
-  Archivo_Black,
-  Libre_Baskerville,
-  Baloo_2,
-  Work_Sans,
-  Cormorant_Garamond,
-} from "next/font/google";
+import { Host_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -21,44 +13,6 @@ const hostGrotesk = Host_Grotesk({
   variable: "--font-host-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-});
-
-// Die folgenden Fonts werden nur in den Portfolio-Mockups (FullSiteMockup-Varianten)
-// verwendet, damit sich die sechs Stilrichtungen auch typografisch klar unterscheiden.
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const archivoBlack = Archivo_Black({
-  variable: "--font-archivo-black",
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const libreBaskerville = Libre_Baskerville({
-  variable: "--font-libre-baskerville",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-const baloo2 = Baloo_2({
-  variable: "--font-baloo",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
-
-const workSans = Work_Sans({
-  variable: "--font-work-sans",
-  subsets: ["latin"],
-  weight: ["600", "700", "800"],
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const DEFAULT_DESCRIPTION =
@@ -89,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="de"
-      className={`${hostGrotesk.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      className={`${hostGrotesk.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-text">
         <script

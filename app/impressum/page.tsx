@@ -60,8 +60,8 @@ export default function Impressum() {
               Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die
               Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine
               Gewähr. Die auf dieser Seite gezeigten Portfolio-Projekte sind, sofern nicht anders
-              gekennzeichnet, fiktive Konzeptbeispiele und keine tatsächlich umgesetzten
-              Kundenprojekte.
+              gekennzeichnet, Konzeptbeispiele und keine tatsächlich umgesetzten Kundenprojekte.
+              Firmennamen, Logos, Adressen und Kontaktangaben dieser Beispiele sind erfunden, die Bilder sind eigene Illustrationen.
             </p>
           </section>
 
