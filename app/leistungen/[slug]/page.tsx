@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CtaBand from "@/components/CtaBand";
 import ScrollReveal from "@/components/ScrollReveal";
-import { CARE_PRICES, SERVICES, getServiceBySlug } from "@/lib/services";
+import { CARE_INCLUDED, CARE_PRICES, SERVICES, getServiceBySlug } from "@/lib/services";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -75,7 +75,7 @@ export default async function ServicePage({
         <section className="wrap section grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <ScrollReveal>
             <h2 className="display display-md">Preise</h2>
-            <p className="lead mt-5 max-w-sm">Im Wartungsvertrag sind Updates, SEO-Pflege und kleine Design-Anpassungen inklusive.</p>
+            <p className="lead mt-5 max-w-sm">{CARE_INCLUDED}</p>
           </ScrollReveal>
           <ul className="self-start border-b">
             {CARE_PRICES.map((c) => (

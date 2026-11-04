@@ -12,10 +12,13 @@ export interface Service {
   cta: string;
 }
 
+// Erster Eintrag ist der Vertrag (Hosting inklusive), zweiter die Einzelleistung.
 export const CARE_PRICES = [
+  { name: "Wartung & Hosting", price: "CHF 100/Mt." },
   { name: "Einzelne Anpassung", price: "CHF 30/Std." },
-  { name: "Wartungsvertrag", price: "CHF 100/Mt." },
 ];
+
+export const CARE_INCLUDED = "Hosting, laufende Updates, SEO-Pflege und kleine Design-Anpassungen inklusive.";
 
 export const SERVICES: Service[] = [
   {
@@ -61,10 +64,10 @@ export const SERVICES: Service[] = [
     title: "Wartung & Hosting",
     short: "Auf Wunsch auch nach dem Launch.",
     metaDescription:
-      "Wartung und Hosting für deine Website: Updates, SEO-Pflege und kleine Anpassungen von Renyx. Einzeln oder im Wartungsvertrag.",
+      "Wartung und Hosting für deine Website: Hosting, Updates, SEO-Pflege und kleine Anpassungen von Renyx für CHF 100 pro Monat.",
     lead: "Hosting hält deine Website online. Wartung hält sie aktuell. Beides kannst du uns überlassen oder selbst übernehmen.",
     includes: [
-      { title: "Hosting", desc: "Auf Wunsch kümmern wir uns um den Betrieb deiner Website." },
+      { title: "Hosting", desc: "Wir kümmern uns um den Betrieb deiner Website, im Monatspreis inklusive." },
       { title: "Updates", desc: "Laufende Updates, damit alles aktuell bleibt." },
       { title: "SEO-Pflege", desc: "Damit du bei Google sichtbar bleibst." },
       { title: "Kleine Anpassungen", desc: "Kleine Design-Änderungen, ohne neues Projekt." },

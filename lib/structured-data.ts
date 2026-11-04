@@ -17,9 +17,9 @@ export const BUSINESS_JSON_LD = {
   priceRange: "CHF 600–2'000+",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Baltsbergstrasse 144",
-    postalCode: "8424",
-    addressLocality: "Embrach",
+    streetAddress: "Lufingerstrasse 7",
+    postalCode: "8185",
+    addressLocality: "Winkel",
     addressRegion: "ZH",
     addressCountry: "CH",
   },

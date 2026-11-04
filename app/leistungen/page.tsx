@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
 import ServiceRows from "@/components/ServiceRows";
 import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
-import { CARE_PRICES } from "@/lib/services";
+import { CARE_INCLUDED, CARE_PRICES } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Leistungen",
@@ -37,24 +37,19 @@ const PLAN_DETAILS: Record<PackageId, { features: string[]; highlighted?: boolea
 const PLANS = PACKAGE_ORDER.map((id) => ({ id, ...PACKAGES[id], ...PLAN_DETAILS[id] }));
 
 export default function Leistungen() {
+  const [contract, single] = CARE_PRICES;
+
   return (
     <>
-      <PageHeader label="Leistungen" title="Von der Idee bis online." />
+      <PageHeader label="Leistungen" title="Drei klare Preise." />
 
-      <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
-        <ServiceRows />
-      </section>
-
-      <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
-        <ScrollReveal>
-          <h2 className="display display-md">Drei klare Preise.</h2>
-        </ScrollReveal>
-        <div className="mt-10 grid gap-12 lg:grid-cols-3 lg:gap-8">
+      <section className="wrap">
+        <div className="grid gap-12 lg:grid-cols-3 lg:gap-8">
           {PLANS.map((p, i) => (
             <ScrollReveal key={p.id} delay={i * 0.08} className="flex">
               <div className={`flex w-full flex-col border-t pt-6 ${p.highlighted ? "border-accent" : ""}`}>
                 <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="text-lg font-medium">{p.label}</h3>
+                  <h2 className="text-lg font-medium">{p.label}</h2>
                   {p.highlighted && <p className="text-sm text-accent">Beliebteste Wahl</p>}
                 </div>
                 <p className="display mt-10 text-[clamp(2.5rem,3.9vw,4.75rem)] whitespace-nowrap">{p.price}</p>
@@ -77,6 +72,35 @@ export default function Leistungen() {
         </div>
       </section>
 
+      <section className="wrap pt-16 sm:pt-24">
+        <ScrollReveal>
+          <div className="grid gap-8 rounded-lg bg-bg-elevated-2 p-6 sm:p-10 lg:grid-cols-[1.5fr_1fr] lg:items-end lg:gap-16 lg:p-14">
+            <div>
+              <h2 className="display display-md">{contract.name}</h2>
+              <p className="lead mt-4 max-w-lg">{CARE_INCLUDED}</p>
+              <Link href="/leistungen/wartung-hosting" className="arrow-link mt-4">
+                Mehr dazu <span aria-hidden>→</span>
+              </Link>
+            </div>
+            <div className="lg:text-right">
+              <p className="display text-[clamp(2.5rem,3.9vw,4.75rem)] whitespace-nowrap">{contract.price}</p>
+              <p className="label mt-3">
+                {single.name} ohne Vertrag: {single.price}
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
+      <section className="wrap section">
+        <ScrollReveal>
+          <h2 className="display display-md">Unsere Leistungen</h2>
+        </ScrollReveal>
+        <div className="mt-10">
+          <ServiceRows />
+        </div>
+      </section>
+
       <section className="bg-bone text-ink">
         <div className="wrap section grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
           <ScrollReveal>
@@ -91,24 +115,6 @@ export default function Leistungen() {
             ))}
           </ol>
         </div>
-      </section>
-
-      <section className="wrap section grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
-        <ScrollReveal>
-          <h2 className="display display-md">Nach dem Launch</h2>
-          <p className="lead mt-5 max-w-sm">Du bekommst alle Zugänge. Wir helfen, wenn du uns brauchst.</p>
-          <Link href="/leistungen/wartung-hosting" className="arrow-link mt-4">
-            Wartung &amp; Hosting <span aria-hidden>→</span>
-          </Link>
-        </ScrollReveal>
-        <ul className="border-b self-start">
-          {CARE_PRICES.map((c) => (
-            <li key={c.name} className="flex items-baseline justify-between gap-6 border-t py-6">
-              <span className="text-xl font-medium tracking-[-0.01em]">{c.name}</span>
-              <span className="whitespace-nowrap text-xl text-text-muted">{c.price}</span>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <CtaBand title="Welches Paket passt?" />

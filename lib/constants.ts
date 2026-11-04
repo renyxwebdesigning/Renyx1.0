@@ -40,7 +40,7 @@ export const TEAM = [
  */
 export const LEGAL = {
   owners: TEAM.map((t) => t.fullName),
-  address: "Baltsbergstrasse 144\n8424 Embrach" as string | null,
+  address: "Lufingerstrasse 7\n8185 Winkel" as string | null,
   hasCommercialRegisterEntry: false,
 };
 
