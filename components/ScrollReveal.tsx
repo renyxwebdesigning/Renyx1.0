@@ -7,7 +7,7 @@ export default function ScrollReveal({
   children,
   delay = 0,
   className,
-  y = 24,
+  y = 20,
 }: {
   children: ReactNode;
   delay?: number;
@@ -20,8 +20,8 @@ export default function ScrollReveal({
     <motion.div
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={reduceMotion ? { duration: 0 } : { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={reduceMotion ? { duration: 0 } : { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

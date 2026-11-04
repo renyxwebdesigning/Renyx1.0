@@ -88,10 +88,10 @@ export const CASES: CaseStudy[] = [
       "Ladezeit unter 1 Sekunde auch mit vielen Bildern",
     ],
     images: [
-      "https://picsum.photos/seed/feinbrot-hero/900/1200",
-      "https://picsum.photos/seed/feinbrot-gallery-1/700/700",
-      "https://picsum.photos/seed/feinbrot-gallery-2/700/700",
-      "https://picsum.photos/seed/feinbrot-gallery-3/700/700",
+      "/cases/feinbrot-1.jpg",
+      "/cases/feinbrot-2.jpg",
+      "/cases/feinbrot-3.jpg",
+      "/cases/feinbrot-4.jpg",
     ],
     palette: { bg: "#f7f3ec", surface: "#ffffff", accent: "#8a6d3b", text: "#2a2420" },
     site: {
@@ -131,8 +131,8 @@ export const CASES: CaseStudy[] = [
       "Bewertungen direkt sichtbar, nicht versteckt",
     ],
     images: [
-      "https://picsum.photos/seed/vogel-before/900/700",
-      "https://picsum.photos/seed/vogel-after/900/700",
+      "/cases/vogel-before.svg",
+      "/cases/vogel-after.svg",
     ],
     palette: { bg: "#161412", surface: "#1f1c19", accent: "#e8b23d", text: "#f5f1ea" },
     site: {
@@ -172,9 +172,9 @@ export const CASES: CaseStudy[] = [
       "Terminbuchung ohne Login oder App",
     ],
     images: [
-      "https://picsum.photos/seed/meier-team-1/500/500",
-      "https://picsum.photos/seed/meier-team-2/500/500",
-      "https://picsum.photos/seed/meier-team-3/500/500",
+      "/cases/meier-1.svg",
+      "/cases/meier-2.svg",
+      "/cases/meier-3.svg",
     ],
     palette: { bg: "#0f1a17", surface: "#16241f", accent: "#2f9e6e", text: "#eef4f1" },
     site: {
@@ -214,9 +214,9 @@ export const CASES: CaseStudy[] = [
       "Leistungen mit Preisen auf einen Blick",
     ],
     images: [
-      "https://picsum.photos/seed/bluem-client-1/300/300",
-      "https://picsum.photos/seed/bluem-client-2/300/300",
-      "https://picsum.photos/seed/bluem-client-3/300/300",
+      "/cases/bluem-1.svg",
+      "/cases/bluem-2.svg",
+      "/cases/bluem-3.svg",
     ],
     palette: { bg: "#fdf2ec", surface: "#ffffff", accent: "#e8735a", text: "#3a2a24" },
     site: {
@@ -256,10 +256,10 @@ export const CASES: CaseStudy[] = [
       "Automatische Lagerstand-Anzeige",
     ],
     images: [
-      "https://picsum.photos/seed/manufaktur-1/700/700",
-      "https://picsum.photos/seed/manufaktur-2/700/700",
-      "https://picsum.photos/seed/manufaktur-3/700/700",
-      "https://picsum.photos/seed/manufaktur-4/700/700",
+      "/cases/manufaktur-1.svg",
+      "/cases/manufaktur-2.svg",
+      "/cases/manufaktur-3.svg",
+      "/cases/manufaktur-4.svg",
     ],
     palette: { bg: "#111318", surface: "#1a1d24", accent: "#f97316", text: "#f2f2f0" },
     site: {
@@ -299,11 +299,11 @@ export const CASES: CaseStudy[] = [
       "Grossformatige Fotos ohne lange Ladezeit auf dem Handy",
     ],
     images: [
-      "https://picsum.photos/seed/rosmarin-hero/1200/900",
-      "https://picsum.photos/seed/rosmarin-dish-1/700/700",
-      "https://picsum.photos/seed/rosmarin-dish-2/700/700",
-      "https://picsum.photos/seed/rosmarin-dish-3/700/700",
-      "https://picsum.photos/seed/rosmarin-interior/1200/800",
+      "/cases/rosmarin-hero.jpg",
+      "/cases/rosmarin-dish-1.svg",
+      "/cases/rosmarin-dish-2.svg",
+      "/cases/rosmarin-dish-3.svg",
+      "/cases/rosmarin-interior.jpg",
     ],
     palette: { bg: "#151013", surface: "#211a1d", accent: "#c2452f", text: "#f3ece7" },
     site: {

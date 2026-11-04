@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import ScrollReveal from "@/components/ScrollReveal";
 import ContactForm from "@/components/ContactForm";
+import ScrollReveal from "@/components/ScrollReveal";
+import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Kontakt",
@@ -12,19 +13,31 @@ export const metadata: Metadata = {
 
 export default function Kontakt() {
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
+    <div className="wrap grid gap-14 pb-24 pt-36 sm:pb-32 sm:pt-48 lg:grid-cols-2 lg:gap-16">
       <ScrollReveal>
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Kontakt</p>
-        <h1 className="mt-3 max-w-xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Erzähl uns von deinem Projekt.
-        </h1>
-        <p className="mt-5 max-w-xl text-text-muted">
-          Kein Preisrechner, kein Callcenter — nur ein kurzes Formular. Wir melden uns persönlich
-          zurück, meist innerhalb eines Werktags.
-        </p>
+        <p className="label">Kontakt</p>
+        <h1 className="display mt-6 max-w-[11ch] text-balance text-[clamp(2.7rem,5.2vw,6rem)]">Erzähl uns von deinem Projekt.</h1>
+        <p className="lead mt-8 max-w-sm">Antwort meist innerhalb eines Werktags.</p>
+        <ul className="mt-10 flex flex-col gap-1 text-lg">
+          <li>
+            <a href={CONTACT.mailto} className="underline-link inline-block py-1">
+              {CONTACT.email}
+            </a>
+          </li>
+          <li>
+            <a href={CONTACT.tel} className="underline-link inline-block py-1">
+              {CONTACT.phoneDisplay}
+            </a>
+          </li>
+          <li>
+            <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="underline-link inline-block py-1">
+              WhatsApp
+            </a>
+          </li>
+        </ul>
       </ScrollReveal>
 
-      <ScrollReveal delay={0.1} className="mt-14">
+      <ScrollReveal delay={0.1}>
         <Suspense fallback={null}>
           <ContactForm />
         </Suspense>

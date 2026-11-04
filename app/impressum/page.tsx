@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 
 export default function Impressum() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
+    <div className="mx-auto max-w-2xl px-6 pb-24 pt-36 sm:pt-44">
       <ScrollReveal>
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+        <p className="label">
           Impressum
         </p>
-        <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Angaben gemäss UWG</h1>
+        <h1 className="mt-3 display display-md">Angaben gemäss UWG</h1>
 
         <div className="mt-10 flex flex-col gap-8 text-sm text-text-muted">
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Anbieter</h2>
+            <h2 className="text-base font-medium text-text">Anbieter</h2>
             <p className="mt-2">
               {LEGAL.owners.join(" & ")}
               <br />
@@ -34,7 +34,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Kontakt</h2>
+            <h2 className="text-base font-medium text-text">Kontakt</h2>
             <p className="mt-2">
               Telefon: {CONTACT.phoneDisplay}
               <br />
@@ -43,7 +43,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Postadresse</h2>
+            <h2 className="text-base font-medium text-text">Postadresse</h2>
             {LEGAL.address ? (
               <p className="mt-2 whitespace-pre-line">{LEGAL.address}</p>
             ) : (
@@ -55,7 +55,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Haftung für Inhalte</h2>
+            <h2 className="text-base font-medium text-text">Haftung für Inhalte</h2>
             <p className="mt-2">
               Die Inhalte dieser Website wurden mit grösster Sorgfalt erstellt. Für die
               Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine
@@ -66,7 +66,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Haftung für Links</h2>
+            <h2 className="text-base font-medium text-text">Haftung für Links</h2>
             <p className="mt-2">
               Diese Website enthält Links zu externen Websites Dritter (u.a. WhatsApp, Trustpilot),
               auf deren Inhalte wir keinen Einfluss haben. Für diese Inhalte kann daher keine
@@ -76,7 +76,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Urheberrecht</h2>
+            <h2 className="text-base font-medium text-text">Urheberrecht</h2>
             <p className="mt-2">
               Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem
               schweizerischen Urheberrecht. Jede Verwertung ausserhalb der Grenzen des

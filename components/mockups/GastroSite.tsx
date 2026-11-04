@@ -25,7 +25,7 @@ export default function GastroSite({ c }: { c: CaseStudy }) {
       <div style={{ background: palette.bg, color: palette.text }} className="h-[420px] overflow-y-auto sm:h-[560px]">
         <div ref={(el) => { refs.current.hero = el; }} className="relative scroll-mt-12 aspect-[4/3] w-full sm:aspect-[16/9]">
           <img src={images[0]} alt={clientName} className="h-full w-full object-cover" style={{ filter: "brightness(0.55) saturate(1.1)" }} />
-          <div className="absolute inset-0 flex items-center justify-between px-[6%] py-4">
+          <div className="absolute inset-x-0 top-0 flex items-center justify-between px-[6%] py-4">
             <span style={{ ...font, fontStyle: "italic" }} className="text-base tracking-wide sm:text-2xl">{site.navLabel}</span>
             <div className="hidden gap-5 text-[0.6rem] uppercase tracking-[0.25em] sm:flex">
               {NAV.slice(1).map((s) => (
@@ -38,7 +38,7 @@ export default function GastroSite({ c }: { c: CaseStudy }) {
             <h1 style={font} className="mt-3 max-w-md text-3xl italic leading-[1.05] sm:text-6xl">{c.tagline}</h1>
             <button
               className="mt-6 rounded-sm border px-5 py-2 text-[0.6rem] uppercase tracking-[0.2em] sm:mt-8 sm:px-8 sm:py-3 sm:text-sm"
-              style={{ borderColor: palette.accent, color: palette.accent }}
+              style={{ borderColor: palette.text, color: palette.text }}
               onClick={() => scrollTo("reserve")}
             >
               Tisch reservieren

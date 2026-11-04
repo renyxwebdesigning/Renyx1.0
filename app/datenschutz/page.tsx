@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function Datenschutz() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-20 sm:py-28">
+    <div className="mx-auto max-w-2xl px-6 pb-24 pt-36 [overflow-wrap:anywhere] sm:pt-44">
       <ScrollReveal>
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">
+        <p className="label">
           Datenschutz
         </p>
-        <h1 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Datenschutzerklärung</h1>
+        <h1 className="mt-3 display display-md">Datenschutzerklärung</h1>
         <p className="mt-4 text-sm text-text-muted">
           Diese Erklärung informiert darüber, welche Daten wir beim Besuch von {SITE.domain}{" "}
           verarbeiten und wozu.
@@ -23,7 +23,7 @@ export default function Datenschutz() {
 
         <div className="mt-10 flex flex-col gap-8 text-sm text-text-muted">
           <section>
-            <h2 className="font-display text-base font-semibold text-text">
+            <h2 className="text-base font-medium text-text">
               Verantwortliche Stelle
             </h2>
             <p className="mt-2">
@@ -33,7 +33,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Kontaktformular</h2>
+            <h2 className="text-base font-medium text-text">Kontaktformular</h2>
             <p className="mt-2">
               Wenn ihr das Formular auf unserer Kontaktseite nutzt, werden die eingegebenen Daten
               (Name, ggf. Firma, E-Mail, Telefon, Nachricht, bevorzugter Stil) beim Absenden
@@ -45,7 +45,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">
+            <h2 className="text-base font-medium text-text">
               Hosting &amp; Server-Logs
             </h2>
             <p className="mt-2">
@@ -59,7 +59,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">
+            <h2 className="text-base font-medium text-text">
               Cookies &amp; Tracking
             </h2>
             <p className="mt-2">
@@ -68,7 +68,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Externe Links</h2>
+            <h2 className="text-base font-medium text-text">Externe Links</h2>
             <p className="mt-2">
               Links zu WhatsApp und Trustpilot führen auf Angebote Dritter. Sobald ihr einem
               solchen Link folgt, gilt die Datenschutzerklärung des jeweiligen Anbieters — wir
@@ -77,7 +77,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Eure Rechte</h2>
+            <h2 className="text-base font-medium text-text">Eure Rechte</h2>
             <p className="mt-2">
               Nach dem Schweizer Datenschutzgesetz (revDSG) habt ihr das Recht auf Auskunft,
               Berichtigung und Löschung eurer Daten. Meldet euch dazu jederzeit unter{" "}
@@ -86,7 +86,7 @@ export default function Datenschutz() {
           </section>
 
           <section>
-            <h2 className="font-display text-base font-semibold text-text">Änderungen</h2>
+            <h2 className="text-base font-medium text-text">Änderungen</h2>
             <p className="mt-2">
               Wir passen diese Erklärung an, sobald sich an der Datenverarbeitung auf dieser
               Website etwas ändert — z.B. falls künftig ein echtes Kontaktformular mit Backend

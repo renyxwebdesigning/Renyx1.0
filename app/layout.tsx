@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import {
-  JetBrains_Mono,
-  Plus_Jakarta_Sans,
-  Sora,
+  Host_Grotesk,
   Playfair_Display,
   Archivo_Black,
   Libre_Baskerville,
@@ -18,22 +16,11 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { SITE } from "@/lib/constants";
 import { BUSINESS_JSON_LD } from "@/lib/structured-data";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-plus-jakarta-sans",
-  subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-});
-
-const sora = Sora({
-  variable: "--font-sora",
+// Grundschrift der Seite: eine einzige Familie, Hierarchie entsteht über Grösse und Gewicht.
+const hostGrotesk = Host_Grotesk({
+  variable: "--font-host-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 // Die folgenden Fonts werden nur in den Portfolio-Mockups (FullSiteMockup-Varianten)
@@ -102,7 +89,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="de"
-      className={`${plusJakartaSans.variable} ${sora.variable} ${jetbrainsMono.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      className={`${hostGrotesk.variable} ${playfairDisplay.variable} ${archivoBlack.variable} ${libreBaskerville.variable} ${baloo2.variable} ${workSans.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg text-text">
         <script

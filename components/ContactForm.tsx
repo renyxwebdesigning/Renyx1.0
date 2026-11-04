@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
-import { motion } from "motion/react";
-import { CASES, STYLES, type StyleId } from "@/lib/cases";
+import { STYLES, type StyleId } from "@/lib/cases";
 import { CONTACT } from "@/lib/constants";
 import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 
@@ -15,11 +14,11 @@ export default function ContactForm() {
   const initialStyle = searchParams.get("stil") as StyleChoice | null;
   const initialPackage = searchParams.get("paket") as PackageChoice | null;
 
-  const [style, setStyle] = useState<StyleChoice | null>(
-    initialStyle && (initialStyle === "none" || initialStyle in STYLES) ? initialStyle : null
+  const [style, setStyle] = useState<StyleChoice | "">(
+    initialStyle && (initialStyle === "none" || initialStyle in STYLES) ? initialStyle : ""
   );
-  const [pkg, setPkg] = useState<PackageChoice | null>(
-    initialPackage && (initialPackage === "none" || initialPackage in PACKAGES) ? initialPackage : null
+  const [pkg, setPkg] = useState<PackageChoice | "">(
+    initialPackage && (initialPackage === "none" || initialPackage in PACKAGES) ? initialPackage : ""
   );
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -40,12 +39,8 @@ export default function ContactForm() {
     return `${PACKAGES[pkg].label} (${PACKAGES[pkg].price})`;
   }, [pkg]);
 
-  const canSubmit = name.trim() && email.trim() && message.trim();
-
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!canSubmit) return;
-
     setStatus("sending");
     try {
       const res = await fetch("/api/kontakt", {
@@ -59,216 +54,84 @@ export default function ContactForm() {
     }
   }
 
+  if (status === "sent") {
+    return (
+      <div role="status" className="border-t pt-8">
+        <p className="display display-md">Danke, {name.trim().split(" ")[0]}.</p>
+        <p className="lead mt-4">Wir melden uns meist innerhalb eines Werktags.</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-8">
-      {pkg && pkg !== "none" && (
-        <div className="glass-accent flex flex-wrap items-center gap-2.5 rounded-xl px-5 py-4 text-sm">
-          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold text-bg">
-            ✓
-          </span>
-          <span className="text-text">
-            Du hast dich für <strong>{PACKAGES[pkg].label}</strong>{" "}
-            <span className="text-text-muted">({PACKAGES[pkg].price})</span> interessiert — schreib
-            uns kurz dein Anliegen, wir bestätigen den Rest persönlich.
-          </span>
-        </div>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-7">
+      <div className="grid gap-7 sm:grid-cols-2">
+        <Field label="Name">
+          <input required value={name} onChange={(e) => setName(e.target.value)} className="input" type="text" autoComplete="name" />
+        </Field>
+        <Field label="Firma" optional>
+          <input value={company} onChange={(e) => setCompany(e.target.value)} className="input" type="text" autoComplete="organization" />
+        </Field>
+        <Field label="E-Mail">
+          <input required value={email} onChange={(e) => setEmail(e.target.value)} className="input" type="email" autoComplete="email" />
+        </Field>
+        <Field label="Telefon" optional>
+          <input value={phone} onChange={(e) => setPhone(e.target.value)} className="input" type="tel" autoComplete="tel" />
+        </Field>
+        <Field label="Paket" optional>
+          <select value={pkg} onChange={(e) => setPkg(e.target.value as PackageChoice | "")} className="input">
+            <option value="">Keine Angabe</option>
+            {PACKAGE_ORDER.map((id) => (
+              <option key={id} value={id}>
+                {PACKAGES[id].label} · {PACKAGES[id].price}
+              </option>
+            ))}
+            <option value="none">Noch unklar, bitte beraten</option>
+          </select>
+        </Field>
+        <Field label="Stil" optional>
+          <select value={style} onChange={(e) => setStyle(e.target.value as StyleChoice | "")} className="input">
+            <option value="">Keine Angabe</option>
+            {Object.values(STYLES).map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.label}
+              </option>
+            ))}
+            <option value="none">Keins davon</option>
+          </select>
+        </Field>
+      </div>
+      <Field label="Worum geht es?">
+        <textarea required value={message} onChange={(e) => setMessage(e.target.value)} rows={4} className="input resize-y" />
+      </Field>
+
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <button type="submit" disabled={status === "sending"} className="btn btn-primary disabled:cursor-wait disabled:opacity-60">
+          {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}
+        </button>
+        <p className="label !text-sm">Kein Spam, keine Weitergabe an Dritte.</p>
+      </div>
+
+      {status === "error" && (
+        <p role="alert" className="text-accent">
+          Das hat leider nicht geklappt. Schreib uns direkt an{" "}
+          <a href={CONTACT.mailto} className="underline underline-offset-4">
+            {CONTACT.email}
+          </a>
+          .
+        </p>
       )}
-
-      <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr]">
-      <div>
-        <p className="text-sm font-semibold text-text">
-          1. Welches Paket passt? <span className="font-normal text-text-muted">(optional)</span>
-        </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {PACKAGE_ORDER.map((id) => {
-            const active = pkg === id;
-            return (
-              <button
-                type="button"
-                key={id}
-                onClick={() => setPkg(id)}
-                className={`glow-hover rounded-xl p-3 text-left ${active ? "glass-accent" : "glass"}`}
-              >
-                <span className="block text-sm font-medium text-text">{PACKAGES[id].label}</span>
-                <span className="block text-xs text-text-muted">{PACKAGES[id].price}</span>
-              </button>
-            );
-          })}
-          <button
-            type="button"
-            onClick={() => setPkg("none")}
-            className={`glow-hover rounded-xl p-3 text-left sm:col-span-2 ${
-              pkg === "none" ? "glass-accent" : "glass"
-            }`}
-          >
-            <span className="text-sm font-medium text-text">Noch unklar — berat mich</span>
-          </button>
-        </div>
-
-        <p className="mt-8 text-sm font-semibold text-text">
-          2. Welcher Stil spricht dich an? <span className="font-normal text-text-muted">(optional)</span>
-        </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {CASES.map((c) => {
-            const active = style === c.styleId;
-            return (
-              <button
-                type="button"
-                key={c.slug}
-                onClick={() => setStyle(c.styleId)}
-                className={`glow-hover flex items-center gap-3 rounded-xl p-3 text-left ${
-                  active ? "glass-accent" : "glass"
-                }`}
-              >
-                <span
-                  className="h-9 w-9 shrink-0 rounded-lg"
-                  style={{ background: c.palette.accent }}
-                  aria-hidden
-                />
-                <span>
-                  <span className="block text-sm font-medium text-text">
-                    {STYLES[c.styleId].label}
-                  </span>
-                  <span className="block text-xs text-text-muted">{c.clientName}</span>
-                </span>
-              </button>
-            );
-          })}
-          <button
-            type="button"
-            onClick={() => setStyle("none")}
-            className={`glow-hover flex items-center gap-3 rounded-xl p-3 text-left sm:col-span-2 ${
-              style === "none" ? "glass-accent" : "glass"
-            }`}
-          >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border text-sm text-text-muted">
-              ?
-            </span>
-            <span className="text-sm font-medium text-text">
-              Keins davon — ich erklär&apos;s lieber selbst
-            </span>
-          </button>
-        </div>
-
-        <div className="glass mt-10 rounded-xl p-6">
-          <p className="text-sm font-semibold text-text">Lieber direkt schreiben?</p>
-          <div className="mt-4 flex flex-col gap-3 text-sm">
-            <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-              WhatsApp: {CONTACT.phoneDisplay}
-            </a>
-            <a href={CONTACT.tel} className="text-text-muted hover:text-accent">
-              Telefon: {CONTACT.phoneDisplay}
-            </a>
-            <a href={CONTACT.mailto} className="text-text-muted hover:text-accent">
-              E-Mail: {CONTACT.email}
-            </a>
-            <a
-              href={CONTACT.trustpilot}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-muted hover:text-accent"
-            >
-              ★ Schon Kunde? Bewertung auf Trustpilot abgeben
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p className="text-sm font-semibold text-text">3. Worum geht es?</p>
-        <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Name *">
-              <input
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="input"
-                type="text"
-                autoComplete="name"
-              />
-            </Field>
-            <Field label="Firma">
-              <input
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                className="input"
-                type="text"
-                autoComplete="organization"
-              />
-            </Field>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="E-Mail *">
-              <input
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="input"
-                type="email"
-                autoComplete="email"
-              />
-            </Field>
-            <Field label="Telefon">
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="input"
-                type="tel"
-                autoComplete="tel"
-              />
-            </Field>
-          </div>
-          <Field label="Nachricht *">
-            <textarea
-              required
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="input min-h-32 resize-y"
-              placeholder="Erzähl uns kurz von deinem Unternehmen und was du dir für die Website wünschst."
-            />
-          </Field>
-
-          <motion.button
-            type="submit"
-            whileHover={{ scale: canSubmit ? 1.02 : 1 }}
-            whileTap={{ scale: canSubmit ? 0.98 : 1 }}
-            disabled={!canSubmit || status === "sending"}
-            className="btn-glow mt-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-bg hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-40"
-          >
-            {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}
-          </motion.button>
-
-          {status === "sent" && (
-            <p className="text-sm text-text-muted">
-              Danke! Deine Anfrage ist bei uns eingegangen — wir melden uns meist innerhalb eines
-              Werktags.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-sm text-text-muted">
-              Das hat leider nicht geklappt. Schreib uns direkt an{" "}
-              <a href={CONTACT.mailto} className="text-accent hover:underline">
-                {CONTACT.email}
-              </a>
-              .
-            </p>
-          )}
-
-          <p className="text-xs text-text-muted">
-            Kein Spam, keine Weitergabe an Dritte. Wir melden uns meist innerhalb eines Werktags.
-          </p>
-        </form>
-      </div>
-      </div>
-    </div>
+    </form>
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, optional, children }: { label: string; optional?: boolean; children: ReactNode }) {
   return (
-    <label className="flex flex-col gap-1.5 text-sm">
-      <span className="text-text-muted">{label}</span>
+    <label className="flex flex-col gap-1 text-[0.9375rem] text-text-muted">
+      <span>
+        {label}
+        {optional && <span className="opacity-75"> (optional)</span>}
+      </span>
       {children}
     </label>
   );

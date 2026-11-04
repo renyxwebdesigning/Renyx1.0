@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ScrollReveal from "@/components/ScrollReveal";
 import FullSiteMockup from "@/components/FullSiteMockup";
+import ScrollReveal from "@/components/ScrollReveal";
 import { CASES, STYLES, getCaseBySlug } from "@/lib/cases";
 
 export function generateStaticParams() {
@@ -38,87 +38,49 @@ export default async function CaseDetail({
   const next = CASES[(idx + 1) % CASES.length];
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-20 sm:py-28">
-      <ScrollReveal>
-        <Link href="/portfolio" className="text-sm text-text-muted hover:text-accent">
-          ← Alle Stilrichtungen
-        </Link>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-accent-soft px-3 py-1 font-mono text-xs font-medium text-accent">
-            {style.label}
-          </span>
-          <span className="glass rounded-full px-3 py-1 font-mono text-xs text-text-muted">
-            Konzeptbeispiel
-          </span>
-        </div>
-        <h1 className="mt-4 font-display text-3xl font-bold sm:text-5xl">{c.clientName}</h1>
-        <p className="mt-2 text-text-muted">{c.industry}</p>
-      </ScrollReveal>
-
-      <ScrollReveal delay={0.1}>
-        <div className="mt-10">
-          <FullSiteMockup c={c} />
-        </div>
-        <p className="mt-3 text-center text-xs text-text-muted">
-          ↑ Scrollbar &amp; klickbare Navigation — so wie die echte Seite sich anfühlen würde.
-        </p>
-      </ScrollReveal>
-
-      <div className="mt-14 grid gap-10 md:grid-cols-2">
+    <>
+      <header className="wrap pb-12 pt-32 sm:pt-44">
         <ScrollReveal>
-          <h2 className="font-display text-lg font-semibold text-accent">Herausforderung</h2>
-          <p className="mt-3 text-text-muted">{c.challenge}</p>
+          <Link href="/portfolio" className="arrow-link label hover:text-text">
+            <span aria-hidden>←</span> Portfolio
+          </Link>
+          <h1 className="display display-lg mt-6 max-w-[16ch] text-balance">{c.clientName}</h1>
+          <p className="label mt-6">
+            Konzeptbeispiel · {c.industry} · {style.label}
+          </p>
         </ScrollReveal>
-        <ScrollReveal delay={0.08}>
-          <h2 className="font-display text-lg font-semibold text-accent">Lösung</h2>
-          <p className="mt-3 text-text-muted">{c.solution}</p>
+      </header>
+
+      <section className="wrap">
+        <ScrollReveal delay={0.1}>
+          <FullSiteMockup c={c} />
         </ScrollReveal>
-      </div>
+      </section>
 
-      <ScrollReveal delay={0.15}>
-        <div className="glass mt-14 rounded-2xl p-8">
-          <h2 className="font-display text-lg font-semibold">Im Detail umgesetzt</h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-3">
-            {c.features.map((f) => (
-              <li key={f} className="flex items-start gap-2.5 text-sm text-text-muted">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                {f}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </ScrollReveal>
-
-      <ScrollReveal delay={0.2}>
-        <div className="glass-accent mt-16 flex flex-col items-start justify-between gap-6 rounded-2xl p-8 sm:flex-row sm:items-center">
-          <div>
-            <h2 className="font-display text-xl font-bold">Dieser Stil trifft es genau?</h2>
-            <p className="mt-2 text-text-muted">
-              Sag uns im Kontaktformular Bescheid — wir nehmen &quot;{c.clientName}&quot; als
-              Referenz für euer Projekt.
-            </p>
-          </div>
-          <Link
-            href={`/kontakt?stil=${c.styleId}`}
-            className="btn-glow shrink-0 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
-          >
+      <section className="wrap section grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+        <ScrollReveal>
+          <p className="lead !text-text">{c.summary}</p>
+          <Link href={`/kontakt?stil=${c.styleId}`} className="btn btn-primary mt-8">
             Diesen Stil anfragen
           </Link>
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
+        <ul className="self-start border-b">
+          {c.features.map((f) => (
+            <li key={f} className="border-t py-5 text-lg leading-snug">
+              {f}
+            </li>
+          ))}
+        </ul>
+      </section>
 
-      <ScrollReveal delay={0.25}>
-        <Link
-          href={`/portfolio/${next.slug}`}
-          className="glass glow-hover mt-16 flex items-center justify-between rounded-2xl p-6"
-        >
-          <div>
-            <p className="font-mono text-xs uppercase tracking-widest text-text-muted">Nächstes Beispiel</p>
-            <p className="mt-1 font-display text-lg font-semibold">{next.clientName}</p>
-          </div>
-          <span className="text-accent">→</span>
+      <section className="border-t">
+        <Link href={`/portfolio/${next.slug}`} className="row-link wrap block py-14 sm:py-20">
+          <span className="label block">Nächstes Konzept</span>
+          <span className="row-title display display-lg mt-4 block">
+            {next.clientName} <span aria-hidden>→</span>
+          </span>
         </Link>
-      </ScrollReveal>
-    </div>
+      </section>
+    </>
   );
 }

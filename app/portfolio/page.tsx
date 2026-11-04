@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
+import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
-import CaseCard from "@/components/CaseCard";
+import WorkTile from "@/components/WorkTile";
 import { CASES } from "@/lib/cases";
 
 export const metadata: Metadata = {
@@ -13,45 +14,22 @@ export const metadata: Metadata = {
 
 export default function Portfolio() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-      <ScrollReveal>
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Portfolio</p>
-        <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Sechs Stilrichtungen.
-        </h1>
-        <p className="mt-5 max-w-2xl text-text-muted">
-          Renyx ist noch jung — diese sechs Projekte sind bewusst ausgearbeitete{" "}
-          <strong className="text-text">Konzeptbeispiele</strong>, keine echten Kundenarbeiten.
-          Sie zeigen unser Können und dienen als Vorlage: Sag uns im Kontaktformular, welche
-          Richtung euch am meisten anspricht — oder auch, dass keine davon passt.
-        </p>
-      </ScrollReveal>
-
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {CASES.map((c, i) => (
-          <ScrollReveal key={c.slug} delay={i * 0.06}>
-            <CaseCard c={c} />
-          </ScrollReveal>
-        ))}
-      </div>
-
-      <ScrollReveal delay={0.2}>
-        <div className="glass mt-16 rounded-2xl p-8 text-center sm:p-12">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">
-            Keine Richtung passt genau?
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-text-muted">
-            Kein Problem — die meisten Projekte sind ein Mix aus mehreren Stilen. Schreib uns
-            einfach, was dir vorschwebt.
-          </p>
-          <Link
-            href="/kontakt"
-            className="btn-glow mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
-          >
-            Zum Kontaktformular
-          </Link>
+    <>
+      <PageHeader
+        label="Portfolio"
+        title="Sechs Richtungen."
+        lead="Konzeptbeispiele aus eigener Hand, keine Kundenprojekte. Zur Orientierung, welcher Stil zu dir passt."
+      />
+      <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
+        <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 md:gap-y-16">
+          {CASES.map((c, i) => (
+            <ScrollReveal key={c.slug} delay={(i % 2) * 0.08}>
+              <WorkTile c={c} />
+            </ScrollReveal>
+          ))}
         </div>
-      </ScrollReveal>
-    </div>
+      </section>
+      <CtaBand title="Etwas anderes im Kopf?" />
+    </>
   );
 }

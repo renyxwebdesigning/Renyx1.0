@@ -2,101 +2,134 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { NAV_LINKS, SITE } from "@/lib/constants";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { NAV_LINKS } from "@/lib/constants";
 import Logo from "./Logo";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const reduce = useReducedMotion();
+  const links = NAV_LINKS.filter((l) => l.href !== "/" && l.href !== "/kontakt");
+
+  // Menü bei Seitenwechsel schliessen
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Offenes Menü: Escape schliesst, Seite dahinter scrollt nicht
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
+
+  const isActive = (href: string) => pathname.startsWith(href);
 
   return (
-    <header className="glass-strong sticky top-0 z-50 border-b border-border">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link
-          href="/"
-          className="flex items-center gap-3 text-text"
-          onClick={() => setOpen(false)}
-        >
+    <header
+      // Kein backdrop-blur bei offenem Menü: er würde das Vollbild-Menü (fixed) auf die Kopfzeile begrenzen
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        open ? "bg-bg" : scrolled ? "bg-bg/85 backdrop-blur-xl" : "bg-transparent"
+      }`}
+    >
+      <nav aria-label="Hauptnavigation" className="wrap relative z-10 flex h-[4.5rem] items-center justify-between">
+        <Link href="/" aria-label="Renyx – Startseite" className="flex min-h-11 items-center">
           <Logo />
-          <span className="hidden h-4 w-px bg-border lg:block" aria-hidden />
-          <span className="hidden font-mono text-xs text-text-muted lg:block">
-            Webdesign &amp; UI/UX · {SITE.city}
-          </span>
         </Link>
 
-        <ul className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => {
-            const active = pathname === link.href;
-            return (
+        <div className="hidden items-center gap-9 md:flex">
+          <ul className="flex items-center gap-8">
+            {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`relative text-sm font-medium transition-colors ${
-                    active ? "text-text" : "text-text-muted hover:text-text"
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`text-[0.9875rem] transition-colors hover:text-text ${
+                    isActive(link.href) ? "text-text" : "text-text-muted"
                   }`}
                 >
                   {link.label}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute -bottom-1.5 left-0 h-px w-full bg-accent"
-                    />
-                  )}
                 </Link>
               </li>
-            );
-          })}
-        </ul>
-
-        <Link
-          href="/kontakt"
-          className="btn-glow hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-bg hover:bg-accent-hover md:inline-block"
-        >
-          Projekt starten
-        </Link>
+            ))}
+          </ul>
+          <Link href="/kontakt" className="btn btn-primary !min-h-10 !py-2 !px-5">
+            Projekt starten
+          </Link>
+        </div>
 
         <button
-          className="flex flex-col gap-1.5 md:hidden"
-          aria-label="Menü öffnen"
+          type="button"
+          className="-mr-2 flex h-11 w-11 items-center justify-center md:hidden"
+          aria-label={open ? "Menü schliessen" : "Menü öffnen"}
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
         >
-          <span
-            className={`h-px w-6 bg-text transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`}
-          />
-          <span className={`h-px w-6 bg-text transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`h-px w-6 bg-text transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
-          />
+          <span className="relative block h-3 w-6">
+            <span
+              className={`absolute left-0 top-0 h-[1.5px] w-6 bg-text transition-transform duration-300 ${
+                open ? "translate-y-[5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute bottom-0 left-0 h-[1.5px] w-6 bg-text transition-transform duration-300 ${
+                open ? "-translate-y-[5px] -rotate-45" : ""
+              }`}
+            />
+          </span>
         </button>
       </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-border md:hidden"
+            id="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.2 }}
+            className="fixed inset-0 flex flex-col bg-bg pt-[4.5rem] md:hidden"
           >
-            <ul className="flex flex-col gap-1 px-6 py-4">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+            <ul className="wrap flex flex-1 flex-col justify-center gap-1 pb-16">
+              {NAV_LINKS.map((link, i) => (
+                <motion.li
+                  key={link.href}
+                  initial={reduce ? false : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 * i, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                >
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded-lg px-3 py-2.5 text-base font-medium ${
-                      pathname === link.href
-                        ? "bg-bg-elevated text-text"
-                        : "text-text-muted"
-                    }`}
+                    aria-current={
+                      (link.href === "/" ? pathname === "/" : isActive(link.href)) ? "page" : undefined
+                    }
+                    className="display block py-2 text-[2.75rem]"
                   >
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CtaBand from "@/components/CtaBand";
+import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
 import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
 
@@ -10,266 +12,102 @@ export const metadata: Metadata = {
   alternates: { canonical: "/leistungen" },
 };
 
-function IconChat() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
-      <path
-        d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8c-1 0-1.95-.16-2.83-.46L5 21l1.55-3.6C5.2 16.02 4 14.15 4 12Z"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="9" cy="12" r="1" fill="currentColor" stroke="none" />
-      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
-      <circle cx="15" cy="12" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function IconLayers() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
-      <path d="M12 3 3 8l9 5 9-5-9-5Z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M3 12l9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M3 16l9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function IconPuzzle() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
-      <path
-        d="M9 4h3a1 1 0 0 1 1 1v1.6a1.6 1.6 0 1 0 0 3.2V11a1 1 0 0 1-1 1h-1.6a1.6 1.6 0 1 1-3.2 0H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h1.6a1.6 1.6 0 1 0 0-3.2V4a1 1 0 0 1 1-1Z"
-        transform="translate(1.5 1.5)"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path d="M13 13h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1Z" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function IconRocket() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
-      <path
-        d="M12 15c-1.5 1.5-2 5-2 5s3.5-.5 5-2c1-1 1-2.5.3-3.3-.8-.7-2.3-.7-3.3.3Z"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 15 9 12c0-4 2-7.5 5.5-9.5C18 4 19 8 15.5 12L12 15Z"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path d="M9 12 5.5 13 4 16.5 7.5 15" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="m9 12-1.5-2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 const STEPS = [
-  {
-    icon: IconChat,
-    title: "Beratung & Design-Analyse",
-    desc: "Wir besprechen deine Wünsche und dein Wunsch-Design, schauen uns die Konkurrenz an und entwerfen mehrere Design-Varianten.",
-  },
-  {
-    icon: IconLayers,
-    title: "Aufbau der Webseite",
-    desc: "Aus dem gewählten Entwurf entsteht eine moderne, technisch einwandfrei funktionierende Webseite.",
-  },
-  {
-    icon: IconPuzzle,
-    title: "Individuelle Zusatzfunktionen",
-    desc: "Terminbuchung, Online-Shop, Bewertungen, Kontaktformular oder eine eigene Geschäfts-E-Mail — ganz nach Bedarf.",
-  },
-  {
-    icon: IconRocket,
-    title: "Veröffentlichung & Sichtbarkeit",
-    desc: "Deine Seite geht live. Wir richten Google Business und die Google-Sichtbarkeit ein, damit dich Kundschaft findet.",
-  },
+  { title: "Beratung & Analyse", desc: "Wünsche, Konkurrenz und mehrere Design-Varianten." },
+  { title: "Aufbau", desc: "Aus dem Entwurf wird eine schnelle, moderne Website." },
+  { title: "Funktionen", desc: "Terminbuchung, Shop, Bewertungen oder Geschäfts-E-Mail nach Bedarf." },
+  { title: "Launch & Sichtbarkeit", desc: "Live gehen, Google Business und Google-Sichtbarkeit einrichten." },
 ];
 
-const PLAN_DETAILS: Record<
-  PackageId,
-  { tagline: string; features: string[]; highlighted?: boolean; badge?: string }
-> = {
+const PLAN_DETAILS: Record<PackageId, { features: string[]; highlighted?: boolean }> = {
   landingpage: {
-    tagline: "Schnell online, klar und einfach.",
-    features: [
-      "1 Seite mit allem Wichtigen: Hero, Leistungen, über uns, Kontakt",
-      "Bewährtes Design, angepasst an dein Unternehmen",
-      "Kontaktformular per E-Mail-Link",
-    ],
+    features: ["1 Seite mit allem Wichtigen", "Bewährtes Design, angepasst an dich", "Kontaktformular per E-Mail-Link"],
   },
   "kleine-website": {
-    tagline: "Mehr Seiten, mehr Individualität.",
-    features: [
-      "3–4 Seiten, individuell gestaltet nach deinem Stil",
-      "Echtes Kontaktformular mit E-Mail-Versand",
-      "SEO-Grundlagen & eigene Domain inklusive",
-    ],
+    features: ["3–4 individuell gestaltete Seiten", "Kontaktformular mit E-Mail-Versand", "SEO-Grundlagen & eigene Domain"],
     highlighted: true,
-    badge: "Beliebteste Wahl",
   },
   "vollstaendige-website": {
-    tagline: "Der Rundum-Auftritt für dein Unternehmen.",
-    features: [
-      "5+ Seiten, z. B. mit Portfolio oder Referenzen",
-      "Komplett individuelles Design mit erweiterten Funktionen",
-      "Vertiefte SEO-Optimierung & 3 Monate Wartung inklusive",
-    ],
+    features: ["5+ Seiten, komplett individuell", "Erweiterte Funktionen", "Vertiefte SEO & 3 Monate Wartung"],
   },
 };
 
-const PLANS = PACKAGE_ORDER.map((id) => ({
-  id,
-  name: PACKAGES[id].label,
-  price: PACKAGES[id].price,
-  ...PLAN_DETAILS[id],
-}));
+const PLANS = PACKAGE_ORDER.map((id) => ({ id, ...PACKAGES[id], ...PLAN_DETAILS[id] }));
+
+const CARE = [
+  { name: "Einzelne Anpassung", price: "CHF 30/Std." },
+  { name: "Wartungsvertrag", price: "CHF 100/Mt." },
+];
 
 export default function Leistungen() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-      <ScrollReveal>
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Leistungen</p>
-        <h1 className="mt-3 max-w-2xl text-balance font-display text-4xl font-bold sm:text-5xl">
-          Deine Website — von der Idee bis online.
-        </h1>
-        <p className="mt-5 max-w-xl text-text-muted">
-          Wir übernehmen jeden Schritt: Beratung, Design, Umsetzung und Sichtbarkeit bei Google. Du
-          entscheidest nur noch, wie viel Betreuung du danach möchtest.
-        </p>
-      </ScrollReveal>
+    <>
+      <PageHeader label="Leistungen" title="Von der Idee bis online." />
 
-      {/* Ablauf */}
-      <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {STEPS.map((s, i) => {
-          const Icon = s.icon;
-          return (
-            <ScrollReveal key={s.title} delay={i * 0.08}>
-              <div className="glass glow-hover h-full rounded-2xl p-6">
-                <div className="flex items-center justify-between">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent-soft text-accent">
-                    <Icon />
-                  </span>
-                  <span className="font-mono text-sm font-bold text-accent/40">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+      <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
+        <ScrollReveal>
+          <h2 className="display display-md">Drei klare Preise.</h2>
+        </ScrollReveal>
+        <div className="mt-10 grid gap-12 lg:grid-cols-3 lg:gap-8">
+          {PLANS.map((p, i) => (
+            <ScrollReveal key={p.id} delay={i * 0.08} className="flex">
+              <div className={`flex w-full flex-col border-t pt-6 ${p.highlighted ? "border-accent" : ""}`}>
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-lg font-medium">{p.label}</h3>
+                  {p.highlighted && <p className="text-sm text-accent">Beliebteste Wahl</p>}
                 </div>
-                <h2 className="mt-5 font-display text-base font-semibold">{s.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-text-muted">{s.desc}</p>
+                <p className="display mt-10 text-[clamp(2.5rem,3.9vw,4.75rem)] whitespace-nowrap">{p.price}</p>
+                <p className="label mt-2">einmalig</p>
+                <ul className="mt-8 flex flex-1 flex-col gap-2 text-text-muted">
+                  {p.features.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+                <Link
+                  href={`/kontakt?paket=${p.id}`}
+                  className={`btn mt-10 w-full ${p.highlighted ? "btn-primary" : "btn-ghost"}`}
+                  aria-label={`${p.label} anfragen`}
+                >
+                  Anfragen
+                </Link>
               </div>
             </ScrollReveal>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
 
-      {/* Preise */}
-      <ScrollReveal delay={0.1} className="mt-24">
-        <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-accent">Preise</p>
-        <h2 className="mt-3 max-w-xl text-balance font-display text-3xl font-bold sm:text-4xl">
-          Transparent statt versteckt.
-        </h2>
-        <p className="mt-4 max-w-xl text-text-muted">
-          Drei klare Pakete, keine Überraschungen. Nicht sicher, was zu dir passt? Wähl eins aus —
-          im Kontaktformular bestätigen wir dir deine Wahl und beraten dich unverbindlich weiter.
-        </p>
-      </ScrollReveal>
-
-      <div className="mt-10 grid gap-6 md:grid-cols-3 md:items-stretch">
-        {PLANS.map((p, i) => (
-          <ScrollReveal key={p.id} delay={0.1 + i * 0.08} className="h-full">
-            <div
-              className={`relative flex h-full flex-col rounded-2xl p-7 ${
-                p.highlighted
-                  ? "glass-accent md:-translate-y-3 md:shadow-2xl"
-                  : "glass"
-              }`}
-            >
-              {p.badge && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-accent px-4 py-1 font-mono text-[11px] font-bold uppercase tracking-wide text-bg">
-                  {p.badge}
-                </span>
-              )}
-              <h3 className="font-display text-lg font-semibold">{p.name}</h3>
-              <p className="mt-1 text-sm text-text-muted">{p.tagline}</p>
-              <p className="mt-6">
-                <span className="font-display text-2xl font-bold">{p.price}</span>
-                <span className="ml-1.5 text-xs text-text-muted">einmalig</span>
-              </p>
-              <ul className="mt-6 flex flex-1 flex-col gap-3">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    <span className="text-text-muted">{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={`/kontakt?paket=${p.id}`}
-                className={`mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-colors ${
-                  p.highlighted
-                    ? "btn-glow bg-accent text-bg hover:bg-accent-hover"
-                    : "border border-border text-text hover:border-accent/60"
-                }`}
-              >
-                Anfragen
-              </Link>
-            </div>
+      <section className="bg-bone text-ink">
+        <div className="wrap section grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+          <ScrollReveal>
+            <h2 className="display display-md">Der Ablauf</h2>
           </ScrollReveal>
-        ))}
-      </div>
-
-      {/* Support & Wartung */}
-      <ScrollReveal delay={0.15} className="mt-16">
-        <div className="glass rounded-2xl p-8 sm:p-10">
-          <div className="grid gap-8 sm:grid-cols-[1.2fr_1fr]">
-            <div>
-              <h2 className="font-display text-xl font-semibold">Auch nach dem Launch nicht allein.</h2>
-              <p className="mt-3 max-w-md text-sm text-text-muted">
-                Du erhältst alle Zugänge, um deine Website selbst zu pflegen. Brauchst du
-                Unterstützung, sind wir günstig zur Stelle — einmalig oder laufend.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:border-l sm:border-border sm:pl-8">
-              <div className="flex items-baseline justify-between gap-4">
-                <span className="text-sm text-text-muted">Einzelne Anpassung</span>
-                <span className="whitespace-nowrap font-mono text-sm font-bold text-accent">
-                  CHF 30/Std.
-                </span>
-              </div>
-              <div className="flex items-baseline justify-between gap-4">
-                <span className="text-sm text-text-muted">Wartungsvertrag</span>
-                <span className="whitespace-nowrap font-mono text-sm font-bold text-accent">
-                  CHF 100/Mt.
-                </span>
-              </div>
-              <p className="mt-1 text-xs text-text-muted">
-                Laufende Updates, SEO-Pflege & kleine Design-Anpassungen inklusive.
-              </p>
-            </div>
-          </div>
+          <ol className="border-b border-ink/25">
+            {STEPS.map((s) => (
+              <li key={s.title} className="grid gap-1 border-t border-ink/25 py-6 md:grid-cols-[1fr_1.4fr] md:gap-8">
+                <h3 className="text-xl font-medium tracking-[-0.01em]">{s.title}</h3>
+                <p className="text-lg leading-snug text-ink/70">{s.desc}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-      </ScrollReveal>
+      </section>
 
-      <ScrollReveal delay={0.2}>
-        <div className="mt-16 rounded-2xl border border-border p-8 text-center sm:p-12">
-          <h2 className="font-display text-2xl font-bold sm:text-3xl">Bereit für den nächsten Schritt?</h2>
-          <p className="mx-auto mt-3 max-w-lg text-text-muted">
-            Schreib uns kurz, worum es geht — wir sagen dir unverbindlich, welches Paket für dich
-            am meisten Sinn ergibt.
-          </p>
-          <Link
-            href="/kontakt"
-            className="btn-glow mt-7 inline-block rounded-full bg-accent px-7 py-3 text-sm font-semibold text-bg hover:bg-accent-hover"
-          >
-            Unverbindlich anfragen
-          </Link>
-        </div>
-      </ScrollReveal>
-    </div>
+      <section className="wrap section grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+        <ScrollReveal>
+          <h2 className="display display-md">Nach dem Launch</h2>
+          <p className="lead mt-5 max-w-sm">Du bekommst alle Zugänge. Wir helfen, wenn du uns brauchst.</p>
+        </ScrollReveal>
+        <ul className="border-b self-start">
+          {CARE.map((c) => (
+            <li key={c.name} className="flex items-baseline justify-between gap-6 border-t py-6">
+              <span className="text-xl font-medium tracking-[-0.01em]">{c.name}</span>
+              <span className="whitespace-nowrap text-xl text-text-muted">{c.price}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <CtaBand title="Welches Paket passt?" />
+    </>
   );
 }

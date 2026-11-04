@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
+/*
+  Renyx Designsystem (November 2026)
+  Warmes Schwarz, eine Schrift (Host Grotesk), Orange als einziger Akzent.
+  Grosse Typografie und Haarlinien statt Karten. Helle Fläche nur als Rhythmus-Wechsel.
+*/
 :root {
-  --color-bg: #0f0c0a;
-  --color-bg-elevated: #17130f;
-  --color-bg-elevated-2: #1e1811;
+  --color-bg: #0b0a09;
+  --color-bg-elevated: #141210;
+  --color-bg-elevated-2: #1c1916;
   --color-accent: #f97316;
-  --color-accent-hover: #fb8c3c;
+  --color-accent-hover: #fb8a3c;
   --color-accent-soft: rgba(249, 115, 22, 0.12);
-  --color-text: #f5f5f0;
-  --color-text-muted: #a8a29e;
-  --color-border: rgba(245, 245, 240, 0.1);
+  --color-text: #f4f1ec;
+  --color-text-muted: #a8a29a;
+  --color-border: rgba(244, 241, 236, 0.14);
+  --color-bone: #f1eee8;
+  --color-ink: #0b0a09;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
@@ -22,9 +30,11 @@
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
   --color-border: var(--color-border);
-  --font-display: var(--font-plus-jakarta-sans);
-  --font-sans: var(--font-sora);
-  --font-mono: var(--font-jetbrains-mono);
+  --color-bone: var(--color-bone);
+  --color-ink: var(--color-ink);
+  --font-display: var(--font-host-grotesk);
+  --font-sans: var(--font-host-grotesk);
+  --font-mono: var(--font-host-grotesk);
 }
 
 * {
@@ -34,12 +44,14 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  background: var(--color-bg);
 }
 
 body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,140 +67,177 @@ body {
   }
 }
 
-/* Structural grid background — recurring motif across the site */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, var(--color-border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
-  background-size: 64px 64px;
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
 }
 
-.bg-grid-fade {
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
-::selection {
-  background: var(--color-accent);
-  color: #0f0c0a;
+/* ---------- Raster ---------- */
+
+.wrap {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
 }
 
-.input {
-  border-radius: 0.6rem;
-  border: 1px solid var(--color-border);
-  background: rgba(15, 12, 10, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 0.65rem 0.9rem;
-  font-size: 0.875rem;
-  color: var(--color-text);
-  outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+.section {
+  padding-block: clamp(5rem, 11vw, 11rem);
 }
 
-.input:focus {
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+/* ---------- Typografie ---------- */
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
-.input::placeholder {
+.display-xl {
+  font-size: clamp(3.1rem, 9.6vw, 11rem);
+}
+
+.display-lg {
+  font-size: clamp(2.7rem, 6.6vw, 7.5rem);
+}
+
+.display-md {
+  font-size: clamp(2rem, 3.8vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+}
+
+.label {
+  font-size: 0.9375rem;
   color: var(--color-text-muted);
-  opacity: 0.7;
 }
 
-/* Glassmorphism — frosted panels over the grid backdrop */
-.glass {
-  background: rgba(23, 19, 15, 0.55);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--color-border);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 8px 30px rgba(0, 0, 0, 0.35);
+.lead {
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--color-text-muted);
 }
 
-/* No border here on purpose — add border-t/border-b utilities where used,
-   they inherit the right color from the global `* { border-color }` rule
-   above without fighting a shorthand `border` declaration for the cascade. */
-.glass-strong {
-  background: rgba(15, 12, 10, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
+/* ---------- Knöpfe und Links ---------- */
 
-/* Glass panel with a warm accent tint — for highlighted CTA panels */
-.glass-accent {
-  background: linear-gradient(160deg, rgba(249, 115, 22, 0.14), rgba(23, 19, 15, 0.6));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(249, 115, 22, 0.3);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 8px 30px rgba(0, 0, 0, 0.35);
+.btn {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s var(--ease-out);
 }
-
-/* Hover glow for solid accent buttons — a soft light-up instead of a flat color swap */
-.btn-glow {
-  transition: background-color 0.2s ease, box-shadow 0.25s ease, transform 0.15s ease;
-}
-
-.btn-glow:hover {
-  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.4), 0 0 24px 4px rgba(249, 115, 22, 0.45);
-}
-
-.btn-glow:active {
+.btn:active {
   transform: scale(0.97);
 }
-
-.glow-hover {
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-ink);
+}
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+}
+.btn-ghost {
+  border: 1px solid rgba(244, 241, 236, 0.28);
+  color: var(--color-text);
+}
+.btn-ghost:hover {
+  border-color: var(--color-text);
+}
+.btn-ink {
+  background: var(--color-ink);
+  color: var(--color-text);
+}
+.btn-ink:hover {
+  background: #2a2622;
 }
 
-.glow-hover:hover {
-  border-color: rgba(249, 115, 22, 0.5);
-  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.15), 0 20px 40px -20px rgba(249, 115, 22, 0.25);
+/* Text-Link mit Pfeil, der beim Hover wandert */
+.arrow-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+}
+.arrow-link > span[aria-hidden] {
+  transition: transform 0.3s var(--ease-out);
+}
+.arrow-link:hover > span[aria-hidden] {
+  transform: translateX(0.35rem);
 }
 
-/* HUD-style corner brackets, used to frame the portfolio browser mockups */
-.corner-brackets::before,
-.corner-brackets::after,
-.corner-brackets > .corner-br::before,
-.corner-brackets > .corner-br::after {
-  content: "";
-  position: absolute;
-  width: 14px;
-  height: 14px;
+.underline-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: rgba(244, 241, 236, 0.35);
+  transition: text-decoration-color 0.2s ease;
+}
+.underline-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ---------- Formular ---------- */
+
+.input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(244, 241, 236, 0.28);
+  background: transparent;
+  padding: 0.7rem 0;
+  font-size: 1.0625rem;
+  color: var(--color-text);
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+}
+.input:hover {
+  border-color: rgba(244, 241, 236, 0.55);
+}
+.input:focus {
+  outline: none;
   border-color: var(--color-accent);
-  opacity: 0.7;
+  box-shadow: 0 1px 0 0 var(--color-accent);
+}
+.input::placeholder {
+  color: #8d877f;
+}
+select.input option {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
 }
 
-.corner-brackets::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--color-accent);
-  border-left: 2px solid var(--color-accent);
-}
+/* ---------- Service-Zeilen ---------- */
 
-.corner-brackets::after {
-  top: -1px;
-  right: -1px;
-  border-top: 2px solid var(--color-accent);
-  border-right: 2px solid var(--color-accent);
+.row-link {
+  transition: color 0.25s ease;
 }
-
-.corner-brackets > .corner-br::before {
-  bottom: -1px;
-  left: -1px;
-  border-bottom: 2px solid var(--color-accent);
-  border-left: 2px solid var(--color-accent);
+.row-link .row-title {
+  transition: transform 0.45s var(--ease-out);
 }
-
-.corner-brackets > .corner-br::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--color-accent);
-  border-right: 2px solid var(--color-accent);
+.row-link:hover {
+  color: var(--color-accent);
+}
+@media (hover: hover) {
+  .row-link:hover .row-title {
+    transform: translateX(0.75rem);
+  }
 }
