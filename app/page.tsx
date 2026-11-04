@@ -3,6 +3,7 @@ import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import HeroBackdrop from "@/components/HeroBackdrop";
 import ScrollReveal from "@/components/ScrollReveal";
+import ServiceRows from "@/components/ServiceRows";
 import Team from "@/components/Team";
 import WorkTile from "@/components/WorkTile";
 import { CASES } from "@/lib/cases";
@@ -19,12 +20,6 @@ export const metadata: Metadata = {
   openGraph: { title: HOME_TITLE, description: HOME_DESCRIPTION },
   twitter: { title: HOME_TITLE, description: HOME_DESCRIPTION },
 };
-
-const SERVICES = [
-  { title: "Webdesign", desc: "Individuell gestaltet, kein Baukasten." },
-  { title: "UI/UX", desc: "Kurze Wege bis zur Anfrage." },
-  { title: "Wartung & Hosting", desc: "Auf Wunsch auch nach dem Launch." },
-];
 
 const STEPS = [
   { t: "Gespräch", d: "Kurz kennenlernen, kein Briefing-Dokument." },
@@ -91,19 +86,9 @@ export default function Home() {
         <ScrollReveal>
           <h2 className="label">Leistungen</h2>
         </ScrollReveal>
-        <ul className="mt-6 border-b">
-          {SERVICES.map((s) => (
-            <li key={s.title} className="border-t">
-              <Link
-                href="/leistungen"
-                className="row-link grid gap-2 py-7 sm:py-10 md:grid-cols-[2fr_1fr] md:items-baseline md:gap-10"
-              >
-                <span className="row-title display display-md !text-[clamp(2.25rem,5vw,5.25rem)]">{s.title}</span>
-                <span className="lead">{s.desc}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="mt-6">
+          <ServiceRows />
+        </div>
       </section>
 
       <section className="bg-bone text-ink">

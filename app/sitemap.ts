@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { CASES } from "@/lib/cases";
 import { SITE } from "@/lib/constants";
+import { SERVICES } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = `https://${SITE.domain}`;
@@ -21,5 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...caseRoutes];
+  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
+    url: `${base}/leistungen/${s.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...serviceRoutes, ...caseRoutes];
 }

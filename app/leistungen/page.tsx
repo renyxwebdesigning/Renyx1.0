@@ -3,7 +3,9 @@ import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import PageHeader from "@/components/PageHeader";
 import ScrollReveal from "@/components/ScrollReveal";
+import ServiceRows from "@/components/ServiceRows";
 import { PACKAGES, PACKAGE_ORDER, type PackageId } from "@/lib/packages";
+import { CARE_PRICES } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Leistungen",
@@ -34,15 +36,14 @@ const PLAN_DETAILS: Record<PackageId, { features: string[]; highlighted?: boolea
 
 const PLANS = PACKAGE_ORDER.map((id) => ({ id, ...PACKAGES[id], ...PLAN_DETAILS[id] }));
 
-const CARE = [
-  { name: "Einzelne Anpassung", price: "CHF 30/Std." },
-  { name: "Wartungsvertrag", price: "CHF 100/Mt." },
-];
-
 export default function Leistungen() {
   return (
     <>
       <PageHeader label="Leistungen" title="Von der Idee bis online." />
+
+      <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
+        <ServiceRows />
+      </section>
 
       <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
         <ScrollReveal>
@@ -96,9 +97,12 @@ export default function Leistungen() {
         <ScrollReveal>
           <h2 className="display display-md">Nach dem Launch</h2>
           <p className="lead mt-5 max-w-sm">Du bekommst alle Zugänge. Wir helfen, wenn du uns brauchst.</p>
+          <Link href="/leistungen/wartung-hosting" className="arrow-link mt-4">
+            Wartung &amp; Hosting <span aria-hidden>→</span>
+          </Link>
         </ScrollReveal>
         <ul className="border-b self-start">
-          {CARE.map((c) => (
+          {CARE_PRICES.map((c) => (
             <li key={c.name} className="flex items-baseline justify-between gap-6 border-t py-6">
               <span className="text-xl font-medium tracking-[-0.01em]">{c.name}</span>
               <span className="whitespace-nowrap text-xl text-text-muted">{c.price}</span>
