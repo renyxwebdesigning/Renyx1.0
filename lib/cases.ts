@@ -71,8 +71,8 @@ export const CASES: CaseStudy[] = [
     summary: "Hell und übersichtlich, mit dem Notdienst immer im Blick.",
     features: [
       "Notdienst-Nummer immer sichtbar",
-      "Service und Produkte klar getrennt",
-      "Eigene Seite für den 24-Stunden-Notdienst",
+      "Service auf einer Seite erklärt",
+      "Kontakt mit einem Klick erreichbar",
     ],
   },
   {
@@ -83,7 +83,7 @@ export const CASES: CaseStudy[] = [
     summary: "Frisch und persönlich, mit eigenen Zeichnungen statt Bildern.",
     features: [
       "Service mit Preisen auf einen Blick",
-      "Eigene Seite für den Velo-Treff",
+      "Kurze Wege von der Startseite zum Termin",
       "Öffnungszeiten und Anfahrt direkt erreichbar",
     ],
   },
@@ -95,7 +95,7 @@ export const CASES: CaseStudy[] = [
     summary: "Mutig und reduziert, die Schrift trägt die ganze Seite.",
     features: [
       "Grosse Typografie als Gestaltungsmittel",
-      "Übersicht aller Designer und Labels",
+      "Eigene Seite für den Store",
       "Besuchsseite statt Onlineshop",
     ],
   },
@@ -106,7 +106,7 @@ export const CASES: CaseStudy[] = [
     styleId: "elegant",
     summary: "Klar und schnell erfasst, damit man sofort den richtigen Service findet.",
     features: [
-      "Eigene Seite für jede Dienstleistung",
+      "Alle Dienstleistungen auf der Startseite",
       "Telefonnummer in der Navigation",
       "Öffnungszeiten und Anfahrt auf einer Seite",
     ],
@@ -119,7 +119,7 @@ export const CASES: CaseStudy[] = [
     summary: "Ruhig und präzise, passend zu hochwertiger Audiotechnik.",
     features: [
       "Eigene Lautsprecher im Überblick",
-      "Anlässe und Vorführungen im Showroom",
+      "Modellwahl direkt auf der Startseite",
       "Beratung nach Vereinbarung",
     ],
   },
@@ -130,8 +130,8 @@ export const CASES: CaseStudy[] = [
     styleId: "handwerk",
     summary: "Kräftig und markant, mit viel Platz für die einzelnen Gewerke.",
     features: [
-      "Eigene Seite für jede Leistung",
-      "Brunnenröhren mit Massen und Oberflächen",
+      "Leistungen auf der Startseite im Überblick",
+      "Galerie mit Beispielen aus der Werkstatt",
       "Anfrageformular nach Thema",
     ],
   },

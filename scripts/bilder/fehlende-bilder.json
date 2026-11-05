@@ -1,0 +1,263 @@
+[
+ {
+  "site": "atelier-nachtfalter",
+  "branche": "Avantgarde-Modegeschäft",
+  "datei": "public/beispiele/atelier-nachtfalter/assets/img/bogen.jpg",
+  "beschreibung": "Der Verkaufsraum von Atelier Nachtfalter unter dem Steinbogen des Stadtbogens, mit Kleiderstangen vor der Fensterfront",
+  "breite": 820,
+  "hoehe": 661,
+  "seite": "index.html"
+ },
+ {
+  "site": "atelier-nachtfalter",
+  "branche": "Avantgarde-Modegeschäft",
+  "datei": "public/beispiele/atelier-nachtfalter/assets/img/umkleide.jpg",
+  "beschreibung": "Umkleidekabinen mit schwarzen Vorhängen neben der Bruchsteinwand, davor eine schwarze Jacke auf einer Büste",
+  "breite": 820,
+  "hoehe": 661,
+  "seite": "index.html"
+ },
+ {
+  "site": "atelier-nachtfalter",
+  "branche": "Avantgarde-Modegeschäft",
+  "datei": "public/beispiele/atelier-nachtfalter/assets/img/kleiderstange.jpg",
+  "beschreibung": "Mäntel und Jacken in Grau, Schwarz und Weiss an einer Kleiderstange im Store",
+  "breite": 820,
+  "hoehe": 661,
+  "seite": "store.html"
+ },
+ {
+  "site": "bottega-lino",
+  "branche": "Schuhmacherei und Schlüsselservice",
+  "datei": "public/beispiele/bottega-lino/assets/img/laden.jpg",
+  "beschreibung": "Blick in den Laden: Theke, Wand mit Schlüsselrohlingen und Werkbank mit Maschinen",
+  "breite": 1280,
+  "hoehe": 853,
+  "seite": "index.html"
+ },
+ {
+  "site": "bottega-lino",
+  "branche": "Schuhmacherei und Schlüsselservice",
+  "datei": "public/beispiele/bottega-lino/assets/img/werkstatt.jpg",
+  "beschreibung": "Der Schuhmacher arbeitet in der Werkstatt an einem Schuh, dahinter Regale mit roten Materialkisten",
+  "breite": 853,
+  "hoehe": 1279,
+  "seite": "index.html"
+ },
+ {
+  "site": "bottega-lino",
+  "branche": "Schuhmacherei und Schlüsselservice",
+  "datei": "public/beispiele/bottega-lino/assets/img/maschine.jpg",
+  "beschreibung": "Grosse Schuhmachermaschine in der Werkstatt",
+  "breite": 853,
+  "hoehe": 1279,
+  "seite": "schuhe.html"
+ },
+ {
+  "site": "bottega-lino",
+  "branche": "Schuhmacherei und Schlüsselservice",
+  "datei": "public/beispiele/bottega-lino/assets/img/naehmaschine.jpg",
+  "beschreibung": "Maschine mit Arbeitslampe am Fenster der Werkstatt",
+  "breite": 853,
+  "hoehe": 1279,
+  "seite": "schuhe.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/aria.jpg",
+  "beschreibung": "ARIA in Schwarz und Weiss, jeweils von vorne und von hinten",
+  "breite": 379,
+  "hoehe": 379,
+  "seite": "index.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/marken-elektronik.jpg",
+  "beschreibung": "Vier Geräte aus dem Elektronik-Programm",
+  "breite": 379,
+  "hoehe": 380,
+  "seite": "index.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/moebel.jpg",
+  "beschreibung": "Massgefertigtes AV-Möbel mit eingebautem Bildschirm in einem Wohnraum",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "index.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/showroom.jpg",
+  "beschreibung": "Showroom von Tonfeld an der Klanggasse in Zürich mit rotem Teppich und Lautsprechern",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "index.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/canto-s.jpg",
+  "beschreibung": "CANTO s, zweiteiliger Standlautsprecher",
+  "breite": 379,
+  "hoehe": 380,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/canto-c.jpg",
+  "beschreibung": "CANTO c auf einem Lowboard",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/aria-rueckseite.jpg",
+  "beschreibung": "Rückseite der ARIA mit Elektronik und Anschlüssen im Showroom",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/solo.jpg",
+  "beschreibung": "SOLO, schlanker Standlautsprecher in Weiss",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/parete.jpg",
+  "beschreibung": "PARETE an der Wand eines hellen Wohnraums",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/parete-einbau.jpg",
+  "beschreibung": "Weisser PARETE-Wandlautsprecher neben einer weissen Wendeltreppe",
+  "breite": 380,
+  "hoehe": 379,
+  "seite": "lautsprecher.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/aussengelaender-01.jpg",
+  "beschreibung": "Geschwungenes Schmiedegeländer an einer Gartentreppe",
+  "breite": 640,
+  "hoehe": 480,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/aussengelaender-02.jpg",
+  "beschreibung": "Geländer und Gartentor an einer Aussentreppe",
+  "breite": 640,
+  "hoehe": 480,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/aussengelaender-03.jpg",
+  "beschreibung": "Schlichtes Stabgeländer an einer Steintreppe im Hang",
+  "breite": 640,
+  "hoehe": 480,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/innengelaender-01.jpg",
+  "beschreibung": "Treppe mit Handlauf in einem Treppenhaus aus Sichtbeton",
+  "breite": 640,
+  "hoehe": 853,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/innengelaender-02.jpg",
+  "beschreibung": "Geschwungenes Stabgeländer an einer Innentreppe",
+  "breite": 640,
+  "hoehe": 480,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/thumb/innengelaender-03.jpg",
+  "beschreibung": "Geländer mit Holzhandlauf in einem hellen Treppenhaus",
+  "breite": 640,
+  "hoehe": 853,
+  "seite": "gelaender.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/slide-kran.jpg",
+  "beschreibung": "Stahlrahmen hängt an Tragriemen vor dem Abendhimmel",
+  "breite": 940,
+  "hoehe": 400,
+  "seite": "index.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/treppen-09.jpg",
+  "beschreibung": "Treppenanlage zwischen roten Fassaden",
+  "breite": 960,
+  "hoehe": 720,
+  "seite": "index.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/innengelaender-05.jpg",
+  "beschreibung": "Glasgeländer an einer Innentreppe",
+  "breite": 1037,
+  "hoehe": 778,
+  "seite": "index.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/schmiedeeisen-07.jpg",
+  "beschreibung": "Geschwungene Fenstergitter an einer Backsteinfassade",
+  "breite": 1037,
+  "hoehe": 778,
+  "seite": "index.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/brunnen-09.jpg",
+  "beschreibung": "Rostbraune Wand mit Wasserfall in ein helles Becken",
+  "breite": 984,
+  "hoehe": 738,
+  "seite": "index.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/full/slide-gebaeude1.jpg",
+  "beschreibung": "Firmengebäude der Funkenhof Metallbau GmbH mit grauer Fassade und orangem Vorbau",
+  "breite": 940,
+  "hoehe": 400,
+  "seite": "index.html"
+ }
+]
