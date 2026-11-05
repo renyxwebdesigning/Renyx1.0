@@ -144,3 +144,6 @@ input,textarea{font:400 1.0625rem/1.4 var(--text);padding:.7rem .8rem;border:2px
 a[href^="tel:"]{white-space:nowrap}
 .job .prices li:last-child{border-bottom:0}
 .job .prices li:first-child{border-top:0;padding-top:0}
+
+/* Sehr schmale Handys: Wortmarke etwas kleiner, damit sie nicht über den Rand läuft */
+@media (max-width:359px){.mark{font-size:1.2rem;max-width:100%}}

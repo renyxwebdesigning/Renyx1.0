@@ -246,3 +246,6 @@ table.nw th{white-space:nowrap}
 @media (max-width:600px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+/* Sehr schmale Handys: Nummer steht auch im Inhalt, das Menü braucht den Platz */
+@media (max-width:359px){.top-tel{display:none}}
