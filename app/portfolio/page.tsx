@@ -18,7 +18,7 @@ export default function Portfolio() {
       <PageHeader
         label="Portfolio"
         title="Sechs Richtungen."
-        lead="Sechs Konzeptbeispiele aus eigener Hand, keine Kundenprojekte. Firmennamen und Logos sind erfunden, die Bilder folgen noch."
+        lead="Sechs Konzeptbeispiele aus eigener Hand, keine Kundenprojekte. Firmennamen und Logos sind erfunden."
       />
       <section className="wrap pb-[clamp(5rem,11vw,11rem)]">
         <div className="grid gap-x-6 gap-y-12 md:grid-cols-2 md:gap-y-16">

@@ -61,7 +61,7 @@ export default function Impressum() {
               Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine
               Gewähr. Die auf dieser Seite gezeigten Portfolio-Projekte sind, sofern nicht anders
               gekennzeichnet, Konzeptbeispiele und keine tatsächlich umgesetzten Kundenprojekte.
-              Firmennamen, Logos, Adressen und Kontaktangaben dieser Beispiele sind erfunden.
+              Firmennamen, Logos, Adressen und Kontaktangaben dieser Beispiele sind erfunden. Die Fotos darin stammen von Unsplash und Pexels.
             </p>
           </section>
 

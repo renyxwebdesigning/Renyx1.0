@@ -259,5 +259,95 @@
   "breite": 940,
   "hoehe": 400,
   "seite": "index.html"
+ },
+ {
+  "site": "orion-glas",
+  "branche": "Glaserei",
+  "datei": "public/beispiele/orion-glas/assets/img/seite-start.jpg",
+  "beschreibung": "Grosse Glasfront oder Glasfassade mit Lichtreflexen",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "index.html"
+ },
+ {
+  "site": "orion-glas",
+  "branche": "Glaserei",
+  "datei": "public/beispiele/orion-glas/assets/img/seite-service.jpg",
+  "beschreibung": "Glaser oder Werkzeug beim Zuschneiden einer Glasscheibe, ohne erkennbares Gesicht",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "service.html"
+ },
+ {
+  "site": "orion-glas",
+  "branche": "Glaserei",
+  "datei": "public/beispiele/orion-glas/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Helles Fenster oder Glastür von innen",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
+ },
+ {
+  "site": "velo-kettenblatt",
+  "branche": "Velogeschäft",
+  "datei": "public/beispiele/velo-kettenblatt/assets/img/seite-start.jpg",
+  "beschreibung": "Velo in einer Werkstatt oder Reihe von Velos",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "index.html"
+ },
+ {
+  "site": "velo-kettenblatt",
+  "branche": "Velogeschäft",
+  "datei": "public/beispiele/velo-kettenblatt/assets/img/seite-service.jpg",
+  "beschreibung": "Velokette, Ritzel oder Reparatur am Montageständer",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "service.html"
+ },
+ {
+  "site": "velo-kettenblatt",
+  "branche": "Velogeschäft",
+  "datei": "public/beispiele/velo-kettenblatt/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Abgestelltes Velo an einer Strasse",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
+ },
+ {
+  "site": "atelier-nachtfalter",
+  "branche": "Avantgarde-Modegeschäft",
+  "datei": "public/beispiele/atelier-nachtfalter/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Reduziertes, dunkles Store-Interieur oder Stoffdetail",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
+ },
+ {
+  "site": "bottega-lino",
+  "branche": "Schuhmacherei und Schlüsselservice",
+  "datei": "public/beispiele/bottega-lino/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Schuhmacher-Werkbank oder Lederschuhe mit Werkzeug",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
+ },
+ {
+  "site": "tonfeld",
+  "branche": "HiFi-Lautsprecher und Showroom",
+  "datei": "public/beispiele/tonfeld/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Ruhiger Hörraum oder hochwertiger Lautsprecher",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
+ },
+ {
+  "site": "funkenhof-metallbau",
+  "branche": "Metallbau und Geländer",
+  "datei": "public/beispiele/funkenhof-metallbau/assets/img/seite-kontakt.jpg",
+  "beschreibung": "Metallwerkstatt, Funken beim Schleifen ohne erkennbares Gesicht",
+  "breite": 1600,
+  "hoehe": 700,
+  "seite": "kontakt.html"
  }
 ]
