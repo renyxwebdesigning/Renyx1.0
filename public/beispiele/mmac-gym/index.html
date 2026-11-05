@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mmac Gym</title>
+<meta name="description" content="mmac Gym, ein erfundener Boxclub: Konzeptbeispiel von Renyx.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/anton.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="main.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="kopf">
+  <a class="marke" href="index.html" aria-label="mmac Gym, Startseite">mmac <span>Gym</span></a>
+  <div class="anzeige" id="anzeige" aria-hidden="true" hidden>
+    <span class="anzeige-name" id="anzeige-name">Runde 1</span>
+    <span class="anzeige-zeit" id="anzeige-zeit">3:00</span>
+  </div>
+  <a class="knopf knopf-klein" href="#probe">Probetraining</a>
+  <span class="balken" id="balken" aria-hidden="true"></span>
+</header>
+
+<main id="inhalt">
+  <section class="start">
+    <img class="start-bild" src="img/ring.jpg" alt="Leerer Boxring, durch die Seile gesehen, dahinter helle Fenster" width="1400" height="2100" fetchpriority="high">
+    <div class="start-inhalt">
+      <p class="uhr" aria-label="Drei Minuten"><span class="z">3</span><span class="dp">:</span><span class="z">0</span><span class="z">0</span></p>
+      <div class="start-fuss">
+        <h1>Boxen für alle. Drei Runden, dann weisst du, ob es deins ist.</h1>
+        <a class="knopf" href="#probe">Probetraining buchen</a>
+      </div>
+    </div>
+  </section>
+
+  <article class="reihe bild-rechts" data-phase="runde" data-n="1" data-sek="180">
+    <div class="reihe-text">
+      <p class="runde">Runde 1</p>
+      <h2 class="titel">Zuerst die Hände.</h2>
+      <p>Niemand steigt bei uns am ersten Tag in den Ring. Wir zeigen dir, wie du deine Hände bandagierst, wie du stehst und wie ein sauberer Jab aus der Hüfte kommt. Hier trifft niemand jemanden. Du arbeitest an der Luft und am Spiegel, bis der Körper versteht, was er tun soll.</p>
+      <dl class="daten">
+        <div><dt>Kontakt</dt><dd>Keiner</dd></div>
+        <div><dt>Material</dt><dd>Handschuhe und Bandagen leihen wir dir</dd></div>
+        <div><dt>Erfahrung</dt><dd>Nicht nötig</dd></div>
+      </dl>
+    </div>
+    <div class="reihe-bild"><img src="img/faust.jpg" alt="Bandagierte Faust eines Boxers im Gym" width="1800" height="1200" loading="lazy" style="object-position:48% 50%"></div>
+  </article>
+
+  <section class="pause" data-phase="pause" data-sek="60" aria-label="Erste Pause">
+    <p class="pause-wort">Pause</p>
+    <p class="pause-satz">Trink etwas. Niemand schaut hier, wie du aussiehst. Neben dir stehen Lehrerinnen, Handwerker und Rentner, und alle waren einmal zum ersten Mal da.</p>
+  </section>
+
+  <article class="reihe bild-links hell" data-phase="runde" data-n="2" data-sek="180">
+    <div class="reihe-bild"><img src="img/sack.jpg" alt="Silhouette eines Boxers vor grossen Fenstern, zwischen hängenden Boxsäcken" width="1800" height="1200" loading="lazy" style="object-position:44% 50%"></div>
+    <div class="reihe-text">
+      <p class="runde">Runde 2</p>
+      <h2 class="titel">Dann der Sack.</h2>
+      <p>Jetzt darfst du zuschlagen. Drei Minuten arbeiten, eine Minute Pause, genau wie im echten Kampf. Unsere Trainer gehen von Sack zu Sack und korrigieren dich, und du merkst schnell: Boxen trainiert Kondition, Kopf und Koordination zugleich. Danach bist du müde und erstaunlich gut gelaunt.</p>
+      <dl class="daten">
+        <div><dt>Intervall</dt><dd>3 Minuten Arbeit, 1 Minute Pause</dd></div>
+        <div><dt>Dauer</dt><dd>60 Minuten pro Training</dd></div>
+        <div><dt>Gruppe</dt><dd>Höchstens 16 Personen</dd></div>
+      </dl>
+    </div>
+  </article>
+
+  <section class="pause" data-phase="pause" data-sek="60" aria-label="Zweite Pause">
+    <p class="pause-wort">Pause</p>
+    <p class="pause-satz">Du musst nie kämpfen. Die meisten bei uns boxen, weil es ihnen guttut, und nicht, um jemanden zu besiegen.</p>
+  </section>
+
+  <article class="reihe bild-rechts" data-phase="runde" data-n="3" data-sek="180">
+    <div class="reihe-text">
+      <p class="runde">Runde 3</p>
+      <h2 class="titel">Zuletzt der Ring, wenn du willst.</h2>
+      <p>Sparring ist freiwillig und kommt erst, wenn dein Trainer und du es für richtig halten. Du trägst Kopf- und Mundschutz, dein Partner passt zu dir, und jemand steht immer daneben. Wer mehr will, trainiert in der Wettkampfgruppe und steigt an Kämpfen in den Ring.</p>
+      <dl class="daten">
+        <div><dt>Sparring</dt><dd>Freiwillig, immer begleitet</dd></div>
+        <div><dt>Schutz</dt><dd>Kopf- und Mundschutz</dd></div>
+        <div><dt>Wettkampf</dt><dd>Eigene Gruppe, auf Einladung</dd></div>
+      </dl>
+    </div>
+    <div class="reihe-bild"><img src="img/seile.jpg" alt="Leerer Ring mit dicken Seilen, dahinter Fenster mit Lamellen" width="1800" height="1201" loading="lazy" style="object-position:60% 50%"></div>
+  </article>
+
+  <article class="reihe bild-links hell" data-phase="ende">
+    <div class="reihe-bild"><img src="img/pause.jpg" alt="Boxer sitzt allein in der Ringecke hinter den Seilen und ruht sich aus" width="1800" height="1200" loading="lazy" style="object-position:62% 50%"></div>
+    <div class="reihe-text">
+      <p class="runde">Nach dem Gong</p>
+      <h2 class="titel">Wann du kommen kannst.</h2>
+      <ul class="zeiten">
+        <li><b>Mo, Mi, Fr</b><span>18.30 Einsteigen</span></li>
+        <li><b>Di, Do</b><span>19.30 Alle Stufen</span></li>
+        <li><b>Samstag</b><span>10.00 Offenes Gym</span></li>
+      </ul>
+      <dl class="daten">
+        <div><dt>Probetraining</dt><dd>Gratis</dd></div>
+        <div><dt>Monatsabo</dt><dd>CHF 89</dd></div>
+        <div><dt>Jahresabo</dt><dd>CHF 890</dd></div>
+      </dl>
+    </div>
+  </article>
+</main>
+
+<footer class="schluss" id="probe">
+  <p class="schluss-uhr" aria-hidden="true">0:00</p>
+  <h2 class="schluss-titel">Jetzt bist du dran.</h2>
+  <p class="schluss-text">Dein erstes Training ist gratis. Bring Turnschuhe und etwas zu trinken mit, den Rest haben wir. Schreib uns, wann du kommen möchtest, wir antworten innert eines Tages.</p>
+  <div class="wege">
+    <a class="knopf knopf-dunkel" href="mailto:training@mmac-gym.example?subject=Probetraining%20buchen">Probetraining buchen</a>
+    <a href="tel:+41440003838">044 000 38 38</a>
+  </div>
+  <div class="fuss">
+    <p>mmac Gym, Werkhofstrasse 12, 8999 Hardwil. Ein erfundener Boxclub, Preise und Angaben sind Beispiele. Konzeptbeispiel von Renyx.</p>
+    <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+  </div>
+</footer>
+
+<div class="gong" id="gong" aria-hidden="true"><span id="gong-text"></span></div>
+</body>
+</html>

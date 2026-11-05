@@ -1,4 +1,4 @@
-export type StyleId = "tradition" | "frisch" | "bold" | "elegant" | "technisch" | "handwerk";
+export type StyleId = "ruhig" | "klar" | "edel" | "experimentell" | "laut" | "warm";
 
 export interface StyleMeta {
   id: StyleId;
@@ -7,35 +7,35 @@ export interface StyleMeta {
 }
 
 export const STYLES: Record<StyleId, StyleMeta> = {
-  tradition: {
-    id: "tradition",
-    label: "Hell & Traditionell",
-    short: "Sauber, vertrauenswürdig, das Wichtigste sofort sichtbar",
+  ruhig: {
+    id: "ruhig",
+    label: "Ruhig & Reduziert",
+    short: "Viel Luft, grosse Schrift, sanfte Bewegung",
   },
-  frisch: {
-    id: "frisch",
-    label: "Frisch & Lebendig",
-    short: "Kräftige Farbe, grosse Schrift, viel Persönlichkeit",
+  klar: {
+    id: "klar",
+    label: "Klar & Vertrauensvoll",
+    short: "Hell, verständlich, das Wichtigste sofort sichtbar",
   },
-  bold: {
-    id: "bold",
-    label: "Bold & Direkt",
-    short: "Mutig, grosse Schrift, starke Kontraste",
+  edel: {
+    id: "edel",
+    label: "Edel & Gedruckt",
+    short: "Gesetzt wie auf Papier, bewusst ohne Animation",
   },
-  elegant: {
-    id: "elegant",
-    label: "Klar & Elegant",
-    short: "Reduziert, ruhig, schnell erfasst",
+  experimentell: {
+    id: "experimentell",
+    label: "Experimentell & Bewegt",
+    short: "Starke Farben und viel Bewegung",
   },
-  technisch: {
-    id: "technisch",
-    label: "Ruhig & Technisch",
-    short: "Dunkle Töne, viel Luft, präzise Details",
+  laut: {
+    id: "laut",
+    label: "Laut & Direkt",
+    short: "Harte Kontraste und ein einziger grosser Effekt",
   },
-  handwerk: {
-    id: "handwerk",
-    label: "Kräftig & Handwerklich",
-    short: "Dunkel, markant, starke Akzentfarbe",
+  warm: {
+    id: "warm",
+    label: "Warm & Persönlich",
+    short: "Weiche Formen, warme Farben, eine persönliche Stimme",
   },
 };
 
@@ -64,75 +64,75 @@ const example = (slug: string) => ({
 
 export const CASES: CaseStudy[] = [
   {
-    ...example("orion-glas"),
-    clientName: "Orion Glas",
-    industry: "Glaserei",
-    styleId: "tradition",
-    summary: "Hell und übersichtlich, mit dem Notdienst immer im Blick.",
+    ...example("florabunt"),
+    clientName: "Florabunt",
+    industry: "Blumenladen",
+    styleId: "warm",
+    summary: "Warm und persönlich, wie ein Gruss der Floristin. Was gerade blüht, steht im Mittelpunkt.",
     features: [
-      "Notdienst-Nummer immer sichtbar",
-      "Service auf einer Seite erklärt",
-      "Kontakt mit einem Klick erreichbar",
+      "Blühkalender zeigt, was gerade Saison hat",
+      "Strauss zusammenstellen mit Live-Preis",
+      "Persönlicher Ton statt Werbesprache",
     ],
   },
   {
-    ...example("velo-kettenblatt"),
-    clientName: "Velo Kettenblatt",
-    industry: "Velogeschäft",
-    styleId: "frisch",
-    summary: "Frisch und persönlich, mit eigenen Zeichnungen statt Bildern.",
+    ...example("mmac-gym"),
+    clientName: "mmac Gym",
+    industry: "Boxclub",
+    styleId: "laut",
+    summary: "Die ganze Seite ist ein Training: Beim Scrollen läuft die Rundenuhr, dann schlägt der Gong.",
     features: [
-      "Service mit Preisen auf einen Blick",
-      "Kurze Wege von der Startseite zum Termin",
-      "Öffnungszeiten und Anfahrt direkt erreichbar",
+      "Rundenuhr als grosser Effekt",
+      "Nimmt Einsteigern die Angst vor dem ersten Training",
+      "Ein klares Ziel: Probetraining buchen",
     ],
   },
   {
-    ...example("atelier-nachtfalter"),
-    clientName: "Atelier Nachtfalter",
-    industry: "Mode-Store",
-    styleId: "bold",
-    summary: "Mutig und reduziert, die Schrift trägt die ganze Seite.",
+    ...example("flow"),
+    clientName: "Flow",
+    industry: "Tanzstudio",
+    styleId: "experimentell",
+    summary: "Eine Linie zeichnet sich beim Scrollen über die Seite und führt bis zur Buchung.",
     features: [
-      "Grosse Typografie als Gestaltungsmittel",
-      "Eigene Seite für den Store",
-      "Besuchsseite statt Onlineshop",
+      "Scroll-Animation von der Hand des Tänzers bis zum Button",
+      "Stundenplan trägt die Wahl direkt in die Anfrage ein",
+      "Bewegung lässt sich jederzeit ausschalten",
     ],
   },
   {
-    ...example("bottega-lino"),
-    clientName: "Bottega Lino",
-    industry: "Schuhmacherei",
-    styleId: "elegant",
-    summary: "Klar und schnell erfasst, damit man sofort den richtigen Service findet.",
+    ...example("schattenhalde"),
+    clientName: "Schattenhalde",
+    industry: "Weingut",
+    styleId: "edel",
+    summary: "Gesetzt wie ein Weinetikett, ganz ohne Animation. Die Seite erzählt ein Jahr im Rebberg.",
     features: [
-      "Alle Dienstleistungen auf der Startseite",
-      "Telefonnummer in der Navigation",
-      "Öffnungszeiten und Anfahrt auf einer Seite",
+      "Jahreszeiten führen durch die Seite",
+      "Weinkarte wie auf Papier gesetzt",
+      "Ein klares Ziel: Degustation reservieren",
     ],
   },
   {
-    ...example("tonfeld"),
-    clientName: "Tonfeld",
-    industry: "Lautsprecher & HiFi",
-    styleId: "technisch",
-    summary: "Ruhig und präzise, passend zu hochwertiger Audiotechnik.",
+    ...example("kalk-ton"),
+    clientName: "Kalk & Ton",
+    industry: "Architekturbüro",
+    styleId: "ruhig",
+    summary: "Ruhig und grosszügig, damit die Häuser und die Haltung des Büros wirken können.",
     features: [
-      "Eigene Lautsprecher im Überblick",
-      "Modellwahl direkt auf der Startseite",
-      "Beratung nach Vereinbarung",
+      "Projekte im Wechsel von Bild und Text",
+      "Grosse Schrift und viel Luft",
+      "Ablauf vom ersten Gespräch bis zum Schlüssel",
     ],
   },
   {
-    ...example("funkenhof-metallbau"),
-    clientName: "Funkenhof Metallbau",
-    industry: "Metallbau & Kunstschmiede",
-    styleId: "handwerk",
-    summary: "Kräftig und markant, mit viel Platz für die einzelnen Gewerke.",
+    ...example("mundart"),
+    clientName: "Mundart",
+    industry: "Zahnarztpraxis",
+    styleId: "klar",
+    summary: "Zahnmedizin in normalen Worten: Die Seite übersetzt Fachbegriffe und nimmt die Angst.",
     features: [
-      "Leistungen auf der Startseite im Überblick",
-      "Galerie mit Beispielen aus der Werkstatt",
-      "Anfrageformular nach Thema",
+      "Übersetzer für Fachwörter als eigene Idee",
+      "Termin in drei Schritten wählen",
+      "Preise offen auf der Seite",
     ],
   },
 ];

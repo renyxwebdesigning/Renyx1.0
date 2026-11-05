@@ -1,0 +1,162 @@
+/* Florabunt: warmes Rosa und Oliv, eine weiche Serifenschrift, ein Gruss von Hand. */
+@font-face{font-family:Fraunces;src:url(fonts/fraunces.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url(fonts/fraunces-italic.woff2) format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:Figtree;src:url(fonts/figtree.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:Caveat;src:url(fonts/caveat.woff2) format("woff2");font-weight:400 700;font-display:swap}
+:root{--rosa:#f4cfc7;--rosa-hell:#fbeae4;--oliv:#3f4319;--oliv-mitte:#5f6329;--rost:#a33b3f;--grau:#5a5a33;--linie:rgba(63,67,25,.28);--rand:clamp(1.25rem,4.5vw,4.5rem);--kopf:4.5rem;--ease:cubic-bezier(.22,1,.36,1);--serif:Fraunces,Georgia,serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--kopf) + 1rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--rosa);color:var(--oliv);font:400 1.125rem/1.6 Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+p{margin:0}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--oliv);color:var(--rosa-hell);padding:.8rem 1rem;z-index:40}
+.skip:focus{left:1rem;top:1rem}
+.hand{font-family:Caveat,cursive;font-weight:600;line-height:1.1}
+.gross{font:400 clamp(3rem,7vw,7.5rem)/1 var(--serif);letter-spacing:-.03em;margin:0}
+.titel{font:400 clamp(2.25rem,4.2vw,4.25rem)/1.05 var(--serif);letter-spacing:-.025em;margin:0 0 1.25rem;text-wrap:balance}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:.7rem 1.75rem;border:0;border-radius:999px;background:var(--oliv);color:var(--rosa-hell);font:500 1.0625rem/1.2 Figtree,system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background-color .35s var(--ease),transform .35s var(--ease)}
+.knopf:hover{background:var(--rost);transform:translateY(-2px)}
+.knopf:active{transform:scale(.97)}
+.knopf-klein{min-height:2.75rem;padding:.45rem 1.15rem;font-size:.9375rem;white-space:nowrap}
+/* Kopf */
+.kopf{position:sticky;top:0;z-index:20;height:var(--kopf);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 var(--rand);background:var(--rosa)}
+.marke{display:inline-flex;align-items:center;min-height:2.75rem;font:500 clamp(1.5rem,2.2vw,1.875rem)/1 var(--serif);font-style:italic;letter-spacing:-.02em;text-decoration:none}
+/* Start: das Wort läuft quer durch die Seite, die Blume steht als Säule davor */
+.start{position:relative;min-height:calc(100svh - var(--kopf));overflow:hidden}
+.grosswort{position:absolute;left:50%;top:50%;margin:0;transform:translate(-50%,-50%);font:300 21.4vw/1 var(--serif);letter-spacing:-.055em;white-space:nowrap;color:var(--oliv);pointer-events:none;user-select:none}
+.grosswort span{display:inline-block}
+.saeule{position:absolute;top:0;bottom:0;left:50%;width:clamp(15rem,29vw,36rem);transform:translateX(-50%);overflow:hidden;background:var(--oliv)}
+.saeule img{position:absolute;inset:-6% 0;width:100%;height:112%;max-width:none;object-fit:cover;object-position:50% 42%;filter:brightness(.74) saturate(1.08);will-change:transform}
+.grosswort-hell{color:var(--rosa-hell)}
+.start-links,.start-rechts{position:absolute;bottom:clamp(1.75rem,3.5vw,3rem);width:calc((100% - clamp(15rem,29vw,36rem))/2 - var(--rand) - 1.5rem)}
+.start-links{left:var(--rand)}
+.start-rechts{right:var(--rand);display:grid;justify-items:start;gap:1.25rem}
+.start-links .hand{font-size:clamp(1.25rem,1.6vw,1.5rem);color:var(--rost);transform:rotate(-1.5deg);transform-origin:left;margin-bottom:.6rem}
+h1{font:300 clamp(1.625rem,2.5vw,2.625rem)/1.1 var(--serif);letter-spacing:-.022em;margin:0;text-wrap:balance}
+h1 em{font-style:italic;color:var(--rost)}
+.start-rechts p{max-width:24rem;font-size:1rem;line-height:1.5}
+/* Brief */
+.brief{padding:clamp(5rem,11vw,10rem) var(--rand);background:var(--rosa-hell)}
+.brief-text{max-width:60rem;margin:0 auto;font:400 clamp(1.875rem,3.6vw,3.5rem)/1.2 var(--serif);font-style:italic;letter-spacing:-.018em;text-wrap:pretty}
+.brief-gruss{max-width:60rem;margin:1.25rem auto 0;font-size:clamp(2.25rem,3.6vw,3.25rem);color:var(--rost);transform:rotate(-2deg);transform-origin:left}
+/* Das blüht gerade */
+.woche{padding:clamp(5rem,10vw,9rem) var(--rand)}
+/* Blühkalender: 15 Wochen, von Woche 14 bis 28. Heute ist Woche 20, also die Mitte von Spalte 7. */
+.kalender{position:relative;margin-top:clamp(2.5rem,5vw,4.5rem);padding-top:clamp(4.25rem,6vw,5.5rem);--spalten:repeat(15,minmax(0,1fr))}
+.monate{position:absolute;inset:0 0 auto;display:grid;grid-template-columns:var(--spalten);font:italic 400 clamp(1rem,1.5vw,1.375rem)/1.2 var(--serif);color:var(--grau)}
+.heute{position:absolute;top:0;bottom:0;left:43.333%;margin:0;padding:clamp(1.75rem,2.6vw,2.5rem) 0 0 .6rem;border-left:2px solid var(--rost);color:var(--rost);font-size:clamp(1.25rem,1.9vw,1.75rem);white-space:nowrap}
+.blueten{position:relative;list-style:none;margin:0;padding:0;display:grid;gap:clamp(.5rem,1vw,.875rem)}
+.bluete{display:grid;grid-template-columns:var(--spalten);align-items:center;column-gap:0}
+.pille{grid-column:var(--von)/var(--bis);grid-row:1;display:flex;align-items:center;min-height:clamp(4.25rem,8vw,7.5rem);padding:0 clamp(1rem,2.4vw,2.5rem);border-radius:999px;overflow:hidden}
+.pille b{font:400 clamp(1.125rem,3.4vw,3.5rem)/1 var(--serif);letter-spacing:-.025em;white-space:nowrap}
+.notiz{grid-column:var(--von)/var(--bis);grid-row:1;padding:0 0 0 .5rem;font-size:clamp(.9375rem,1.15vw,1.0625rem);line-height:1.4}
+.notiz-links{text-align:right;padding:0 1.25rem 0 0}
+.b-tulpe .pille{background:var(--rosa-hell);border-radius:0 999px 999px 0}
+.b-ranunkel .pille{background:var(--rost);color:var(--rosa-hell);border-radius:0 999px 999px 0}
+.b-flieder .pille{background:var(--oliv-mitte);color:var(--rosa-hell)}
+.b-pfingstrose .pille{background:var(--oliv);color:var(--rosa-hell)}
+/* Reihen */
+.reihe{display:grid;min-height:clamp(34rem,48vw,46rem)}
+.bild-rechts{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+.bild-links{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.reihe-text{align-self:center;max-width:48rem;padding:clamp(3rem,6vw,6rem) var(--rand)}
+.reihe-bild{position:relative;overflow:hidden;background:var(--rosa-hell)}
+.reihe-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hell{background:var(--rosa-hell)}
+.oliv{background:var(--oliv);color:var(--rosa-hell)}
+.oliv .daten>div{border-color:rgba(251,234,228,.3)}
+.oliv .daten dt{color:#dcd7b2}
+.bestellen{background:var(--rosa-hell);scroll-margin-top:var(--kopf)}
+.daten{margin:2rem 0 0}
+.daten>div{display:flex;justify-content:space-between;gap:1.5rem;padding:.6rem 0;border-top:1px solid var(--linie);font-size:1rem}
+.daten dt{flex:none;color:var(--grau)}
+.daten dd{margin:0;text-align:right;font-weight:500}
+/* Strauss binden */
+.binden[hidden]{display:none}
+.binden fieldset{margin:0;padding:1.1rem 0;border:0;border-top:1px solid var(--linie);min-width:0}
+.binden legend{float:left;width:100%;margin-bottom:.75rem;padding:0;font:400 clamp(1.25rem,1.8vw,1.625rem)/1.2 var(--serif);letter-spacing:-.01em}
+.wahl{clear:both;display:flex;flex-wrap:wrap;gap:.5rem}
+.wahl label{cursor:pointer;display:block}
+.wahl span{display:flex;align-items:center;min-height:2.875rem;padding:.4rem 1.1rem;border:1px solid rgba(63,67,25,.45);border-radius:999px;background:transparent;line-height:1.2;transition:background-color .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease),transform .35s var(--ease)}
+.wahl label:hover span{border-color:var(--oliv);transform:translateY(-1px)}
+.wahl input:checked+span{background:var(--oliv);border-color:var(--oliv);color:var(--rosa-hell)}
+.wahl input:focus-visible+span{outline:2px solid var(--oliv);outline-offset:3px}
+/* Grössen: drei wachsende Blüten */
+.groessen{align-items:flex-end;gap:clamp(.75rem,2vw,1.5rem)}
+.groessen span{flex-direction:column;justify-content:flex-end;gap:.35rem;padding:0;border:0;border-radius:0;background:none!important;color:inherit!important;min-width:4.75rem;text-align:center}
+.groessen small{font-size:.875rem;opacity:.85}
+.kreis{display:block;border-radius:50%;background:var(--rosa);border:1px solid rgba(63,67,25,.45);transition:background-color .4s var(--ease),transform .5s var(--ease),border-color .4s}
+.k1{width:2.25rem;height:2.25rem}
+.k2{width:3.25rem;height:3.25rem}
+.k3{width:4.5rem;height:4.5rem}
+.groessen label:hover .kreis{transform:scale(1.06)}
+.groessen input:checked+span .kreis{background:var(--rost);border-color:var(--rost);transform:scale(1.04)}
+.groessen input:checked+span{font-weight:600}
+.groessen input:focus-visible+span{outline-offset:6px}
+.abschluss{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem;padding-top:1.25rem;border-top:1px solid var(--linie)}
+.summe{font:400 clamp(1.5rem,2.4vw,2.25rem)/1.1 var(--serif);letter-spacing:-.02em}
+.summe output{font-variant-numeric:tabular-nums;white-space:nowrap;font-style:italic}
+.antwort{margin-top:1rem;max-width:40rem}
+.antwort:empty{margin:0}
+.antwort b{font-weight:600}
+/* Fuss */
+.fuss{background:var(--oliv);color:var(--rosa-hell);padding:clamp(3rem,6vw,5rem) var(--rand) 1.25rem}
+.fuss-spalten{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem clamp(2rem,5vw,5rem)}
+.fuss-marke{font:500 1.75rem/1.2 var(--serif);font-style:italic}
+.fuss-spalten a{display:inline-block;padding:.45rem 0;overflow-wrap:anywhere}
+.fuss-ende{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 2rem;margin-top:clamp(2.5rem,5vw,4rem);padding-top:.75rem;border-top:1px solid rgba(251,234,228,.3);font-size:.9375rem;color:#dcd7b2}
+.fuss-ende nav{display:flex;gap:1.5rem}
+.fuss-ende a{display:inline-flex;align-items:center;min-height:2.75rem}
+.fuss-ende a:hover{color:var(--rosa-hell)}
+/* Rechtsseiten */
+.recht{max-width:44rem;margin:0 auto;padding:clamp(2.5rem,7vw,5rem) var(--rand)}
+.recht .marke{margin-bottom:2rem}
+.recht h1{font-size:clamp(2.75rem,8vw,5rem);line-height:1.05;margin:0 0 1.5rem}
+.recht img{width:100%;height:clamp(10rem,26vw,16rem);object-fit:cover;margin-bottom:2rem}
+.recht p+p{margin-top:1rem}
+/* Sanfte Bewegung, nur wenn erlaubt und Skript aktiv */
+.js .zeigen{opacity:0;transform:translateY(20px);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+.js .zeigen.da{opacity:1;transform:none}
+.js .kalender .pille{clip-path:inset(0 100% 0 0 round 999px);transition:clip-path 1.5s var(--ease);transition-delay:calc(var(--i)*160ms)}
+.js .kalender.da .pille{clip-path:inset(0 0 0 0 round 0 999px 999px 0)}
+.js .kalender.da .b-flieder .pille,.js .kalender.da .b-pfingstrose .pille{clip-path:inset(0 0 0 0 round 999px)}
+.js .kalender .notiz,.js .kalender .heute{opacity:0;transition:opacity 1s var(--ease) .7s}
+.js .kalender.da .notiz,.js .kalender.da .heute{opacity:1}
+.js .reihe-bild img{transform:scale(1.07);transition:transform 2s var(--ease)}
+.js .reihe-bild.da img{transform:none}
+@media (prefers-reduced-motion:no-preference){
+.saeule{animation:aufgehen 1.8s var(--ease) .15s both}
+.saeule img{animation:bild-rein 2.8s var(--ease) .15s both}
+.grosswort span{animation:wort-rein 1.4s var(--ease) both;animation-delay:calc(.25s + var(--i)*55ms)}
+.start-links,.start-rechts{animation:auftauchen 1.2s var(--ease) 1s both}
+@keyframes aufgehen{from{clip-path:inset(50% 0 50% 0)}to{clip-path:inset(0)}}
+@keyframes bild-rein{from{scale:1.22}to{scale:1}}
+@keyframes wort-rein{from{opacity:0;transform:translateY(18%)}to{opacity:1;transform:none}}
+@keyframes auftauchen{from{opacity:0;translate:0 14px}to{opacity:1;translate:0 0}}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+@media (max-width:1040px) and (min-width:761px){.start-links,.start-rechts{width:calc((100% - 29vw)/2 - var(--rand) - .75rem)}h1{font-size:1.5rem}.start-rechts p{font-size:.9375rem}.start{min-height:max(calc(100svh - var(--kopf)),40rem)}}
+@media (max-width:760px){:root{--kopf:4rem}
+.start{display:flex;flex-direction:column;min-height:0;overflow:visible}
+.grosswort{top:calc((100vw*1.18)/2);font-weight:400}
+.saeule{position:absolute;top:0;bottom:auto;height:calc(100vw*1.18);width:60vw}
+.grosswort-hell{top:50%}
+.start-links,.start-rechts{position:static;width:auto;padding:0 var(--rand)}
+.start-links{margin-top:calc(100vw*1.18 + 1.75rem)}
+.start-rechts{margin:1rem 0 2.5rem}
+h1{font-size:2.25rem}
+.start-rechts .knopf{width:100%}
+.bluete{row-gap:.45rem}
+.notiz,.notiz-links{grid-column:1/-1;grid-row:2;text-align:left;padding:.1rem 0 .9rem;background:var(--rosa)}
+.pille{padding:0 .85rem;min-height:3.25rem}
+.pille b{font-size:clamp(1rem,4.8vw,1.25rem)}
+.heute{font-size:1.125rem;padding-left:.4rem}
+.kalender{padding-top:3.75rem}
+.monate{font-size:.875rem}
+.reihe{grid-template-columns:minmax(0,1fr);min-height:0}
+.reihe-bild{order:-1;height:82vw}
+.reihe-text{padding:2.25rem var(--rand) 3.5rem;max-width:none}
+.fuss-spalten{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:420px){.marke{font-size:1.375rem}.knopf-klein{padding-inline:.9rem;font-size:.875rem}.abschluss .knopf{width:100%}.groessen span{min-width:0}.groessen{justify-content:space-between}}

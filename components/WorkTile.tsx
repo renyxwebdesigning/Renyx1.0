@@ -24,7 +24,7 @@ export default function WorkTile({
           alt={`Startseite von ${c.clientName}`}
           fill
           sizes={large ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
-          className="object-cover object-top transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]"
+          className={`object-cover ${large ? "object-top md:object-center" : "object-top"} transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]`}
         />
       </div>
       <div className="mt-4 flex items-baseline justify-between gap-6">

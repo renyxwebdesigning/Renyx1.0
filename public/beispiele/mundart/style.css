@@ -1,0 +1,125 @@
+/* Mundart: Weiss und Blaugrau, eine leichte Grotesk, ruhige Linien. */
+@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-grotesk.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--weiss:#fff;--eis:#eef2f5;--nebel:#dbe3e9;--tinte:#1c2a35;--schiefer:#24394a;--blau:#47677f;--grau:#54656f;--linie:rgba(28,42,53,.16);--rand:clamp(1.25rem,4.5vw,4.5rem);--kopf:4.5rem;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--kopf) + 1rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--weiss);color:var(--tinte);font:400 1.0625rem/1.6 "Hanken Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+p{margin:0}
+:focus-visible{outline:2px solid var(--blau);outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.skip{position:absolute;left:-999px;top:0;background:var(--schiefer);color:#fff;padding:.8rem 1rem;z-index:30}
+.skip:focus{left:1rem;top:1rem}
+.gross{font-weight:300;font-size:clamp(2.75rem,6vw,6rem);line-height:1.02;letter-spacing:-.035em;margin:0;text-wrap:balance}
+.titel{font-weight:400;font-size:clamp(1.9rem,3.1vw,3rem);line-height:1.1;letter-spacing:-.025em;margin:0 0 1.25rem;text-wrap:balance}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:3.25rem;padding:.75rem 1.5rem;border:0;border-radius:.5rem;background:var(--schiefer);color:#fff;font:500 1.0625rem/1.2 "Hanken Grotesk",system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background-color .25s,transform .2s var(--ease)}
+.knopf:hover{background:var(--blau)}
+.knopf:active{transform:scale(.97)}
+.knopf-klein{min-height:2.75rem;padding:.5rem 1.1rem;font-size:.9375rem}
+/* Kopf */
+.kopf{position:sticky;top:0;z-index:20;height:var(--kopf);display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 var(--rand);background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--linie)}
+.marke{display:inline-flex;align-items:center;min-height:2.75rem;font-size:1.5rem;font-weight:500;letter-spacing:-.03em;text-decoration:none}
+.kopf-rechts{display:flex;align-items:center;gap:1.5rem}
+.kopf-tel{display:inline-flex;align-items:center;min-height:2.75rem;font-size:.9375rem;text-decoration:none;font-variant-numeric:tabular-nums}
+.kopf-tel:hover{text-decoration:underline}
+/* Einstieg: Text links, Bild rechts bis an den Rand */
+.start{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);min-height:calc(100svh - var(--kopf))}
+.start-text{display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(1.5rem,3vw,2.5rem);padding:clamp(3rem,7vw,6rem) var(--rand) clamp(2.5rem,5vw,4.5rem)}
+h1{font-weight:300;font-size:clamp(3.1rem,7.4vw,7.75rem);line-height:.99;letter-spacing:-.042em;margin:0;text-wrap:balance}
+.start-lead{max-width:34rem;font-size:clamp(1.125rem,1.5vw,1.3125rem);line-height:1.5}
+.start-wege{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.75rem}
+.start-wege a:not(.knopf){display:inline-block;padding:.65rem 0;white-space:nowrap}
+.start-bild{position:relative;background:var(--eis);overflow:hidden}
+.start-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 60%}
+/* Fachwort und Mundart */
+.uebersetzt{background:var(--eis);padding:clamp(5rem,10vw,9rem) var(--rand)}
+.uebersetzt-kopf{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:1.5rem clamp(2rem,5vw,5rem);align-items:end;margin-bottom:clamp(3rem,6vw,5.5rem)}
+.woerter{margin:0;border-bottom:1px solid var(--linie)}
+.wort{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:.35rem clamp(2rem,5vw,5rem);align-items:baseline;padding:clamp(1.25rem,2.4vw,2rem) 0;border-top:1px solid var(--linie)}
+.wort dt{color:var(--grau);font-size:clamp(1rem,1.3vw,1.1875rem)}
+.wort dd{margin:0;font-size:clamp(1.5rem,2.7vw,2.625rem);font-weight:300;line-height:1.16;letter-spacing:-.022em;text-wrap:pretty}
+/* Reihen: Bild im Wechsel, berührt die Sektion oben und unten */
+.reihe{display:grid;min-height:clamp(32rem,46vw,44rem)}
+.bild-rechts{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+.bild-links{grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.reihe-text{align-self:center;max-width:46rem;padding:clamp(3rem,6vw,6rem) var(--rand)}
+.reihe-text>p+p{margin-top:1rem}
+.reihe-bild{position:relative;overflow:hidden;background:var(--nebel)}
+.reihe-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dunkel{background:var(--schiefer);color:#f2f6f8}
+.dunkel .daten dt{color:#b7c6d1}
+.dunkel .daten>div{border-color:rgba(255,255,255,.2)}
+.hell{background:var(--eis)}
+.daten{margin:2rem 0 0}
+.daten>div{display:flex;justify-content:space-between;gap:1.5rem;padding:.65rem 0;border-top:1px solid var(--linie);font-size:.9375rem}
+.daten dt{color:var(--grau);flex:none}
+.daten dd{margin:0;text-align:right}
+.liste{list-style:none;margin:2rem 0 0;padding:0;border-bottom:1px solid var(--linie)}
+.liste li{display:grid;grid-template-columns:minmax(8rem,2fr) minmax(0,3fr);gap:.2rem 1.25rem;align-items:baseline;padding:.8rem 0;border-top:1px solid var(--linie)}
+.liste b{font-weight:500}
+.liste span{font-size:.9375rem;color:var(--grau)}
+/* Kosten */
+.kosten{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2.5rem,5vw,5rem);padding:clamp(5rem,10vw,9rem) var(--rand)}
+.kosten-kopf p{margin-top:1.5rem;max-width:30rem}
+.preise{width:100%;border-collapse:collapse;align-self:end}
+.preise th,.preise td{padding:clamp(.85rem,1.4vw,1.2rem) 0;border-top:1px solid var(--linie);font-size:clamp(1.125rem,1.7vw,1.5rem);font-weight:300;letter-spacing:-.012em;text-align:left}
+.preise td{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.preise tr:last-child>*{border-bottom:1px solid var(--linie)}
+/* Termin */
+.termin{background:var(--eis);padding:clamp(5rem,10vw,9rem) var(--rand)}
+.termin-kopf{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1.5rem clamp(2.5rem,5vw,5rem);align-items:end;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
+.termin-ohne-js{font-size:1.25rem}
+.buchung{display:grid;gap:0;border-bottom:1px solid var(--linie)}
+.buchung[hidden]{display:none}
+.schritt{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1rem clamp(2.5rem,5vw,5rem);margin:0;padding:clamp(1.5rem,2.6vw,2.25rem) 0;border:0;border-top:1px solid var(--linie);min-width:0}
+.schritt legend{float:left;padding:0;font-size:clamp(1.375rem,2.2vw,2rem);font-weight:300;letter-spacing:-.02em;line-height:1.2}
+.wahl{display:flex;flex-wrap:wrap;gap:.5rem;grid-column:2;align-content:start}
+.wahl label{cursor:pointer;display:block}
+.wahl span{display:flex;flex-direction:column;justify-content:center;min-height:3rem;padding:.45rem 1rem;border:1px solid rgba(28,42,53,.3);border-radius:.5rem;background:var(--weiss);line-height:1.2;transition:background-color .2s,border-color .2s,color .2s,transform .2s var(--ease)}
+.wahl small{font-size:.8125rem;opacity:.75}
+.wahl label:hover span{border-color:var(--schiefer)}
+.wahl label:active span{transform:scale(.97)}
+.wahl input:checked+span{background:var(--schiefer);border-color:var(--schiefer);color:#fff}
+.wahl input:focus-visible+span{outline:2px solid var(--blau);outline-offset:3px}
+.leer{color:var(--grau);padding:.7rem 0}
+.hinweis{grid-column:2;max-width:34rem;font-size:.9375rem}
+.abschluss{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:1rem clamp(2.5rem,5vw,5rem);align-items:start;padding:clamp(1.5rem,2.6vw,2.25rem) 0;border-top:1px solid var(--linie)}
+.abschluss .knopf{justify-self:start}
+.ergebnis{max-width:38rem;align-self:center}
+.ergebnis b{font-weight:500}
+/* Fuss */
+.fuss{background:var(--schiefer);color:#f2f6f8;padding:clamp(3.5rem,6vw,5.5rem) var(--rand) 1.5rem}
+.fuss-spalten{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);gap:2rem clamp(2rem,5vw,5rem)}
+.fuss-marke{font-size:1.5rem;font-weight:500;letter-spacing:-.03em;margin-bottom:.5rem}
+.fuss-titel{color:#b7c6d1;margin-bottom:.5rem}
+.fuss-spalten a{display:inline-block;padding:.5rem 0;overflow-wrap:anywhere}
+.fuss-ende{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 2rem;margin-top:clamp(3rem,6vw,5rem);padding-top:1rem;border-top:1px solid rgba(255,255,255,.2);font-size:.875rem;color:#b7c6d1}
+.fuss-ende nav{display:flex;gap:1.5rem}
+.fuss-ende a{display:inline-flex;align-items:center;min-height:2.75rem}
+.fuss-ende a:hover{color:#fff}
+/* Rechtsseiten */
+.recht{max-width:44rem;margin:0 auto;padding:clamp(2.5rem,7vw,5rem) var(--rand)}
+.recht .marke{margin-bottom:2rem}
+.recht h1{font-size:clamp(2.6rem,6vw,4.5rem);margin-bottom:1.5rem}
+.recht img{width:100%;height:clamp(10rem,26vw,16rem);object-fit:cover;margin-bottom:2rem}
+.recht p+p{margin-top:1rem}
+/* Bewegung: sanft, nur wenn erlaubt */
+.js .zeigen{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform 1.1s var(--ease)}
+.js .zeigen.da{opacity:1;transform:none}
+.js .reihe-bild img{clip-path:inset(0 0 12% 0);transform:scale(1.03);transition:clip-path 1.4s var(--ease),transform 1.6s var(--ease)}
+.js .reihe-bild.da img{clip-path:inset(0);transform:none}
+.js .wort:nth-child(2){transition-delay:60ms}
+.js .wort:nth-child(3){transition-delay:120ms}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+@media (max-width:980px){.uebersetzt-kopf,.kosten,.termin-kopf{grid-template-columns:minmax(0,1fr)}.schritt,.abschluss{grid-template-columns:minmax(0,1fr)}.wahl,.hinweis{grid-column:1}.fuss-spalten{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){:root{--kopf:4rem}.kopf-tel{display:none}
+.start{grid-template-columns:minmax(0,1fr);min-height:0}
+.start-text{justify-content:flex-start;padding-top:2.75rem;padding-bottom:2.5rem}
+.start-bild{height:70vw}
+.wort{grid-template-columns:minmax(0,1fr)}
+.reihe{grid-template-columns:minmax(0,1fr);min-height:0}
+.reihe-bild{order:-1;height:72vw}
+.reihe-text{padding:2.5rem var(--rand) 3.5rem;max-width:none}
+.fuss-spalten{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.liste li{grid-template-columns:minmax(0,1fr)}.daten>div{gap:1rem}.start-wege .knopf,.abschluss .knopf{width:100%}.start-wege p{width:100%}}
