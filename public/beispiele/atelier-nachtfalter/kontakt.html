@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Besuch und Kontakt | Atelier Nachtfalter</title>
+<meta name="description" content="Atelier Nachtfalter, Bogenstrasse 29, 8995 Zürich. Montag bis Freitag 11 bis 19 Uhr, Samstag 10 bis 18 Uhr. Telefon +41 44 000 30 30.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<div class="draft">Atelier Nachtfalter ist ein erfundenes Unternehmen. Diese Seite ist ein Gestaltungsbeispiel von Renyx. Adressen, Telefonnummern und E-Mail-Adressen sind ebenfalls erfunden.</div>
+<header class="wrap head">
+  <a class="brand" href="index.html"><img src="assets/img/logo.svg" width="700" height="64" alt="Atelier Nachtfalter, zur Startseite"></a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="store.html">Store</a>
+    <a href="designer.html">Designer</a>
+    <a href="kontakt.html" aria-current="page">Besuch</a>
+  </nav>
+</header>
+<main id="inhalt">
+<div class="wrap band band--oben">
+  <h1>Besuch</h1>
+  <div class="spalten mt">
+    <div>
+      <address class="gross">Atelier Nachtfalter im Stadtbogen<br>Bogenstrasse 29<br>8995 Zürich</address>
+      <p class="gross mt"><a href="tel:+41440003030">+41 44 000 30 30</a><br><a href="mailto:info@atelier-nachtfalter.example">info@atelier-nachtfalter.example</a></p>
+      <table class="zeiten mt">
+        <caption>Öffnungszeiten</caption>
+        <tr><th scope="row">Montag bis Freitag</th><td>11:00 bis 19:00</td></tr>
+        <tr><th scope="row">Samstag</th><td>10:00 bis 18:00</td></tr>
+      </table>
+      </div>
+    <div>
+      <h2>Schreib uns</h2>
+      <form class="form mt" id="form" action="mailto:info@atelier-nachtfalter.example" method="post" enctype="text/plain">
+        <label>Name<input name="Name" autocomplete="name" required></label>
+        <label>Nachricht<textarea name="Nachricht" rows="7" required></textarea></label>
+        <button class="knopf" type="submit">E-Mail vorbereiten</button>
+      </form>
+      <p class="mt">Der Knopf öffnet dein E-Mail-Programm mit dem fertigen Text. Abgeschickt wird erst dort.</p>
+    </div>
+  </div>
+</div>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=this.elements.Name.value,t=this.elements.Nachricht.value;
+  location.href='mailto:info@atelier-nachtfalter.example?subject='+encodeURIComponent('Nachricht von '+n)+'&body='+encodeURIComponent(t+'\n\n'+n);
+});
+</script>
+</main>
+<footer class="fuss">
+  <div class="wrap">
+    <img class="logo" src="assets/img/logo.svg" width="700" height="64" alt="" loading="lazy">
+    <div class="fuss__grid">
+      <address>Atelier Nachtfalter im Stadtbogen<br>Bogenstrasse 29<br>8995 Zürich</address>
+      <p>Montag bis Freitag 11 bis 19 Uhr<br>Samstag 10 bis 18 Uhr<br><a href="tel:+41440003030">+41 44 000 30 30</a><br><a href="mailto:info@atelier-nachtfalter.example">info@atelier-nachtfalter.example</a></p>
+      <ul>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

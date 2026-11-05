@@ -1,4 +1,4 @@
-export type StyleId = "handwerk" | "tradition" | "corporate" | "elegant" | "gastro" | "bold";
+export type StyleId = "tradition" | "frisch" | "bold" | "elegant" | "technisch" | "handwerk";
 
 export interface StyleMeta {
   id: StyleId;
@@ -7,35 +7,35 @@ export interface StyleMeta {
 }
 
 export const STYLES: Record<StyleId, StyleMeta> = {
-  handwerk: {
-    id: "handwerk",
-    label: "Warm & Handwerklich",
-    short: "Edel, warm, viel Material und Handwerk",
-  },
   tradition: {
     id: "tradition",
     label: "Hell & Traditionell",
-    short: "Sauberes Design, starke Typografie",
+    short: "Sauber, vertrauenswürdig, das Wichtigste sofort sichtbar",
   },
-  corporate: {
-    id: "corporate",
-    label: "Klassisch & Seriös",
-    short: "Vertrauen, Struktur, klare Linien",
+  frisch: {
+    id: "frisch",
+    label: "Frisch & Lebendig",
+    short: "Kräftige Farbe, grosse Schrift, viel Persönlichkeit",
+  },
+  bold: {
+    id: "bold",
+    label: "Bold & Direkt",
+    short: "Mutig, grosse Schrift, starke Kontraste",
   },
   elegant: {
     id: "elegant",
     label: "Klar & Elegant",
     short: "Reduziert, ruhig, schnell erfasst",
   },
-  gastro: {
-    id: "gastro",
-    label: "Gastro & Ambiente",
-    short: "Dunkel, edel, stimmungsvoll",
+  technisch: {
+    id: "technisch",
+    label: "Ruhig & Technisch",
+    short: "Dunkle Töne, viel Luft, präzise Details",
   },
-  bold: {
-    id: "bold",
-    label: "Bold & Direkt",
-    short: "Mutig, grosse Schrift, starke Kontraste",
+  handwerk: {
+    id: "handwerk",
+    label: "Kräftig & Handwerklich",
+    short: "Dunkel, markant, starke Akzentfarbe",
   },
 };
 
@@ -64,75 +64,75 @@ const example = (slug: string) => ({
 
 export const CASES: CaseStudy[] = [
   {
-    ...example("schreinerei-ahornhof"),
-    clientName: "Schreinerei Ahornhof",
-    industry: "Schreinerei",
-    styleId: "handwerk",
-    summary: "Warm und edel, mit vielen Einblicken in Werkstatt und Projekte.",
-    features: [
-      "Referenzen nach Kategorien, mit Grossansicht",
-      "Eigene Seite für Stellen und Lehrstellen",
-      "Anfrageformular nach Thema",
-    ],
-  },
-  {
-    ...example("baeckerei-kornblum"),
-    clientName: "Bäckerei Kornblum",
-    industry: "Bäckerei",
+    ...example("orion-glas"),
+    clientName: "Orion Glas",
+    industry: "Glaserei",
     styleId: "tradition",
-    summary: "Sehr sauberes Design und Typografie für einen Betrieb mit vielen Filialen.",
+    summary: "Hell und übersichtlich, mit dem Notdienst immer im Blick.",
     features: [
-      "Filialen mit Live-Anzeige, ob gerade geöffnet ist",
-      "Sortiment übersichtlich nach Kategorien",
-      "Catering-Anfrage direkt auf der Seite",
+      "Notdienst-Nummer immer sichtbar",
+      "Service und Produkte klar getrennt",
+      "Eigene Seite für den 24-Stunden-Notdienst",
     ],
   },
   {
-    ...example("steinegg-treuhand"),
-    clientName: "Steinegg Treuhand",
-    industry: "Treuhandbüro",
-    styleId: "corporate",
-    summary: "Seriös und ruhig, mit einem Kasten, der die nächsten Steuerfristen anzeigt.",
+    ...example("velo-kettenblatt"),
+    clientName: "Velo Kettenblatt",
+    industry: "Velogeschäft",
+    styleId: "frisch",
+    summary: "Frisch und persönlich, mit eigenen Zeichnungen statt Bildern.",
     features: [
-      "Fristen-Tafel zählt die Tage bis zum nächsten Termin",
-      "Leistungen als Kontenplan aufgebaut",
-      "Abhakbare Checkliste für die Steuerunterlagen",
+      "Service mit Preisen auf einen Blick",
+      "Eigene Seite für den Velo-Treff",
+      "Öffnungszeiten und Anfahrt direkt erreichbar",
     ],
   },
   {
-    ...example("coiffure-solene"),
-    clientName: "Coiffure Solène",
-    industry: "Hairsalon",
-    styleId: "elegant",
-    summary: "Klar und elegant: Termin, Öffnungszeiten und Anfahrt sind sofort da.",
-    features: [
-      "Telefonnummer auf jeder Seite im Blick",
-      "Öffnungszeiten direkt auf der Startseite",
-      "Nur die Seiten, die ein Salon wirklich braucht",
-    ],
-  },
-  {
-    ...example("glutstein-steakhouse"),
-    clientName: "Glutstein Steakhouse",
-    industry: "Restaurant",
-    styleId: "gastro",
-    summary: "Dunkel und edel, stimmungsvoll und mit der ganzen Karte online.",
-    features: [
-      "Komplette Speisekarte nach Kategorien",
-      "Standorte mit Live-Anzeige der Öffnungszeiten",
-      "Galerie mit Grossansicht",
-    ],
-  },
-  {
-    ...example("schwarzbogen"),
-    clientName: "Schwarzbogen",
+    ...example("atelier-nachtfalter"),
+    clientName: "Atelier Nachtfalter",
     industry: "Mode-Store",
     styleId: "bold",
-    summary: "Das mutigste Design der Reihe: schwarz-weiss, riesige Schrift, viel Haltung.",
+    summary: "Mutig und reduziert, die Schrift trägt die ganze Seite.",
     features: [
-      "Grosse Schrift statt langer Texte",
-      "Designer-Labels als durchgehendes Band",
-      "Führt direkt zum Besuch im Store",
+      "Grosse Typografie als Gestaltungsmittel",
+      "Übersicht aller Designer und Labels",
+      "Besuchsseite statt Onlineshop",
+    ],
+  },
+  {
+    ...example("bottega-lino"),
+    clientName: "Bottega Lino",
+    industry: "Schuhmacherei",
+    styleId: "elegant",
+    summary: "Klar und schnell erfasst, damit man sofort den richtigen Service findet.",
+    features: [
+      "Eigene Seite für jede Dienstleistung",
+      "Telefonnummer in der Navigation",
+      "Öffnungszeiten und Anfahrt auf einer Seite",
+    ],
+  },
+  {
+    ...example("tonfeld"),
+    clientName: "Tonfeld",
+    industry: "Lautsprecher & HiFi",
+    styleId: "technisch",
+    summary: "Ruhig und präzise, passend zu hochwertiger Audiotechnik.",
+    features: [
+      "Eigene Lautsprecher im Überblick",
+      "Anlässe und Vorführungen im Showroom",
+      "Beratung nach Vereinbarung",
+    ],
+  },
+  {
+    ...example("funkenhof-metallbau"),
+    clientName: "Funkenhof Metallbau",
+    industry: "Metallbau & Kunstschmiede",
+    styleId: "handwerk",
+    summary: "Kräftig und markant, mit viel Platz für die einzelnen Gewerke.",
+    features: [
+      "Eigene Seite für jede Leistung",
+      "Brunnenröhren mit Massen und Oberflächen",
+      "Anfrageformular nach Thema",
     ],
   },
 ];
